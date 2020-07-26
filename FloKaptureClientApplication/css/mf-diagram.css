@@ -1,0 +1,19 @@
+﻿.dia-breadcrumb {
+    padding: 0 0 4px 0;
+    border-radius: 0;
+    background-color: transparent;
+    list-style: none;
+    margin-bottom: 2px;
+}
+.dia-breadcrumb li, .dia-breadcrumb li a {
+    font-size: .97em;
+    color: #acacac;
+    cursor: pointer;
+}
+.dia-breadcrumb li a i {
+    color: #315e8c;
+} .dia-breadcrumb > li {
+      display: inline-block;
+      padding: 2px 5px 0 4px;
+      vertical-align: middle;
+  }

@@ -1,0 +1,336 @@
+﻿/* WIZARD GENERAL */
+.wizard {
+    display: none;
+}
+
+.wizard-dialog {
+}
+
+.wizard-content {
+}
+
+.wizard-body {
+    padding: 0;
+    margin: 0;
+}
+
+/* WIZARD HEADER */
+.wizard-header {
+    padding: 9px 15px;
+    border-bottom: 0;
+}
+
+    .wizard-header h3 {
+        margin: 0;
+        line-height: 35px;
+        display: inline;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-family: inherit;
+        font-weight: bold;
+        text-rendering: optimizelegibility;
+        color: rgb(51, 51, 51);
+    }
+
+.wizard-subtitle {
+    font-weight: bold;
+    color: #AFAFAF;
+    padding-left: 20px;
+}
+
+
+/* WIZARD NAVIGATION */
+.wizard-steps {
+    width: 28%;
+    background-color: #f5f5f5;
+    border-bottom-left-radius: 6px;
+    position: relative;
+}
+
+.wizard-nav-container {
+    padding-bottom: 30px;
+}
+
+.wizard-nav-list {
+    margin-bottom: 0;
+}
+
+.wizard-nav-link .glyphicon-chevron-right {
+    float: right;
+    margin-top: 12px;
+    margin-right: -6px;
+    opacity: .25;
+}
+
+li.wizard-nav-item.active .glyphicon-chevron-right {
+    opacity: 1;
+}
+
+li.wizard-nav-item {
+    line-height: 40px;
+}
+
+.wizard-nav-list > li > a {
+    background-color: #f5f5f5;
+    padding: 3px 15px 3px 20px;
+    cursor: default;
+    color: #B4B4B4;
+}
+
+    .wizard-nav-list > li > a:hover {
+        background-color: transparent;
+    }
+
+.wizard-nav-list > li.already-visited > a.wizard-nav-link {
+    color: #08C;
+    cursor: pointer;
+}
+
+.wizard-nav-list > li.active > a.wizard-nav-link {
+    color: white;
+}
+
+.wizard-nav-item .already-visited .active {
+    background-color: #08C;
+}
+
+.wizard-nav-list li.active > a {
+    background-color: #08C;
+}
+
+
+/* WIZARD CONTENT */
+.wizard-body form {
+    padding: 0;
+    margin: 0;
+}
+
+/* WIZARD PROGRESS BAR */
+.wizard-progress-container {
+    margin-top: 20px;
+    padding: 15px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.wizard-card-container {
+    margin-left: 28%;
+}
+
+/* WIZARD CARDS */
+.wizard-error,
+.wizard-failure,
+.wizard-success,
+.wizard-loading,
+.wizard-card {
+    border-top: 1px solid #EEE;
+    display: none;
+    padding: 35px;
+    padding-top: 20px;
+    overflow-y: auto;
+    /*
+	position:relative;
+	height:300px;
+	margin-right: 5px;
+	*/
+}
+
+.wizard-card-overlay {
+    overflow-y: initial;
+}
+
+.wizard-card > h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 40px;
+    font-weight: normal;
+}
+
+/* WIZARD FOOTER */
+.wizard-footer {
+    padding: 0;
+    margin-top: 30px;
+}
+
+.wizard-buttons-container {
+    padding: 20px;
+    padding-top: 35px;
+}
+
+.wizard-cancel {
+    margin-left: 12px;
+}
+
+/* Inner Card */
+.wizard-input-section {
+    margin-bottom: 20px;
+}
+
+.wizard-dialog .popover.error-popover {
+    background-color: #F2DEDE;
+    color: #B94A48;
+    border-color: #953B39;
+}
+
+    .wizard-dialog .popover.error-popover .arrow::after {
+        border-right-color: #F2DEDE;
+    }
+
+    .wizard-dialog .popover.error-popover .popover-title {
+        display: none;
+    }
+
+    .wizard-dialog .popover.error-popover .arrow {
+        border-right-color: #953B39;
+    }
+
+.panel .panel-default {
+    margin-bottom: 5px;
+}
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+
+    [type="radio"]:checked + label,
+    [type="radio"]:not(:checked) + label {
+        position: relative;
+        padding-left: 28px;
+        cursor: pointer;
+        line-height: 20px;
+        display: inline-block;
+        color: #000;
+    }
+
+        [type="radio"]:checked + label:before,
+        [type="radio"]:not(:checked) + label:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            border: 1px solid #ddd;
+            border-radius: 100%;
+            background: #fff;
+        }
+
+        [type="radio"]:checked + label:after,
+        [type="radio"]:not(:checked) + label:after {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: #0f6de0;
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            border-radius: 100%;
+            -webkit-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+        }
+
+        [type="radio"]:not(:checked) + label:after {
+            opacity: 0;
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        }
+
+        [type="radio"]:checked + label:after {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+
+.bs-example {
+    margin: 4px;
+    padding: 4px;
+}
+
+.panel-heading {
+    height: 50px;
+}
+
+i {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+/* The container */
+.checkboxContainer {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    padding-top: 5px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/*
+button {
+    width: 82px;
+}
+*/
+/* Hide the browser's default checkbox */
+.checkboxContainer input {
+    position: absolute;
+    opacity: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 23px;
+    width: 23px;
+    /*background-color: #a0b3ce;*/
+    border: 1px solid #a0b3ce;
+}
+
+/* On mouse-over, add a grey background color */
+.checkboxContainer:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkboxContainer input:checked ~ .checkmark {
+    background-color: #0f6de0;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.checkboxContainer input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkboxContainer .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.e-rowcell {
+    line-height: 30px !important;
+    padding-top: 0.1em !important;
+    padding-bottom: .5em !important;
+}

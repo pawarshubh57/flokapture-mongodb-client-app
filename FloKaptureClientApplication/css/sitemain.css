@@ -1,0 +1,422 @@
+﻿#tdError, #dvError, #dvError1, #tdError12, #tdError102, #tdError101, #tdError102, #tdErr1, #tdErr2  {
+    color: red;
+    text-align: left;
+    font-size: larger;
+    margin-top: 10px;
+    margin-left: 15px;
+    vertical-align: middle;
+}
+
+#tdError1, #dvError, #tdError2, #tdError3, #tdError101, #dvError101, #dvErr1, #dvErr2, #tagError {
+    color: red;
+    text-align: left;
+    font-size: larger;
+    margin-top: 10px;
+    margin-left: 15px;
+    vertical-align: middle;
+}
+
+#tdEducationError, #tdEmpError, #tdMarriageError, #tdMarriageError12, #tdEmpError12, #tdEducationError12, #dvError {
+    color: red;
+    text-align: left;
+    font-size: larger;
+    margin-top: 10px;
+    margin-left: 15px;
+    vertical-align: middle;
+}
+
+#tdEducationError, #tdEmpError, #tdMarriageError, #tdMarriageError12, #tdEmpError12 {
+    color: red;
+    text-align: left;
+    font-size: larger;
+    margin-top: 10px;
+    margin-left: 15px;
+    vertical-align: middle;
+}
+
+
+.xyz > .form-control:before {
+    /*position: absolute;*/
+    content: '*';
+    color: red;
+    right: -10px;
+    top: 5px;
+    float: left;
+}
+
+#Tbladd tr td .form-control {
+    width: 90%;
+    float: left;
+}
+
+#Tbladdchecklist tr td .form-control {
+    width: 90%;
+    float: left;
+}
+
+#Tblupdateservice tr td .form-control {
+    width: 90%;
+    float: left;
+}
+
+#Tblchecklistdata tr td .form-control {
+    width: 90%;
+    float: left;
+}
+
+.formerrorclass {
+    color: red;
+    float: left;
+    margin-left: 5px;
+    margin-top: 7px;
+}
+
+.formclass {
+    color: black;
+    float: left;
+    margin-left: -6px;
+    margin-top: 5px;
+    font-size: small;
+    margin-right: 2px;
+}
+
+.tblCell {
+    vertical-align: middle;
+}
+
+.inputCell {
+    width: 80%;
+    height: 25px;
+    padding-left: 5px;
+}
+
+.mandatory {
+    color: red;
+}
+
+.mandatory {
+    color: red;
+    float: left;
+    margin-left: 5px;
+    margin-top: 7px;
+}
+
+.textarea {
+    margin: 0px;
+    height: 47px;
+    width: 333px;
+}
+
+.nodemissingelement {
+    /*background-color: red;*/
+    color: blue;
+    font-weight: bold;
+}
+
+.nextLevel {
+    background-color: green;
+    color: white;
+}
+
+.nodeToBold {
+    font-weight: bold;
+    /*text-transform: uppercase;*/
+}
+
+
+#colorLegends {
+    /*width: 775px;*/
+    width: 97%;
+    clear: both;
+    margin-top: 8px;
+    padding-top: 8px;
+}
+
+    #colorLegends div {
+        float: left;
+        width: auto;
+        padding: 4px;
+    }
+
+#Layouts {
+    /*width: 775px;*/
+    width: 97%;
+    clear: both;
+    margin-top: 0px;
+}
+
+    #Layouts div {
+        float: left;
+        width: auto;
+        padding: 4px;
+    }
+
+#colorLegends div span {
+    /* Safari 3-4, iOS 1-3.2, Android 1.6- */
+    -webkit-border-radius: 4px;
+    -webkit-box-shadow: 1px 1px 1px 1px #DADADA;
+    /* Firefox 1-3.6 */
+    -moz-border-radius: 4px;
+    -moz-box-shadow: 1px 1px 1px 1px #DADADA;
+    /* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px 1px #DADADA;
+}
+
+
+/*.divClass span {
+    background-color: #F5BD6A;
+    padding: 4px;
+}
+
+.divMissingClass span {
+    background-color: #C0C0C0;
+    padding: 4px;
+}
+
+.divStartingClass span {
+    background-color: #28C965;
+    padding: 4px;
+}
+
+.divCondition span {
+    background-color: #579ddb;
+    padding: 4px;
+}*/
+
+.divClass span {
+    background-color: #00ffff;
+    padding: 4px;
+}
+
+.divMissingClass span {
+    background-color: #C0C0C0;
+    padding: 4px;
+    color: white;
+}
+
+.divStartingClass span {
+    background-color: #ffcc00;
+    padding: 4px;
+}
+
+.divCondition span {
+    background-color: #ff6600;
+    padding: 4px;
+    color: white;
+}
+
+.divStatementOrLoop span {
+    background-color: #ff9900;
+    padding: 4px;
+    color: white;
+}
+
+.divMethod span {
+    background-color: #ff99cc;
+    padding: 4px;
+    color: white;
+}
+
+.divDeactivate span {
+    background-color: #616d7e;
+    padding: 4px;
+    color: white;
+}
+
+.divCallInternal span {
+    background-color: #ff6666;
+    padding: 4px;
+    color: white;
+}
+
+.divDynamic span {
+    padding: 4px;
+    color: white;
+}
+
+#Layouts legend {
+    margin-bottom: 3px !important;
+}
+
+#UploadDefault_dialog_wrapper {
+    left: -550px !important;
+}
+
+
+#ejFileUpload_dialog_wrapper {
+    left: -300px !important;
+}
+
+#jqTreeFirstTab td, #treeExpandedSecondTab td {
+    border: none;
+}
+
+#treeViewSource td {
+    border: none;
+}
+
+#treeAssociationsTab td {
+    border: none;
+}
+
+#treeDataDependency td {
+    border: none;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    background: transparent no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+
+body.loading {
+    overflow: hidden;
+}
+
+    /* Anytime the body has the loading class, our
+   modal element will be visible */
+
+    body.loading .modal {
+        display: block;
+    }
+
+.parent {
+    margin: 0px;
+    padding: 0px;
+    height: 684px;
+    border: thick black;
+    position: relative;
+}
+
+.canvasOverview {
+    width: 100% !important;
+    margin-top: 0px;
+    height: 196px !important;
+    margin-left: 0px !important;
+    margin-top: 0px !important;
+    max-height: 200px !important;
+}
+
+.innerScroll {
+    position: absolute;
+    overflow-y: auto;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    /* height: 71%; */
+}
+
+/*Decision Charts css section*/
+
+.tblHeader {
+    color: white;
+    /* background-color: #2d5b75;*/
+    background-color: #346987;
+    font-size: medium;
+    font-weight: 500;
+    padding: 3px;
+    padding-left: 8px;
+    border: 1px solid black;
+}
+
+.cellInner {
+    cursor: pointer;
+    display: inline;
+    padding: 2px;
+    line-height: 25px;
+    font-size: larger;
+    width: 80%;
+    color: black;
+}
+
+.cellInnerStat {
+    display: inline;
+    line-height: 22px;
+    font-size: larger;
+    color: black;
+}
+
+.cellDependant {
+    width: 15%;
+    text-align: center;
+    background-color: green;
+    color: white;
+}
+
+.cellBusiness {
+    width: 15%;
+    text-align: center;
+}
+
+.jqx-grid-cell {
+    border: none;
+    border-style: none;
+}
+
+.jqx-widget .jqx-grid-cell {
+    border-color: white;
+}
+
+.cellHelp {
+    display: inline-block;
+    background-color: yellow;
+    color: white;
+}
+
+#tblViewInventory pre {
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+    width: 500px;
+    display: block;
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;
+    /*margin: 0 0 10px;*/
+    border: 0;
+    font-size: 13px;
+    /*line-height: 1.42857143;*/
+    /* color: #333; */
+    word-break: break-all;
+    /*word-wrap: break-word;*/
+    /* background-color: #f5f5f5; */
+    /* border: 1px solid #ccc; */
+    border-radius: 4px;
+    /*width: 770px;*/
+    font-family: sans-serif, "Roboto", Arial;
+    color: brown;
+}
+
+table.tblViewInventory td {
+    border-width: 1px;
+    padding: 1px;
+    border-style: inset;
+    border-color: gray;
+    background-color: white;
+    -moz-border-radius:;
+}
+
+#tblViewInventory td {
+    vertical-align: top;
+}
+
+.temp {
+    height: 30px;
+    display: block;
+    padding-left: 13px;
+    padding-top: 5px;
+    border-bottom: 1px solid #c8c8c8;
+}
+
+.e-chkbox-wrap .e-text {
+    font-size: 14px;
+    padding-left: 10px;
+}

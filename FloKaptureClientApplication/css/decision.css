@@ -1,0 +1,115 @@
+﻿.td1 {
+    width: 3%;
+    border: 1px solid #AAA;
+    font-weight: bold;
+    color: white;
+    font-family: Arial;
+}
+
+.td2 {
+    width: 7%;
+    border: 1px solid #AAA;
+    font-weight: bold;
+    color: white;
+    font-family: Arial;
+}
+
+.td3 {
+    width: 50%;
+    border: 1px solid #AAA;
+    font-weight: bold;
+    color: white;
+    font-family:Arial;
+}
+
+.td4 {
+    width: 7%;
+    border: 1px solid #AAA; 
+    text-align:center;
+    font-weight: bold;
+    color:white;
+    font-family:Arial;
+}
+
+.td5{
+    width: 30%;
+    border: 1px solid #AAA; 
+    text-align:center;
+    font-weight: bold;
+    color:white;
+    font-family:Arial;
+}
+
+.td6 {
+    width: 3%;
+    font-weight: bold;
+    border: 1px solid #AAA;
+    font-family:Arial;
+}
+
+.td7 {
+    width: 7%;
+    font-weight: bold;
+    border: 1px solid #AAA;
+    font-family:Arial;
+}
+
+.td8 {
+    font-weight: bold;
+    border: 1px solid #AAA;
+    font-family:Arial;
+}
+
+.td9 {
+    border: 1px solid #AAA;
+    font-family:Arial;
+    padding-left:6px;
+}
+
+.td10 {
+    border: 1px solid #AAA;
+    font-family:Arial; 
+    text-align: center;
+}
+.td11 {
+    width: 12%;
+    font-weight: bold;
+    border: 1px solid #AAA;
+    font-family:Arial;
+}
+.td12 {
+    width: 12%;
+    border: 1px solid #AAA;
+    font-family:Arial;
+    padding-left:5px;
+}
+
+.td13 {
+    width:71%;
+}
+
+.td14 {
+    width:45px;
+    height:35px;
+    text-align:center;
+    font-weight: bold;
+    border: 0px solid #AAA;
+    font-family:Arial;
+}
+
+.td15 {
+    width:45px;
+    height: 32px;
+    text-align:center;
+    border: 0px solid #AAA;
+    font-family:Arial;
+}
+
+#lblDicisionTable table {
+    table-layout:fixed;
+    border-collapse:collapse;
+}
+
+#tblDecision tr td{
+   word-wrap:break-word;
+}
