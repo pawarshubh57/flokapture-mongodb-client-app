@@ -56,10 +56,11 @@ var checkLogin = function() {
             "UserName": document.getElementById("TxtUserName").value,
             "Password": document.getElementById("TxtPassword").value
         }),
-        success: function(data) {
+        success: function (data) {
             if (data !== null) {
               // ReSharper disable once QualifiedExpressionMaybeNull
-                $.fn.actionAuditLog(result.UserId, "User Login", "0").then(function() {
+                var result = data.UserDetails;
+                $.fn.actionAuditLog(data.UserId, "User Login", "0").then(function() {
                     const userInfo = result;
                     const loginUserInfo = {
                         UserName: userInfo.UserName,
