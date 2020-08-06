@@ -1,0 +1,620 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>floKapture - Understand your CODE!</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/sitemain.css" rel="stylesheet" />
+    <link href="css/nifty.min.css" rel="stylesheet">
+    <link href="css/themes/type-c/theme-ocean.css" rel="stylesheet">
+    <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="plugins/animate-css/animate.min.css" rel="stylesheet">
+    <link href="plugins/morris-js/morris.min.css" rel="stylesheet">
+    <link href="plugins/switchery/switchery.min.css" rel="stylesheet">
+    <link href="plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+    <link href="css/demo/nifty-demo.min.css" rel="stylesheet">
+    <link href="plugins/switchery/switchery.min.css" rel="stylesheet">
+    <link href="plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+    <link href="plugins/datatables/media/css/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="plugins/datatables/extensions/Responsive/css/dataTables.responsive.css" rel="stylesheet">
+    <link href="plugins/fooTable/css/footable.core.css" rel="stylesheet">
+    <link href="plugins/pace/pace.min.css" rel="stylesheet">
+    <script src="plugins/pace/pace.min.js"></script>
+</head>
+<body>
+    <div id="container" class="effect mainnav-lg">
+        <header id="navbar">
+            <div id="navbar-container" class="boxed">
+                <div class="navbar-header">
+                    <a href="landing.html" class="navbar-brand">
+                        <img src="img/logo.png" alt="Logo" class="brand-icon">
+                        <div class="brand-title">
+                            <span class="brand-text"><font color="#ababab" style="font-style: italic;">flo</font><font color="#ffc000">Kapture</font></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="navbar-content clearfix">
+                    <ul class="nav navbar-top-links pull-left">
+                        <li class="tgl-menu-btn">
+                            <a class="mainnav-toggle" href="#">
+                                <i class="fa fa-navicon fa-lg"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-top-links pull-right">
+                        <li id="dropdown-user" class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle text-right">
+                                <span class="pull-right">
+                                    <img class="img-circle img-user media-object" src="img/av1.png" alt="Profile Picture">
+                                </span>
+                                <div class="username hidden-xs" id="userName"></div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-md dropdown-menu-right with-arrow panel-default">
+                                <div class="pad-all bord-btm">
+                                    <span class="menu-title">
+                                        <strong><b>Total Projects:</b></strong>
+                                        <span class="pull-right badge badge-warning" id="cntProject"></span>
+                                    </span>
+                                </div>
+                                <ul class="head-list">
+                                    <li>
+                                        <a href="my_profile.html">
+                                            <i class="fa fa-user fa-fw fa-lg"></i>Profile
+                                        </a>
+                                    </li>
+
+                                </ul>
+                                <div class="pad-all text-right">
+                                    <a href="index.html" class="btn btn-primary">
+                                        <i class="fa fa-sign-out fa-fw"></i>Logout
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div class="boxed">
+            <div id="content-container">
+                <ol class="breadcrumb"></ol>
+                <div id="page-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 style="float: left; margin-left: 1%; font-size: 16px; font-weight: 100;">
+                                            <i style="font-style: normal;">Paragraph Details Report</i>
+                                        </h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="tab-content">
+                                            <div id="paragraphDetailsReport"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav id="mainnav-container">
+                <div id="mainnav">
+                    <div class="nano">
+                        <div class="nano-content">
+                            <ul id="mainnav-menu" class="list-group"></ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <aside id="aside-container">
+                <div id="aside">
+                    <div class="nano">
+                        <div class="nano-content">
+                            <ul class="nav nav-tabs nav-justified">
+                                <li class="active">
+                                    <a href="#demo-asd-tab-1" data-toggle="tab">
+                                        <i class="fa fa-comments"></i>
+                                        <span class="badge badge-purple">7</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#demo-asd-tab-2" data-toggle="tab">
+                                        <i class="fa fa-info-circle"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#demo-asd-tab-3" data-toggle="tab">
+                                        <i class="fa fa-wrench"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="demo-asd-tab-1">
+                                    <h4 class="pad-hor text-thin">
+                                        <span class="pull-right badge badge-warning">3</span> Messages
+                                    </h4>
+                                    <div class="list-group bg-trans">
+                                        <a href="#" class="list-group-item">
+                                            <div class="media-left">
+                                                <img class="img-circle img-xs" src="img/av2.png" alt="Profile Picture">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="text-lg">Stephen Tran</div>
+                                                <span class="text-muted">Availabe</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                            <div class="media-left">
+                                                <img class="img-circle img-xs" src="img/av4.png" alt="Profile Picture">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="text-lg">Brittany Meyer</div>
+                                                <span class="text-muted">I think so</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                            <div class="media-left">
+                                                <img class="img-circle img-xs" src="img/av3.png" alt="Profile Picture">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="text-lg">Donald Brown</div>
+                                                <span class="text-muted">Lorem ipsum dolor sit amet.</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div class="tab-pane fade" id="demo-asd-tab-2">
+                                    <div class="list-group bg-trans">
+                                        <a href="#" class="list-group-item"><span class="label label-danger pull-right">Featured</span>Edit Password</a>
+                                        <a href="#" class="list-group-item">My Profile</a>
+                                        <a href="#" class="list-group-item">My Activity</a>
+                                        <hr>
+                                        <a href="#" class="list-group-item">License Details</a>
+                                    </div>
+                                    <hr>
+                                    <div class="text-center">
+                                        Questions?
+                                        <p class="text-lg text-semibold">(202) 674-3435 </p>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="demo-asd-tab-3">
+                                    <ul class="list-group bg-trans">
+                                        <li class="list-header">
+                                            <h4 class="text-thin">Account Settings</h4>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="pull-right">
+                                                <input class="demo-switch" type="checkbox" checked>
+                                            </div>
+                                            <p>Login to Search</p>
+                                            <small class="text-muted">Take me directly to Search as default when I login.</small>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="pull-right">
+                                                <input class="demo-switch" type="checkbox" checked>
+                                            </div>
+                                            <p>Alert License Periods</p>
+                                            <small class="text-muted">Warn me when my license is to expire in 15 days.</small>
+                                        </li>
+                                    </ul>
+                                    <hr>
+                                    <h4 class="pad-hor text-thin">Task Progress</h4>
+                                    <div class="pad-all">
+                                        <p>My Job Progress</p>
+                                        <div class="progress progress-sm">
+                                            <div class="progress-bar progress-bar-success" style="width: 15%;">
+                                                <span class="sr-only">15%</span>
+                                            </div>
+                                        </div>
+                                        <small class="text-muted">15% Completed</small>
+                                    </div>
+                                    <div class="pad-hor">
+                                        <p>Queue Size</p>
+                                        <div class="progress progress-sm">
+                                            <div class="progress-bar progress-bar-danger" style="width: 75%;">
+                                                <span class="sr-only">75%</span>
+                                            </div>
+                                        </div>
+                                        <small class="text-muted">#Jobs before me</small>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+        <footer id="footer">
+            <div class="show-fixed pull-right">
+                <ul class="footer-list list-inline">
+                    <li>
+                        <p class="text-sm">Approved Users</p>
+                        <div class="progress progress-sm progress-light-base">
+                            <div style="width: 80%" class="progress-bar progress-bar-danger"></div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <p class="text-sm">INTELLI Discovery Jobs Status</p>
+                        <div class="progress progress-sm progress-light-base">
+                            <div style="width: 80%" class="progress-bar progress-bar-primary"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="btn btn-sm btn-dark btn-active-success">View Task Queue</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="hide-fixed pull-right pad-rgt" id="divVersion"></div>
+            <p class="pad-lft">
+                &#0169;  2017 FloKapture Solutions. All Rights Reserved.
+            </p>
+        </footer>
+        <button id="scroll-top" class="btn">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+        <div class="container">
+            <div class="modal fade" id="divSolution" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content" style="width: 670px;">
+                        <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Workspace Details</h4>
+                        </div>
+                        <div class="modal-body" style="padding: 5px 20px;" id="Div2">
+
+                            <table class="table table-striped table-bordered">
+                                <tr>
+                                    <td style="width: 40%;">
+                                        Select Language Type:
+                                    </td>
+                                    <td>
+                                        <select class="form-control" id="ddlLanguageType"></select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Enter Workspace Name:
+                                    </td>
+                                    <td>
+                                        <input type="text" id="txtSolutionType" class="form-control" placeholder="Workspace Name" />
+
+                                    </td>
+                                    <td> <span class="formerrorclass">*</span></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-right-color: white;" colspan="3">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-labeled fa fa-arrow-down" id="btnAddSolutionType">Add</button>
+                                                </td>
+                                                <td>&nbsp;</td>
+                                                <td>
+                                                    <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal"><span class="fa fa-remove" style="margin-right: 10px;"></span>Close</button>
+                                                </td>
+                                                <td>
+                                                    &nbsp;
+                                                </td>
+                                                <td id="tdError"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Left Panel-->
+        <div class="container">
+            <div class="modal fade" id="dvDownloadInventory" role="dialog">
+                <div class="modal-dialog" style="width: 570px; margin-top: 10px; ">
+                    <div class="modal-content">
+                        <div class="modal-header" style="padding: -1px 10px 30px 10px; text-align: center;">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4>Inventory</h4>
+                        </div>
+                        <div class="col-md-12" style="padding-top: 10px; padding-bottom: 10px;">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <button onclick="downloadInventory();" id="btnDownInventoryPopup" class="btn btn-primary">Download</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-12" style="padding-top: 10px; padding-bottom: 10px; display: none;">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="checkbox" style="padding-top: 4px;">
+                                            <label class="form-checkbox form-icon form-text">
+                                                <input type="checkbox" value="" id="chkSkipSame"><strong>Hide Redundant Object (File) Names </strong>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        &nbsp;&nbsp;&nbsp;
+                                    </td>
+                                    <td>
+                                        <div class="checkbox" style="padding-top: 4px;">
+                                            <label class="form-checkbox form-icon form-text">
+                                                <input type="checkbox" value="" id="chkBusinessSame"><strong>Show Business Names</strong>
+                                            </label>
+                                        </div>
+                                    </td>
+
+                                    <td>&nbsp;&nbsp;&nbsp; &nbsp;</td>
+                                    <td>
+                                        <!--<button onclick="downloadInventory();" id="btnDownInventoryPopup" class="btn btn-primary">Download</button>-->
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="modal fade" id="divCustomWorkflow" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content" style="width: 670px;">
+                        <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Custom workflow</h4>
+                        </div>
+                        <div class="modal-body" style="padding: 5px 20px;" id="Div3">
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td colspan="2">
+                                        <table style="width: 100%;">
+                                            <tr>
+                                                <td style="width: 25%;">Search Object:</td>
+                                                <td>
+                                                    <input type="text" id="txtSearch" placeholder="Search" class="form-control" />
+                                                </td>
+                                                <td>&nbsp;</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-mint" id="btnSearchObjects">Search </button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="height: 4px;"></td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 25%;">
+                                        Select:
+                                    </td>
+                                    <td>
+                                        <select name="selectIndexWorkFlow" id="ddlJclName" style="width: 100%;" class="form-control"></select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="height: 4px;"></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Workflow Name:
+                                    </td>
+                                    <td>
+                                        <input type="text" id="txtWorkFlowName" class="form-control" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="height: 4px;"></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Workflow Description:
+                                    </td>
+                                    <td>
+                                        <input type="text" id="txtWorkFlowDesc" class="form-control" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="height: 4px;"></td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 25%"></td>
+                                    <td>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-labeled fa fa-arrow-up" id="btnSaveWorkflowName">Save </button>
+                                                </td>
+                                                <td>
+                                                    &nbsp;
+                                                </td>
+                                                <td>
+                                                    <button type="submit" style="height: 30px;" class="btn btn-danger btn-default pull-right" data-dismiss="modal"><span class="fa fa-remove" style="margin-right: 10px;"></span>Close</button>
+                                                </td>
+                                                <td>
+                                                    &nbsp;
+                                                </td>
+                                                <td id="dvError101"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="height: 15px;"></td>
+                                </tr>
+                            </table>
+                            <table class="table table-striped table-bordered" style="display: none;">
+                                <tr>
+                                    <td>
+                                        <textarea id="treeViewSource1" style="width: 614px; height: 500px; overflow-y: scroll; overflow-x: scroll;" class="form-control"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="button" style="margin: 10px;" data-dismiss="modal" id="btnSaveViewSource" class="btn btn-mint" value="Save" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="tdError101"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="modal fade" id="dvSystemDescription" role="dialog">
+                <div class="modal-dialog" style="width: 550px;">
+                    <div class="modal-content">
+                        <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 id="H1"><span class="fa fa-briefcase" style="margin-right: 10px;"></span>System Description </h4>
+                        </div>
+                        <div class="modal-body" style="padding: 40px 50px;">
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;&nbsp;</td>
+                                    <td colspan="3" style="padding-left: 2px;">
+                                        Enter Description:
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>&nbsp;&nbsp;</td>
+                                    <td>
+                                        <textarea rows="6" class="form-control" id="txtSystemDescription" placeholder="Enter Description"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <div>
+                                            <button type="button" style="margin: 9px; margin-left: 24px;" class="btn btn-primary btn-labeled fa fa-arrow-down" id="btnSaveSystemDescription">Save </button>
+                                            &nbsp; &nbsp;
+                                            <button type="button" class="btn btn-danger btn-default" data-dismiss="modal"><span class="fa fa-remove" style="margin-right: 10px;"></span>Close</button>
+                                            <!--<button style="margin-top: 10px; height: 29px;" data-dismiss="modal" id="Button2" class="btn btn-mint  fa fa-close">Cancel</button>-->
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <div id="tdError102"></div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="modal fade" id="showDictionaryDialog" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content" style="width: 820px;">
+                        <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Business Details (Classes, Methods/Functions)</h4>
+                        </div>
+                        <div class="modal-body" style="padding: 5px 20px;" id="modalBody">
+                            <div style="overflow: scroll; height: 500px;">
+                                <table class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td>Object Name</td>
+                                            <td>Type</td>
+                                            <td>Business Name</td>
+                                            <td>Business Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="objectDictionaryData">
+                                        <tr>
+                                            <td colspan="2">
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <button type="button" onclick="updateBusinessDetails();" id="btnUpdateBusinessDetails" class="btn btn-primary btn-labeled fa fa-arrow-down">Submit</button>
+                                                        </td>
+                                                        <td>&nbsp;</td>
+                                                        <td>
+                                                            <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal"><span class="fa fa-remove" style="margin-right: 10px;"></span>Close</button>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td colspan="2" id="tdMessage"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="syncfusion/external/jquery-2.1.4.min.js"></script>
+    <link href="syncfusion/css/web/bootstrap-theme/ej.widgets.all.min.css" rel="stylesheet" />
+    <link href="syncfusion/css/web/bootstrap-theme/ej.theme.min.css" rel="stylesheet" />
+    <script src="syncfusion/scripts/common/ej.core.min.js"></script>
+    <script src="syncfusion/external/jquery.easing.1.3.min.js"></script>
+    <script src="syncfusion/external/jsrender.min.js"></script>
+    <script src="syncfusion/scripts/web/ej.rte.min.js"></script>
+    <script src="syncfusion/scripts/web/ej.dropdownlist.min.js"></script>
+    <script src="syncfusion/scripts/common/ej.data.min.js"></script>
+    <script src="syncfusion/scripts/common/ej.scroller.min.js"></script>
+    <script src="syncfusion/scripts/web/ej.dialog.min.js"></script>
+    <script src="syncfusion/scripts/common/ej.globalize.min.js"></script>
+    <script src="syncfusion/scripts/common/ej.draggable.min.js"></script>
+    <script src="syncfusion/scripts/web/ej.checkbox.min.js"></script>
+    <script src="syncfusion/scripts/web/ej.button.min.js"></script>
+    <script src="syncfusion/scripts/web/ej.tab.min.js"></script>
+    <script src="syncfusion/scripts/web/ej.togglebutton.min.js"></script>
+    <script src="syncfusion/scripts/web/ej.splitbutton.min.js"></script>
+    <script src="syncfusion/scripts/web/ej.grid.min.js"></script>
+    <script src="syncfusion/scripts/web/ej.editor.min.js"></script>
+    <script src="syncfusion/scripts/web/ej.menu.min.js"></script>
+    <script src="syncfusion/scripts/web/ej.slider.min.js"></script>
+    <script src="syncfusion/scripts/web/ej.colorpicker.min.js"></script>
+    <script src="syncfusion/scripts/web/ej.toolbar.min.js"></script>
+    <script src="syncfusion/scripts/web/ej.splitter.min.js"></script>
+    <script src="syncfusion/scripts/web/ej.pager.min.js"></script>
+    <script src="syncfusion/scripts/web/ej.datepicker.min.js"></script>
+    <link rel="stylesheet" href="jqwidgets/styles/jqx.base.css" type="text/css" />
+    <script src="js/bootstrap.min.js"></script>
+    <script src="common-scripts/csvExport.js"></script>
+    <script src="common-scripts/jsPdf.js"></script>
+    <script src="js/jquery.base64.js"></script>
+    <script src="plugins/bootbox/bootbox.min.js"></script>
+    <script src="app-settings/base-address.js"></script>
+    <script src="common-scripts/breadcrumbs.js"></script>
+    <script src="common-scripts/commonJs.js"></script>
+    <script type="text/javascript" src="scripts/paragraph-details-report.js"></script>
+    <script src="app-settings/version.js"></script>
+    <script src="common-scripts/leftSitePanel.js"></script>
+    <script src="plugins/fast-click/fastclick.min.js"></script>
+    <script src="js/nifty.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,885 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>floKapture - Understand your CODE!</title>
+
+
+    <!--STYLESHEET-->
+    <!--=================================================-->
+    <!--Open Sans Font [ OPTIONAL ] -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
+
+
+    <!--Bootstrap Stylesheet [ REQUIRED ]-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!--Nifty Stylesheet [ REQUIRED ]-->
+    <link href="css/nifty.min.css" rel="stylesheet">
+
+    <link href="css/themes/type-c/theme-ocean.css" rel="stylesheet">
+    <!--Font Awesome [ OPTIONAL ]-->
+    <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+
+    <!--Animate.css [ OPTIONAL ]-->
+    <link href="plugins/animate-css/animate.min.css" rel="stylesheet">
+
+
+    <!--Morris.js [ OPTIONAL ]-->
+    <link href="plugins/morris-js/morris.min.css" rel="stylesheet">
+
+
+    <!--Switchery [ OPTIONAL ]-->
+    <link href="plugins/switchery/switchery.min.css" rel="stylesheet">
+
+
+    <!--Bootstrap Select [ OPTIONAL ]-->
+    <link href="plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+
+    <!--Chosen [ OPTIONAL ]-->
+    <link href="plugins/chosen/chosen.min.css" rel="stylesheet">
+
+    <!--noUiSlider [ OPTIONAL ]-->
+    <link href="plugins/noUiSlider/jquery.nouislider.min.css" rel="stylesheet">
+    <link href="plugins/noUiSlider/jquery.nouislider.pips.min.css" rel="stylesheet">
+
+    <!--Demo [ DEMONSTRATION ]-->
+    <link href="css/demo/nifty-demo.min.css" rel="stylesheet">
+
+
+    <!--SCRIPT-->
+    <!--=================================================-->
+    <!--Page Load Progress Bar [ OPTIONAL ]-->
+    <link href="plugins/pace/pace.min.css" rel="stylesheet">
+    <script src="plugins/pace/pace.min.js"></script>
+
+
+    <!--
+
+    REQUIRED
+    You must include this in your project.
+
+    RECOMMENDED
+    This category must be included but you may modify which plugins or components which should be included in your project.
+
+    OPTIONAL
+    Optional plugins. You may choose whether to include it in your project or not.
+
+    DEMONSTRATION
+    This is to be removed, used for demonstration purposes only. This category must not be included in your project.
+
+    SAMPLE
+    Some script samples which explain how to initialize plugins or components. This category should not be included in your project.
+
+
+    Detailed information and more samples can be found in the document.
+
+    -->
+
+
+</head>
+
+<!--TIPS-->
+<!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
+
+<body>
+    <div id="container" class="effect mainnav-lg">
+
+        <!--NAVBAR-->
+        <!--===================================================-->
+        <header id="navbar">
+            <div id="navbar-container" class="boxed">
+
+                <!--Brand logo & name-->
+                <!--================================-->
+                <div class="navbar-header">
+                    <a href="landing.html" class="navbar-brand">
+                        <img src="img/logo.png" alt="Logo" class="brand-icon">
+                        <div class="brand-title">
+                            <span class="brand-text"><font color="#ababab" style="font-style: italic;">flo</font><font color="#ffc000">Kapture</font></span>
+                        </div>
+                    </a>
+                </div>
+                <!--================================-->
+                <!--End brand logo & name-->
+                <!--Navbar Dropdown-->
+                <!--================================-->
+                <div class="navbar-content clearfix">
+                    <ul class="nav navbar-top-links pull-left">
+                        <li class="tgl-menu-btn">
+                            <a class="mainnav-toggle" href="#">
+                                <i class="fa fa-navicon fa-lg"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-top-links pull-right">
+                        <li id="dropdown-user" class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle text-right">
+                                <span class="pull-right">
+                                    <img class="img-circle img-user media-object" src="img/av1.png" alt="Profile Picture">
+                                </span>
+                                <div class="username hidden-xs" id="userName"></div>
+                            </a>
+
+
+                            <div class="dropdown-menu dropdown-menu-md dropdown-menu-right with-arrow panel-default">
+                                <div class="pad-all bord-btm">
+                                    <span class="menu-title">
+                                        <strong><b>Total Projects:</b></strong>
+                                        <span class="pull-right badge badge-warning" id="cntProject"></span>
+                                    </span>
+                                </div>
+                                <ul class="head-list">
+                                    <li>
+                                        <a href="my_profile.html">
+                                            <i class="fa fa-user fa-fw fa-lg"></i> Profile
+                                        </a>
+                                    </li>
+
+                                </ul>
+                                <div class="pad-all text-right">
+                                    <a href="index.html" class="btn btn-primary">
+                                        <i class="fa fa-sign-out fa-fw"></i> Logout
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div class="boxed">
+            <div id="content-container">
+                <ol class="breadcrumb">
+                    <!--<li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="login.html">Login</a>
+                    </li>
+                    <li>
+                        <a href="landing.html">Dashboard</a>
+                    </li>
+                    <li class="active">License Details</li>-->
+                </ol>
+                <div id="page-content">
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="panel panel-mint">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">License Details</h3>
+                                </div>
+                                <div class="panel-body form-horizontal form-padding">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="demo-text-input">Number of Users:</label>
+                                        <div class="col-md-3">
+                                            <label class="control-label" id="noOfUsers">-</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="demo-text-input">Start Date:</label>
+                                        <div class="col-md-3">
+                                            <label class="control-label" id="startDate">-</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="demo-text-input">End Date:</label>
+                                        <div class="col-md-3">
+                                            <label class="control-label" id="endDate">-</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="demo-text-input">Subscription Term:</label>
+                                        <div class="col-md-3">
+                                            <label class="control-label" id="subscriptionTerm">-</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="demo-text-input">License Key:</label>
+                                        <div class="col-md-9" style="word-break: break-all;">
+                                            <label class="control-label" id="licenseKey">-</label>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="form-group">
+                                        <div class="col-md-3"><label class="col-md-3 control-label"></label></div>
+                                        <div class="col-md-6">
+                                            <div class="col-md-6" style="padding: 0;">
+                                                <button class="btn btn-mint btn-labeled fa fa-flash" id="btnApplyLicense">Apply License</button>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <button onclick="moveToLanding();" class="btn btn-warning btn-labeled fa fa-close">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <table class="table table-striped table-bordered">
+                                <tr>
+                                    <td style="width: 40%">
+                                        Licensed LoC:
+                                    </td>
+                                    <td id="licensedLoC">-</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Allocated LoC:
+                                    </td>
+                                    <td id="allocatedLoC">
+                                        -
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        LoC Used:
+                                    </td>
+                                    <td>
+                                        <span id="spanLocUsed" style="cursor: pointer; text-decoration: underline; color: blue">-</span>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!--<div style="margin-left: 5px;">
+                                <table>
+                                    <tr>
+                                        <td style="margin-left: 3px;">
+                                            <button class="btn btn-mint btn-labeled fa fa-child" id="btnApplyNewLicense" value="">Apply New License</button>
+                                            <input type="hidden" value="" id="hdnCustomerId" />
+                                        </td>
+                                        <td>
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td>
+                                            <div id="tdError2"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height: 15px;"></td>
+                                    </tr>
+                                </table>
+                            </div>-->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <nav id="mainnav-container">
+                <div id="mainnav">
+                    <div class="nano">
+                        <div class="nano-content">
+                            <ul id="mainnav-menu" class="list-group"></ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!--===================================================-->
+            <!--END MAIN NAVIGATION-->
+            <!--ASIDE-->
+            <!--===================================================-->
+            <aside id="aside-container">
+                <div id="aside">
+                    <div class="nano">
+                        <div class="nano-content">
+
+                            <!--Nav tabs-->
+                            <!--================================-->
+                            <ul class="nav nav-tabs nav-justified">
+                                <li class="active">
+                                    <a href="#demo-asd-tab-1" data-toggle="tab">
+                                        <i class="fa fa-comments"></i>
+                                        <span class="badge badge-purple">7</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#demo-asd-tab-2" data-toggle="tab">
+                                        <i class="fa fa-info-circle"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#demo-asd-tab-3" data-toggle="tab">
+                                        <i class="fa fa-wrench"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!--================================-->
+                            <!--End nav tabs-->
+                            <!-- Tabs Content -->
+                            <!--================================-->
+                            <div class="tab-content">
+
+                                <!--First tab (Contact list)-->
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <div class="tab-pane fade in active" id="demo-asd-tab-1">
+                                    <h4 class="pad-hor text-thin">
+                                        <span class="pull-right badge badge-warning">3</span> Messages
+                                    </h4>
+
+                                    <!--Family-->
+                                    <div class="list-group bg-trans">
+                                        <a href="#" class="list-group-item">
+                                            <div class="media-left">
+                                                <img class="img-circle img-xs" src="img/av2.png" alt="Profile Picture">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="text-lg">Stephen Tran</div>
+                                                <span class="text-muted">Availabe</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                            <div class="media-left">
+                                                <img class="img-circle img-xs" src="img/av4.png" alt="Profile Picture">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="text-lg">Brittany Meyer</div>
+                                                <span class="text-muted">I think so</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                            <div class="media-left">
+                                                <img class="img-circle img-xs" src="img/av3.png" alt="Profile Picture">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="text-lg">Donald Brown</div>
+                                                <span class="text-muted">Lorem ipsum dolor sit amet.</span>
+                                            </div>
+                                        </a>
+                                    </div>
+
+
+                                    <hr>
+                                </div>
+
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <!--End first tab (Contact list)-->
+                                <!--Second tab (Custom layout)-->
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <div class="tab-pane fade" id="demo-asd-tab-2">
+
+                                    <!--Simple Menu-->
+                                    <div class="list-group bg-trans">
+                                        <a href="#" class="list-group-item"><span class="label label-danger pull-right">Featured</span>Edit Password</a>
+                                        <a href="#" class="list-group-item">My Profile</a>
+                                        <a href="#" class="list-group-item">My Activity</a>
+                                        <hr>
+                                        <a href="#" class="list-group-item">License Details</a>
+                                    </div>
+                                    <hr>
+                                    <div class="text-center">
+                                        Questions?
+                                        <p class="text-lg text-semibold"> (202) 674-3435 </p>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="demo-asd-tab-3">
+                                    <ul class="list-group bg-trans">
+                                        <li class="list-header">
+                                            <h4 class="text-thin">Account Settings</h4>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="pull-right">
+                                                <input class="demo-switch" type="checkbox" checked>
+                                            </div>
+                                            <p>Login to Search</p>
+                                            <small class="text-muted">Take me directly to Search as default when I login.</small>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="pull-right">
+                                                <input class="demo-switch" type="checkbox" checked>
+                                            </div>
+                                            <p>Alert License Periods</p>
+                                            <small class="text-muted">Warn me when my license is to expire in 15 days.</small>
+                                        </li>
+                                    </ul>
+                                    <hr>
+                                    <h4 class="pad-hor text-thin">Task Progress</h4>
+                                    <div class="pad-all">
+                                        <p>My Job Progress</p>
+                                        <div class="progress progress-sm">
+                                            <div class="progress-bar progress-bar-success" style="width: 15%;">
+                                                <span class="sr-only">15%</span>
+                                            </div>
+                                        </div>
+                                        <small class="text-muted">15% Completed</small>
+                                    </div>
+                                    <div class="pad-hor">
+                                        <p>Queue Size</p>
+                                        <div class="progress progress-sm">
+                                            <div class="progress-bar progress-bar-danger" style="width: 75%;">
+                                                <span class="sr-only">75%</span>
+                                            </div>
+                                        </div>
+                                        <small class="text-muted">#Jobs before me</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+        <footer id="footer">
+            <div class="show-fixed pull-right">
+                <ul class="footer-list list-inline">
+                    <li>
+                        <p class="text-sm">Approved Users</p>
+                        <div class="progress progress-sm progress-light-base">
+                            <div style="width: 80%" class="progress-bar progress-bar-danger"></div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <p class="text-sm">INTELLI Discovery Jobs Status</p>
+                        <div class="progress progress-sm progress-light-base">
+                            <div style="width: 80%" class="progress-bar progress-bar-primary"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="btn btn-sm btn-dark btn-active-success">View Task Queue</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="hide-fixed pull-right pad-rgt" id="divVersion"></div>
+            <p class="pad-lft">
+                &#0169; 2017 FloKapture Solutions. All Rights Reserved.
+            </p>
+        </footer>
+        <button id="scroll-top" class="btn">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="applyLicenseDialog" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 820px;">
+                    <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Apply License Key</h4>
+                    </div>
+                    <div class="modal-body" style="padding: 5px 20px;">
+                        <div style="height: 250px;">
+                            <table class="table table-striped table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            Please enter License Key:<br />
+                                            <input class="form-control" placeholder="Enter License Key" type="text" value="" id="txtLicenseKey" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button type="button" class="btn btn-mint btn-labeled fa fa-child" id="btnAssNewLicense" value="">Apply License Key</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Left Panel-->
+    <div class="container">
+        <div class="modal fade" id="div-approve-freeze-project" role="dialog">
+            <div class="modal-dialog" style="width: 45%;">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Approve Project Freeze</h4>
+                    </div>
+                    <div class="modal-body" style="padding: 16px 35px; height: 250px;">
+                        <div class="col-md-12">
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        Are you sure you want to Approve this project to Freeze for Audit?
+                                    </td>
+                                </tr>
+                                <tr> <td style="height: 5px;">&nbsp;</td> </tr>
+                                <tr>
+                                    <td>
+                                        <table style="width: 100%;">
+                                            <tr>
+                                                <td style="width: 15%;"><a href="#" onclick="approveFreeze('Approved');"><button class="btn btn-mint">Approve</button></a></td>
+                                                <td><a href="#" onclick="approveFreeze('Declined');"><button class="btn btn-danger">Decline</button></a></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <input id="project-freeze-id" type="hidden" value="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="freeze-tags-dialog" role="dialog">
+            <div class="modal-dialog" style="width: 570px; margin-top: 10px; ">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: -1px 10px 30px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4>Freeze Associated Items (Tags)</h4>
+                    </div>
+                    <div class="col-md-12" style="padding-top: 10px; padding-bottom: 10px;">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="width: 20%;">
+                                    Project Selected:
+                                </td>
+                                <td id="td-selected-project"></td>
+                            </tr>
+                            <tr><td colspan="2" style="height: 2px;">&nbsp;</td></tr>
+                            <tr>
+                                <td>
+                                    Comments:
+                                </td>
+                                <td>
+                                    <textarea rows="5" style="margin: 0; width: 400px; height: 70px;" id="txtComments" placeholder="Freeze Comments(optional)"></textarea>
+                                </td>
+                            </tr>
+                            <tr><td colspan="2" style="height: 2px;">&nbsp;</td></tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <table style="width: 100%;">
+                                        <tr>
+                                            <td style="width: 15%;">
+                                                <button onclick="freezeSelectedProject();" id="btn-freeze-project" class="btn btn-primary">Freeze</button>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="dvDownloadInventory" role="dialog">
+            <div class="modal-dialog" style="width: 570px; margin-top: 10px; ">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: -1px 10px 30px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4>Inventory</h4>
+                    </div>
+                    <div class="col-md-12" style="padding-top: 10px; padding-bottom: 10px;">
+                        <table>
+                            <tr>
+                                <td>
+                                    <button onclick="downloadInventory();" id="btnDownInventoryPopup" class="btn btn-primary">Download</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-12" style="padding-top: 10px; padding-bottom: 10px; display: none;">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="checkbox" style="padding-top: 4px;">
+                                        <label class="form-checkbox form-icon form-text">
+                                            <input type="checkbox" value="" id="chkSkipSame"><strong>Hide Redundant Object (File) Names </strong>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    &nbsp;&nbsp;&nbsp;
+                                </td>
+                                <td>
+                                    <div class="checkbox" style="padding-top: 4px;">
+                                        <label class="form-checkbox form-icon form-text">
+                                            <input type="checkbox" value="" id="chkBusinessSame"><strong>Show Business Names</strong>
+                                        </label>
+                                    </div>
+                                </td>
+
+                                <td>&nbsp;&nbsp;&nbsp; &nbsp;</td>
+                                <td>
+                                    <!--<button onclick="downloadInventory();" id="btnDownInventoryPopup" class="btn btn-primary">Download</button>-->
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="divCustomWorkflow" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 670px;">
+                    <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Custom workflow</h4>
+                    </div>
+                    <div class="modal-body" style="padding: 5px 20px;" id="Div3">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td colspan="2">
+                                    <table style="width: 100%;">
+                                        <tr>
+                                            <td style="width: 25%;">Search Object:</td>
+                                            <td>
+                                                <input type="text" id="txtSearch" placeholder="Search" class="form-control" />
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>
+                                                <button type="button" class="btn btn-mint" id="btnSearchObjects">Search </button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="height: 4px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">
+                                    Select:
+                                </td>
+                                <td>
+                                    <select name="selectIndexWorkFlow" id="ddlJclName" style="width: 100%;" class="form-control"></select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="height: 4px;"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Workflow Name:
+                                </td>
+                                <td>
+                                    <input type="text" id="txtWorkFlowName" class="form-control" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="height: 4px;"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Workflow Description:
+                                </td>
+                                <td>
+                                    <input type="text" id="txtWorkFlowDesc" class="form-control" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="height: 4px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%"></td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-labeled fa fa-arrow-up" id="btnSaveWorkflowName">Save </button>
+                                            </td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>
+                                                <button type="submit" style="height: 30px;" class="btn btn-danger btn-default pull-right" data-dismiss="modal"><span class="fa fa-remove" style="margin-right: 10px;"></span>Close</button>
+                                            </td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td id="dvError101"></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="height: 15px;"></td>
+                            </tr>
+                        </table>
+                        <table class="table table-striped table-bordered" style="display: none;">
+                            <tr>
+                                <td>
+                                    <textarea id="treeViewSource1" style="width: 614px; height: 500px; overflow-y: scroll; overflow-x: scroll;" class="form-control"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="button" style="margin: 10px;" data-dismiss="modal" id="btnSaveViewSource" class="btn btn-mint" value="Save" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="tdError101"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="dvSystemDescription" role="dialog">
+            <div class="modal-dialog" style="width: 550px;">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 id="H1"><span class="fa fa-briefcase" style="margin-right: 10px;"></span>System Description </h4>
+                    </div>
+                    <div class="modal-body" style="padding: 40px 50px;">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;&nbsp;</td>
+                                <td colspan="3" style="padding-left: 2px;">
+                                    Enter Description:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>&nbsp;&nbsp;</td>
+                                <td>
+                                    <textarea rows="6" class="form-control" id="txtSystemDescription" placeholder="Enter Description"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <div>
+                                        <button type="button" style="margin: 9px; margin-left: 24px;" class="btn btn-primary btn-labeled fa fa-arrow-down" id="btnSaveSystemDescription">Save </button>
+                                        &nbsp; &nbsp;
+                                        <button type="button" class="btn btn-danger btn-default" data-dismiss="modal"><span class="fa fa-remove" style="margin-right: 10px;"></span>Close</button>
+                                        <!--<button style="margin-top: 10px; height: 29px;" data-dismiss="modal" id="Button2" class="btn btn-mint  fa fa-close">Cancel</button>-->
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <div id="tdError102"></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="showDictionaryDialog" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 820px;">
+                    <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Business Details (Classes, Methods/Functions)</h4>
+                    </div>
+                    <div class="modal-body" style="padding: 5px 20px;" id="modalBody">
+                        <div style="overflow: scroll; height: 500px;">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <td>Object Name</td>
+                                        <td>Type</td>
+                                        <td>Business Name</td>
+                                        <td>Business Description</td>
+                                    </tr>
+                                </thead>
+                                <tbody id="objectDictionaryData">
+                                    <tr>
+                                        <td colspan="2">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <button type="button" onclick="updateBusinessDetails();" id="btnUpdateBusinessDetails" class="btn btn-primary btn-labeled fa fa-arrow-down">Submit</button>
+                                                    </td>
+                                                    <td>&nbsp;</td>
+                                                    <td>
+                                                        <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal"><span class="fa fa-remove" style="margin-right: 10px;"></span>Close</button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td colspan="2" id="tdMessage"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="dvLocDetails" role="dialog">
+            <div class="modal-dialog" style="width: 570px; margin-top: 10px; ">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: -1px 10px 30px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4>LoC Details</h4>
+                    </div>
+                    <div class="col-md-12" style="padding-top: 10px; padding-bottom: 10px;">
+                        <table class="table table-striped table-bordered table-responsive" style="width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th>Project Name</th>
+                                    <th>LoC Used</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tblProject"></tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="plugins/fast-click/fastclick.min.js"></script>
+    <script src="js/nifty.min.js"></script>
+    <script src="app-settings/base-address.js"></script>
+    <script src="common-scripts/breadcrumbs.js"></script>
+    <script src="common-scripts/commonJs.js"></script>
+    <script src="app-settings/version.js"></script>
+    <script src="common-scripts/leftSitePanel.js"></script>
+    <script src="plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script src="plugins/skycons/skycons.min.js"></script>
+    <script src="plugins/switchery/switchery.min.js"></script>
+    <script src="plugins/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+    <script src="plugins/chosen/chosen.jquery.min.js"></script>
+    <script src="plugins/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+    <script src="plugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+    <script src="plugins/dropzone/dropzone.min.js"></script>
+    <script src="plugins/summernote/summernote.min.js"></script>
+    <script src="js/demo/nifty-demo.min.js"></script>
+    <script type="text/javascript" src="scripts/licence-details.js"></script>
+</body>
+</html>

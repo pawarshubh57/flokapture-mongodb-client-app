@@ -59,7 +59,7 @@ var checkLogin = function() {
         success: function (data) {
             if (data !== null) {
               // ReSharper disable once QualifiedExpressionMaybeNull
-                var result = data.UserDetails;
+                var result = data; //.UserDetails;
                 $.fn.actionAuditLog(data.UserId, "User Login", "0").then(function() {
                     const userInfo = result;
                     const loginUserInfo = {

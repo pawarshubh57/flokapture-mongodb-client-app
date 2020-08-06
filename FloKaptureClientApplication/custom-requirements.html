@@ -1,0 +1,2198 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>floKapture - Understand your CODE!</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" />-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-multiselect.css" rel="stylesheet" />
+    <link href="css/sitemain.css" rel="stylesheet" />
+    <link href="css/nifty.min.css" rel="stylesheet">
+    <link href="css/themes/type-c/theme-ocean.css" rel="stylesheet">
+    <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="plugins/animate-css/animate.min.css" rel="stylesheet">
+    <link href="plugins/morris-js/morris.min.css" rel="stylesheet">
+    <link href="plugins/switchery/switchery.min.css" rel="stylesheet">
+    <link href="plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+    <link href="plugins/chosen/chosen.min.css" rel="stylesheet">
+    <link href="css/demo/nifty-demo.min.css" rel="stylesheet">
+    <link href="plugins/fooTable/css/footable.core.css" rel="stylesheet">
+    <link href="plugins/pace/pace.min.css" rel="stylesheet">
+    <link href="css/bootstrap-wizard.css" rel="stylesheet" />
+    <!--<link href="css/jquery.jsonview.css" rel="stylesheet" />-->
+    <style type="text/css">
+        .panel .panel-default {
+            margin-bottom: 5px;
+        }
+
+        [type="radio"]:checked,
+        [type="radio"]:not(:checked) {
+            position: absolute;
+            left: -9999px;
+        }
+
+            [type="radio"]:checked + label,
+            [type="radio"]:not(:checked) + label {
+                position: relative;
+                padding-left: 28px;
+                cursor: pointer;
+                line-height: 20px;
+                display: inline-block;
+                color: #000;
+            }
+
+                [type="radio"]:checked + label:before,
+                [type="radio"]:not(:checked) + label:before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 18px;
+                    height: 18px;
+                    border: 1px solid #ddd;
+                    border-radius: 100%;
+                    background: #fff;
+                }
+
+                [type="radio"]:checked + label:after,
+                [type="radio"]:not(:checked) + label:after {
+                    content: '';
+                    width: 12px;
+                    height: 12px;
+                    background: #0f6de0;
+                    position: absolute;
+                    top: 3px;
+                    left: 3px;
+                    border-radius: 100%;
+                    -webkit-transition: all 0.2s ease;
+                    transition: all 0.2s ease;
+                }
+
+                [type="radio"]:not(:checked) + label:after {
+                    opacity: 0;
+                    -webkit-transform: scale(0);
+                    transform: scale(0);
+                }
+
+                [type="radio"]:checked + label:after {
+                    opacity: 1;
+                    -webkit-transform: scale(1);
+                    transform: scale(1);
+                }
+
+        .bs-example {
+            margin: 4px;
+            padding: 4px;
+        }
+
+        .panel-heading {
+            height: 42px;
+        }
+
+        i {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        /* The container */
+        .checkboxContainer {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            padding-top: 5px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        button {
+            width: 82px;
+        }
+        /* Hide the browser's default checkbox */
+        .checkboxContainer input {
+            position: absolute;
+            opacity: 0;
+        }
+
+        /* Create a custom checkbox */
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 23px;
+            width: 23px;
+            /*background-color: #a0b3ce;*/
+            border: 1px solid #a0b3ce;
+        }
+
+        /* On mouse-over, add a grey background color */
+        .checkboxContainer:hover input ~ .checkmark {
+            background-color: #ccc;
+        }
+
+        /* When the checkbox is checked, add a blue background */
+        .checkboxContainer input:checked ~ .checkmark {
+            background-color: #0f6de0;
+        }
+
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        /* Show the checkmark when checked */
+        .checkboxContainer input:checked ~ .checkmark:after {
+            display: block;
+        }
+
+        /* Style the checkmark/indicator */
+        .checkboxContainer .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .e-rowcell {
+            line-height: 30px !important;
+            padding-top: 0.1em !important;
+            padding-bottom: .5em !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="container" class="effect mainnav-lg">
+        <header id="navbar">
+            <div id="navbar-container" class="boxed">
+                <div class="navbar-header">
+                    <a href="landing.html" class="navbar-brand">
+                        <img src="img/logo.png" alt="Logo" class="brand-icon">
+                        <div class="brand-title">
+                            <span class="brand-text"><font color="#ababab" style="font-style: italic;">flo</font><font color="#ffc000">Kapture</font></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="navbar-content clearfix">
+                    <ul class="nav navbar-top-links pull-left">
+                        <li class="tgl-menu-btn">
+                            <a href="#">
+                                <i class="fa fa-navicon fa-lg"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <ul class="nav navbar-top-links pull-right">
+                        <li id="dropdown-user" class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle text-right">
+                                <span class="pull-right">
+                                    <img class="img-circle img-user media-object" src="img/av1.png" alt="Profile Picture">
+                                </span>
+                                <div class="username hidden-xs" id="userName"></div>
+                            </a>
+
+
+                            <div class="dropdown-menu dropdown-menu-md dropdown-menu-right with-arrow panel-default">
+
+                                <!-- Dropdown heading -->
+                                <div class="pad-all bord-btm">
+                                    <span class="menu-title">
+                                        <strong><b>Total Projects:</b></strong>
+                                        <span class="pull-right badge badge-warning" id="cntProject"></span>
+                                    </span>
+                                </div>
+                                <ul class="head-list">
+                                    <li>
+                                        <a href="my_profile.html">
+                                            <i class="fa fa-user fa-fw fa-lg"></i>Profile
+                                        </a>
+                                    </li>
+
+                                </ul>
+
+                                <!-- Dropdown footer -->
+                                <div class="pad-all text-right">
+                                    <a href="#" class="btn btn-primary" id="aLogout">
+                                        <i class="fa fa-sign-out fa-fw"></i>Logout
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <div class="boxed">
+            <div id="content-container">
+                <!--<div id="page-title">
+                    <h1 class="page-header text-overflow">Project Dashboard</h1>
+                </div>-->
+                <ol class="breadcrumb">
+                    <!--<li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="login.html">Login</a>
+                    </li>
+                    <li>
+                        <a href="landing.html">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="javascript:projectWorkspace();">Project Dashboard</a>
+                    </li>
+                    <li class="active"><a href="custom-requirements.html">Custom Impacts</a></li>-->
+                </ol>
+                <div id="page-content">
+                    <div class="panel panel-default">
+                        <!--<div class="bs-example" style="display:none;">
+                            <div class="panel-group" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                                <i class="fa fa-angle-down" style="font-size: larger;" aria-hidden="true"></i>Custom Requirements Generation - Step 1 - Title/Description
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOne" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                            <div class="col-sm-12" style="height: 20px;">
+                                                <h5>Enter a Title and Description:</h5>
+                                            </div>
+                                            <div class="col-sm-12" style="height: 30px;"></div>
+                                            <div class="col-sm-12">
+                                                <table style="width: 100%;">
+                                                    <tr>
+                                                        <td>
+                                                            Title:
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" style="width: 40%;" id="txtTitle" class="form-control" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr><td style="height: 5px;">&nbsp;</td></tr>
+                                                    <tr>
+                                                        <td>
+                                                            Description:
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" id="txtDescription" class="form-control" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr><td style="height: 10px;">&nbsp;</td></tr>
+                                                    <tr>
+                                                        <td style="width: 8%;"></td>
+                                                        <td style="text-align: right;">
+                                                            <table style="width: 100%;">
+                                                                <tr>
+                                                                    <td>
+                                                                        <div id="tdError"></div>
+                                                                    </td>
+                                                                    <td style="text-align: right;">
+                                                                        <button type="button" class="btn btn-primary" id="btnNextStepFirst">Next >> </button>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" id="acc2" data-parent="#accordion" href="#collapseTwo"><i class="fa fa-angle-right" style="font-size: larger;" aria-hidden="true"></i>Custom Requirements Generation - Step 2 - Entity Objects</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseTwo" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="col-sm-12" style="height: 12px;"></div>
+                                            <div class="col-sm-12">
+                                                <table style="width: 100%;">
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <b> Select the Entity Objects to include/remove using the Include >> or Remove << buttons</b>
+                                                        </td>
+                                                    </tr>
+                                                    <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                                    <tr>
+                                                        <td rowspan="2" style="width: 26%;">
+                                                            <div id="listEntityObjects"></div>
+                                                        </td>
+                                                        <td style="width: 10%;">
+                                                            <table style="width: 100%">
+                                                                <tr>
+                                                                    <td><button id="btnIncludeEntity" class="btn btn-success" onclick="fillSelectedEntityObject();">Include >> </button></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        &nbsp;
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><button id="btnRemoveEntity" class="btn btn-info" onclick="removeSelectedEntityObject();">Remove << </button></td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                        <td rowspan="2">
+                                                            <div id="listSelectedEntityObject"></div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                                    <tr>
+                                                        <td colspan="3" style="padding-top: 10px;">
+                                                            <label class="checkboxContainer">
+                                                                Include Entity Schema
+                                                                <input type="checkbox" checked="checked" id="chkEntitySchema">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="3" style="text-align: right;">
+                                                            <button type="button" class="btn btn-primary" id="btnNextStepSecond">Next >> </button>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" id="acc3" data-parent="#accordion" href="#collapseThree"><i class="fa fa-angle-right" style="font-size: larger;" aria-hidden="true"></i>Custom Requirements Generation - Step 3 - JCL</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseThree" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="col-sm-12" style="height: 12px;"></div>
+                                            <div class="col-md-12">
+                                                <table style="width: 100%;">
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <b> Select the JCL to include/remove using the Include >> or Remove << buttons</b>
+                                                        </td>
+                                                    </tr>
+                                                    <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                                    <tr>
+                                                        <td rowspan="2" style="width: 26%;">
+                                                            <div id="listJclObjects"></div>
+                                                        </td>
+                                                        <td style="width: 10%;">
+                                                            <table style="width: 100%">
+                                                                <tr>
+                                                                    <td><button id="btnIncludeJcl" class="btn btn-success" onclick="fillSelectedJclObject();">Include >> </button></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        &nbsp;
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><button id="btnRemoveJcl" class="btn btn-info" onclick="removeSelectedJclObject();">Remove << </button></td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                        <td rowspan="2">
+                                                            <div id="listSelectedJclObject"></div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                                    <tr>
+                                                        <td colspan="2" style="padding-top: 10px;">
+                                                            <label class="checkboxContainer">
+                                                                Include Database Activities
+                                                                <input id="chkDBActJCl" type="checkbox">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <label class="checkboxContainer">
+                                                                Include Pseudo Code
+                                                                <input id="chkPseudoJcl" type="checkbox">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <label class="checkboxContainer">
+                                                                Include Source Code
+                                                                <input id="chkSourceJCL" type="checkbox">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="3" style="text-align: right;">
+                                                            <button type="button" class="btn btn-primary" id="btnNextStepThird">Next >> </button>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" id="acc4" data-parent="#accordion" href="#collapseForth"><i class="fa fa-angle-right" style="font-size: larger;" aria-hidden="true"></i>Custom Requirements Generation - Step 4 - Programs</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseForth" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="col-sm-12" style="height: 12px;"></div>
+                                            <div class="col-md-12">
+                                                <table style="width: 100%;">
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <b> Select the Programs to include/remove using the Include >> or Remove << buttons</b>
+                                                        </td>
+                                                    </tr>
+                                                    <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                                    <tr>
+                                                        <td rowspan="2" style="width: 26%;">
+                                                            <div id="listProgramsObjects"></div>
+                                                        </td>
+                                                        <td style="width: 10%;">
+                                                            <table style="width: 100%">
+                                                                <tr>
+                                                                    <td><button id="btnIncludePrograms" class="btn btn-success" onclick="fillSelectedProgramsObject();">Include >> </button></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        &nbsp;
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><button id="btnRemovePrograms" class="btn btn-info" onclick="removeSelectedProgramsObject();">Remove << </button></td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                        <td rowspan="2">
+                                                            <div id="listSelectedProgramsObject"></div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                                    <tr>
+                                                        <td colspan="2" style="padding-top: 10px;">
+                                                            <label class="checkboxContainer">
+                                                                Include Database Activities
+                                                                <input id="chkDBActProg" type="checkbox">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <label class="checkboxContainer">
+                                                                Include Pseudo Code
+                                                                <input id="chkPseudoProg" type="checkbox">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <label class="checkboxContainer">
+                                                                Include Source Code
+                                                                <input checked="checked" id="chkSourceProg" type="checkbox">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="height: 10px;"></tr>
+                                                    <tr>
+                                                        <td colspan="3" style="text-align: right;">
+                                                            <button type="button" class="btn btn-primary" id="btnNextStepForth">Next </button>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" id="acc5" data-parent="#accordion" href="#collapseFifth"><i class="fa fa-angle-right" style="font-size: larger;" aria-hidden="true"></i>Custom Requirements Generation - Step 5 - Subroutines</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseFifth" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="col-sm-12" style="height: 12px;"></div>
+                                            <div class="col-md-12">
+                                                <table style="width: 100%;">
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <b>Select the Subroutines to include/remove using the Include >> or Remove << buttons</b>
+                                                        </td>
+                                                    </tr>
+                                                    <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                                    <tr>
+                                                        <td rowspan="2" style="width: 26%;">
+                                                            <div id="listSubroutinesObjects"></div>
+                                                        </td>
+                                                        <td style="width: 10%;">
+                                                            <table style="width: 100%">
+                                                                <tr>
+                                                                    <td><button id="btnIncludeSubroutines" class="btn btn-success" onclick="fillSelectedSubroutinesObject();">Include >> </button></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        &nbsp;
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><button id="btnRemoveSubroutines" class="btn btn-info" onclick="removeSelectedSubroutinesObject();">Remove << </button></td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                        <td rowspan="2">
+                                                            <div id="listSelectedSubroutinesObject"></div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                                    <tr>
+                                                        <td colspan="2" style="padding-top: 10px;">
+                                                            <label class="checkboxContainer">
+                                                                Include Database Activities
+                                                                <input id="chkDBActSub" type="checkbox">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <label class="checkboxContainer">
+                                                                Include Pseudo Code
+                                                                <input id="chkPseudoSub" type="checkbox">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <label class="checkboxContainer">
+                                                                Include Source Code
+                                                                <input checked="checked" id="chkSourceSub" type="checkbox">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr><td style="height: 10px;">&nbsp;</td> </tr>
+                                                    <tr>
+                                                        <td colspan="3" style="text-align: right;">
+                                                            <button type="button" class="btn btn-primary" id="btnNextStepFifth">Next </button>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" id="acc6" data-parent="#accordion" href="#collapseSixth"><i class="fa fa-angle-right" style="font-size: larger;" aria-hidden="true"></i>Custom Requirements Generation - Step 6 - Includes</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseSixth" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="col-sm-12" style="height: 12px;"></div>
+                                            <div class="col-md-12">
+                                                <table style="width: 100%;">
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <b>Select the Includes to include/remove using the Include >> or Remove << buttons</b>
+                                                        </td>
+                                                    </tr>
+                                                    <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                                    <tr>
+                                                        <td rowspan="2" style="width: 26%;">
+                                                            <div id="listIncludesObjects"></div>
+                                                        </td>
+                                                        <td style="width: 10%;">
+                                                            <table style="width: 100%">
+                                                                <tr>
+                                                                    <td><button id="btnIncludeIncludes" class="btn btn-success" onclick="fillSelectedIncludesObject();">Include >> </button></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        &nbsp;
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><button id="btnRemoveIncludes" class="btn btn-info" onclick="removeSelectedIncludesObject();">Remove << </button></td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                        <td rowspan="2">
+                                                            <div id="listSelectedIncludesObject"></div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                                    <tr>
+                                                        <td colspan="2" style="padding-top: 10px;">
+                                                            <label class="checkboxContainer">
+                                                                Include Database Activities
+                                                                <input id="chkDBActInc" type="checkbox">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <label class="checkboxContainer">
+                                                                Include Pseudo Code
+                                                                <input id="chkPseudoInc" type="checkbox">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <label class="checkboxContainer">
+                                                                Include Source Code
+                                                                <input checked="checked" id="chkSourceInc" type="checkbox">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="height: 10px;"></tr>
+                                                    <tr>
+                                                        <td colspan="3" style="text-align: right;">
+                                                            <button type="button" class="btn btn-primary" id="btnNextStepSixth">Next </button>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" id="acc7" data-parent="#accordion" href="#collapseSeven"><i class="fa fa-angle-right" style="font-size: larger;" aria-hidden="true"></i>Custom Requirements Generation - Summary</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseSeven" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="col-sm-12" style="height: 12px;"></div>
+                                            <div class="col-md-12">
+                                                <table style="width: 100%;">
+                                                    <tr>
+                                                        <td>
+                                                            <b>Generating requirements document for selected items</b>
+                                                        </td>
+                                                    </tr>
+                                                    <tr><td style="height: 10px;">&nbsp;</td></tr>
+                                                    <tr>
+                                                        <td style="text-align: right;">
+                                                            <button type="button" class="btn btn-primary" id="btnGenerateDocument">Generate</button>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" id="acc8" data-parent="#accordion" href="#collapseEight"><i class="fa fa-angle-right" style="font-size: larger;" aria-hidden="true"></i>Custom Requirements Generation</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseEight" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="col-sm-12" style="height: 12px;"></div>
+                                            <div class="col-md-12">
+                                                <table style="width: 100%;">
+                                                    <tr>
+                                                        <td>
+                                                            <b>Custom Requirements Generation</b>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="height: 10px;"></tr>
+                                                    <tr>
+                                                        <td>
+                                                            <button type="button" style="width: 160px;" class="btn btn-primary" id="btnDownloadRequirements">Download Requirements</button>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+                    </div>
+                    <div id="dvError"></div>
+                    <div class="wizard" id="some-wizard" data-title="Custom Impacts Generation" style="display:none;">
+                        <div class="wizard-card" data-cardname="Title / Description">
+                            <h3>Step 1 - Title / Description</h3>
+                            <div class="col-sm-12">
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td style="width: 20%;">
+                                            Title:
+                                        </td>
+                                        <td>
+                                            <input type="text" id="txtTitle" class="form-control" />
+                                        </td>
+                                    </tr>
+
+                                    <tr><td style="height: 5px;">&nbsp;</td></tr>
+                                    <tr>
+                                        <td>
+                                            Description:
+                                        </td>
+                                        <td>
+                                            <input type="text" id="txtDescription" class="form-control" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <div id="dvError1"></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="wizard-card" data-cardname="Entity Objects">
+                            <h3>Step 2 - Entity Objects</h3>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td colspan="3">
+                                        <b> Select the Entity Objects to include/remove using the Include >> or Remove << buttons</b>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                <tr>
+                                    <td rowspan="2">
+                                        <div id="listEntityObjects"></div>
+                                    </td>
+                                    <td style="width: 19%;">
+                                        <table style="width: 100%">
+                                            <tr>
+                                                <td>&nbsp;<button id="btnIncludeEntity" class="btn btn-success">Include >> </button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;<button id="btnRemoveEntity" class="btn btn-info">Remove << </button></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td rowspan="2">
+                                        <div id="listSelectedEntityObject"></div>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px; ">&nbsp;</td></tr>
+                                <tr>
+                                    <td colspan="3" style="padding-top: 10px;">
+                                        <label class="checkboxContainer">
+                                            Include Entity Schema
+                                            <input type="checkbox" id="chkEntitySchema">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="wizard-card" data-cardname="I-Descriptors">
+                            <h3>Step 2A - I-Descriptors</h3>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td colspan="3">
+                                        <b> Select the I-Descriptors to include/remove using the Include >> or Remove << buttons</b>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                <tr>
+                                    <td rowspan="2">
+                                        <div id="listIDescriptor"></div>
+                                    </td>
+                                    <td style="width: 19%;">
+                                        <table style="width: 100%">
+                                            <tr>
+                                                <td>&nbsp;<button id="btnIncludeIDescriptor" class="btn btn-success">Include >> </button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;<button id="btnRemoveIDescriptor" class="btn btn-info">Remove << </button></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td rowspan="2">
+                                        <div id="listSelectedIDescriptor"></div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="wizard-card" data-cardname="JCL">
+                            <h3>Step 3 - JCL</h3>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td colspan="3">
+                                        <b> Select the JCL to include/remove using the Include >> or Remove << buttons</b>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                <tr>
+                                    <td rowspan="2">
+                                        <div id="listJclObjects"></div>
+                                    </td>
+                                    <td style="width: 19%;">
+                                        <table style="width: 100%">
+                                            <tr>
+                                                <td><button id="btnIncludeJcl" class="btn btn-success">Include >> </button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><button id="btnRemoveJcl" class="btn btn-info">Remove << </button></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td rowspan="2">
+                                        <div id="listSelectedJclObject"></div>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                <tr>
+                                    <td colspan="2" style="padding-top: 10px;">
+                                        <label class="checkboxContainer">
+                                            Include Database Activities
+                                            <input id="chkDBActJCl" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="display: none;">
+                                        <label class="checkboxContainer">
+                                            Include Pseudo Code
+                                            <input id="chkPseudoJcl" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <label class="checkboxContainer">
+                                            Include Source Code
+                                            <input id="chkSourceJCL" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <div class="wizard-card" data-cardname="Programs">
+                            <h3>Step 4 - Programs</h3>
+
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td colspan="3">
+                                        <b> Select the Programs to include/remove using the Include >> or Remove << buttons</b>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                <tr>
+                                    <td rowspan="2">
+                                        <div id="listProgramsObjects"></div>
+                                    </td>
+                                    <td style="width: 19%;">
+                                        <table style="width: 100%">
+                                            <tr>
+                                                <td><button id="btnIncludePrograms" class="btn btn-success">Include >> </button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><button id="btnRemovePrograms" class="btn btn-info" onclick="removeSelectedProgramsObject();">Remove << </button></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td rowspan="2">
+                                        <div id="listSelectedProgramsObject"></div>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                <tr>
+                                    <td colspan="2" style="padding-top: 10px;">
+                                        <label class="checkboxContainer">
+                                            Include Database Activities
+                                            <input id="chkDBActProg" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="display: none;">
+                                        <label class="checkboxContainer">
+                                            Include Pseudo Code
+                                            <input id="chkPseudoProg" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <label class="checkboxContainer">
+                                            Include Source Code
+                                            <input id="chkSourceProg" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                        </div>
+                        <div class="wizard-card" data-cardname="Subroutines">
+                            <h3>Step 5 - Subroutines</h3>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td colspan="3">
+                                        <b>Select the Subroutines to include/remove using the Include >> or Remove << buttons</b>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                <tr>
+                                    <td rowspan="2">
+                                        <div id="listSubroutinesObjects"></div>
+                                    </td>
+                                    <td style="width: 19%;">
+                                        <table style="width: 100%">
+                                            <tr>
+                                                <td><button id="btnIncludeSubroutines" class="btn btn-success">Include >> </button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><button id="btnRemoveSubroutines" class="btn btn-info">Remove << </button></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td rowspan="2">
+                                        <div id="listSelectedSubroutinesObject"></div>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                <tr>
+                                    <td colspan="2" style="padding-top: 10px;">
+                                        <label class="checkboxContainer">
+                                            Include Database Activities
+                                            <input id="chkDBActSub" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="display: none;">
+                                        <label class="checkboxContainer">
+                                            Include Pseudo Code
+                                            <input id="chkPseudoSub" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <label class="checkboxContainer">
+                                            Include Source Code
+                                            <input id="chkSourceSub" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="wizard-card" data-cardname="Includes">
+                            <h3>Step 6 - Includes</h3>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td colspan="3">
+                                        <b>Select the Includes to include/remove using the Include >> or Remove << buttons</b>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                <tr>
+                                    <td rowspan="2">
+                                        <div id="listIncludesObjects"></div>
+                                    </td>
+                                    <td style="width: 19%;">
+                                        <table style="width: 100%">
+                                            <tr>
+                                                <td><button id="btnIncludeIncludes" class="btn btn-success">Include >> </button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><button id="btnRemoveIncludes" class="btn btn-info">Remove << </button></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td rowspan="2">
+                                        <div id="listSelectedIncludesObject"></div>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                <tr>
+                                    <td colspan="2" style="padding-top: 10px;">
+                                        <label class="checkboxContainer">
+                                            Include Database Activities
+                                            <input id="chkDBActInc" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="display: none;">
+                                        <label class="checkboxContainer">
+                                            Include Pseudo Code
+                                            <input id="chkPseudoInc" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <label class="checkboxContainer">
+                                            Include Source Code
+                                            <input id="chkSourceInc" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="wizard-card" data-cardname="Summary">
+                            <h3>Step 7 - Summary / Generate</h3>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        <b>Generating Custom Impacts for selected items</b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="height: 10px;"></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <!--<textarea id="divSummary" style="width: 99%; max-width: 99%; max-height: 99%; height: 99%; word-wrap: break-word;"></textarea>-->
+                                        <div id="tableXml" style="width: 100%; height: 300px; overflow: scroll;">
+                                            <table style="width: 100%;" class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="width: 20%;">Object</th>
+                                                        <th>Details</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="tblSummary"></tbody>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="wizard-card" data-cardname="Custom Impacts Generation">
+                            <h3>Step 8 - Download</h3>
+                            <table style="width:100%;">
+                                <tr>
+                                    <td>
+                                        <div id="tdError">
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div class="wizard" id="some-wizard-Cobol" data-title="Custom Impacts Generation" style="display: none;">
+                        <div class="wizard-card" data-cardname="Title / Description">
+                            <h3>Step 1 - Title / Description</h3>
+                            <div class="col-sm-12">
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td style="width: 20%;">
+                                            Title:
+                                        </td>
+                                        <td>
+                                            <input type="text" id="txtCobolTitle" class="form-control" />
+                                        </td>
+                                    </tr>
+
+                                    <tr><td style="height: 5px;">&nbsp;</td></tr>
+                                    <tr>
+                                        <td>
+                                            Description:
+                                        </td>
+                                        <td>
+                                            <input type="text" id="txtCobolDescription" class="form-control" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <div id="dvErr1"></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!--<div class="wizard-card" data-cardname="Entity Objects" style="display: none;">
+                            <h3>Step 2 - Entity Objects</h3>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td colspan="3">
+                                        <b> Select the Entity Objects to include/remove using the Include >> or Remove << buttons</b>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                <tr>
+                                    <td rowspan="2">
+                                        <div id="listEntityCblObjects"></div>
+                                    </td>
+                                    <td style="width: 19%;">
+                                        <table style="width: 100%">
+                                            <tr>
+                                                <td>&nbsp;<button id="btnIncludeCblEntity" class="btn btn-success">Include >> </button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;<button id="btnRemoveCblEntity" class="btn btn-info">Remove << </button></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td rowspan="2">
+                                        <div id="listSelectedEntityCblObject"></div>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                <tr>
+                                    <td colspan="3" style="padding-top: 10px;">
+                                        <label class="checkboxContainer">
+                                            Include Entity Schema
+                                            <input type="checkbox" id="chkEntityCblSchema">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>-->
+
+                        <div class="wizard-card" data-cardname="Jcl Objects">
+                            <h3>Step 2 - Jcl </h3>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td colspan="3">
+                                        <b> Select the Jcl Objects to include/remove using the Include >> or Remove << buttons</b>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                <tr>
+                                    <td rowspan="2">
+                                        <div id="listCobolJclObjects"></div>
+                                    </td>
+                                    <td style="width: 19%;">
+                                        <table style="width: 100%">
+                                            <tr>
+                                                <td>&nbsp;<button id="btnIncludeJclCobol" class="btn btn-success">Include >> </button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;<button id="btnRemoveJclCobol" class="btn btn-info">Remove << </button></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td rowspan="2">
+                                        <div id="listSelectedCobolJclObject"></div>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px; ">&nbsp;</td></tr>
+                                <tr>
+                                    <td colspan="2" style="padding-top: 10px;">
+                                        <label class="checkboxContainer">
+                                            Include Database Activities
+                                            <input id="chkDBActJClCbl" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <label class="checkboxContainer">
+                                            Include Pseudo Code
+                                            <input id="chkPseudoJclCbl" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <label class="checkboxContainer">
+                                            Include Source Code
+                                            <input id="chkSourceJCLCbl" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="wizard-card" data-cardname="Program">
+                            <h3>Step 3 -  Cobol</h3>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td colspan="3">
+                                        <b> Select the Cobol to include/remove using the Include >> or Remove << buttons</b>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                <tr>
+                                    <td rowspan="2">
+                                        <div id="listCobolProgramObjects"></div>
+                                    </td>
+                                    <td style="width: 19%;">
+                                        <table style="width: 100%">
+                                            <tr>
+                                                <td>&nbsp;<button id="btnIncludeIProgramCobol" class="btn btn-success">Include >> </button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;<button id="btnRemoveProgramCobol" class="btn btn-info">Remove << </button></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td rowspan="2">
+                                        <div id="listSelectedCobolProgramObjects"></div>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                <tr>
+                                    <td colspan="2" style="padding-top: 10px;">
+                                        <label class="checkboxContainer">
+                                            Include Database Activities
+                                            <input id="chkDBActPgmCbl" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <label class="checkboxContainer">
+                                            Include Pseudo Code
+                                            <input id="chkPseudoPgmCbl" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <label class="checkboxContainer">
+                                            Include Source Code
+                                            <input id="chkSourcePgmCbl" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="wizard-card" data-cardname="JCL">
+                            <h3>Step 4 - Proc</h3>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td colspan="3">
+                                        <b> Select the Proc to include/remove using the Include >> or Remove << buttons</b>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                <tr>
+                                    <td rowspan="2">
+                                        <div id="listProcObjects"></div>
+                                    </td>
+                                    <td style="width: 19%;">
+                                        <table style="width: 100%">
+                                            <tr>
+                                                <td><button id="btnIncludeProc" class="btn btn-success">Include >> </button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><button id="btnRemoveProc" class="btn btn-info">Remove << </button></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td rowspan="2">
+                                        <div id="listSelectedProcObject"></div>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                <tr>
+                                    <td colspan="2" style="padding-top: 10px;">
+                                        <label class="checkboxContainer">
+                                            Include Database Activities
+                                            <input id="chkDBActProc" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <label class="checkboxContainer">
+                                            Include Pseudo Code
+                                            <input id="chkPseudoProc" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <label class="checkboxContainer">
+                                            Include Source Code
+                                            <input id="chkSourceProc" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+
+                        <div class="wizard-card" data-cardname="InputLib">
+                            <h3>Step 5 - InputLib</h3>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td colspan="3">
+                                        <b> Select the InpuLib to include/remove using the Include >> or Remove << buttons</b>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                <tr>
+                                    <td rowspan="2">
+                                        <div id="listInputLibObjects"></div>
+                                    </td>
+                                    <td style="width: 19%;">
+                                        <table style="width: 100%">
+                                            <tr>
+                                                <td><button id="btnIncludeInputLib" class="btn btn-success">Include >> </button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><button id="btnRemoveInputLib" class="btn btn-info">Remove << </button></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td rowspan="2">
+                                        <div id="listSelectedInputLibObject"></div>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                <tr>
+                                    <td colspan="2" style="padding-top: 10px;">
+                                        <label class="checkboxContainer">
+                                            Include Database Activities
+                                            <input id="chkDBActInputLib" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <label class="checkboxContainer">
+                                            Include Pseudo Code
+                                            <input id="chkPseudoInputLib" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <label class="checkboxContainer">
+                                            Include Source Code
+                                            <input id="chkSourceInputLib" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+
+                        <div class="wizard-card" data-cardname="Summary">
+                            <h3>Step 6 - Summary / Generate</h3>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        <b>Generating Custom Impacts for selected items</b>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 10px;"></td></tr>
+                                <tr>
+                                    <td>
+                                        <div id="tableXmlCobol" style="width: 100%; height: 300px; overflow: scroll;">
+                                            <table style="width: 100%;" class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="width: 20%;">Object</th>
+                                                        <th>Details</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="tblCobolSummary"></tbody>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="wizard-card" data-cardname="Custom Impacts Generation">
+                            <h3>Step 7 - Download</h3>
+                            <table style="width:100%;">
+                                <tr>
+                                    <td>
+                                        <div id="tdError1"></div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="wizard" id="some-wizard-vba" data-title="Custom Impacts Generation" style="display: none;">
+                        <div class="wizard-card" data-cardname="Title / Description">
+                            <h3>Step 1 - Title / Description</h3>
+                            <div class="col-sm-12">
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td style="width: 20%;">
+                                            Title:
+                                        </td>
+                                        <td>
+                                            <input type="text" id="txtVBATitle" class="form-control" />
+                                        </td>
+                                    </tr>
+
+                                    <tr><td style="height: 5px;">&nbsp;</td></tr>
+                                    <tr>
+                                        <td>
+                                            Description:
+                                        </td>
+                                        <td>
+                                            <input type="text" id="txtVBADescription" class="form-control" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <div id="dvErr2"></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="wizard-card" data-cardname="Form Objects">
+                            <h3>Step 2 - Form </h3>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td colspan="3">
+                                        <b> Select the Form Objects to include/remove using the Include >> or Remove << buttons</b>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                <tr>
+                                    <td rowspan="2">
+                                        <div id="listFormObjects"></div>
+                                    </td>
+                                    <td style="width: 19%;">
+                                        <table style="width: 100%">
+                                            <tr>
+                                                <td>&nbsp;<button id="btnIncludeForm" class="btn btn-success">Include >> </button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;<button id="btnRemoveForm" class="btn btn-info">Remove << </button></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td rowspan="2">
+                                        <div id="listSelectedForm"></div>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px; ">&nbsp;</td></tr>
+                                <tr>
+                                    <td colspan="2" style="padding-top: 10px;">
+                                        <label class="checkboxContainer">
+                                            Include Database Activities
+                                            <input id="chkDBActForm" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <label class="checkboxContainer">
+                                            Include Pseudo Code
+                                            <input id="chkPseudoForm" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <label class="checkboxContainer">
+                                            Include Source Code
+                                            <input id="chkSourceForm" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="wizard-card" data-cardname="Bas">
+                            <h3>Step 3 -  Bas</h3>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td colspan="3">
+                                        <b> Select the Bas to include/remove using the Include >> or Remove << buttons</b>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                <tr>
+                                    <td rowspan="2">
+                                        <div id="listBasObjects"></div>
+                                    </td>
+                                    <td style="width: 19%;">
+                                        <table style="width: 100%">
+                                            <tr>
+                                                <td>&nbsp;<button id="btnIncludeBas" class="btn btn-success">Include >> </button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;<button id="btnRemoveBas" class="btn btn-info">Remove << </button></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td rowspan="2">
+                                        <div id="listSelectedBasObjects"></div>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                <tr>
+                                    <td colspan="2" style="padding-top: 10px;">
+                                        <label class="checkboxContainer">
+                                            Include Database Activities
+                                            <input id="chkDBActBas" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="padding-top: 10px;">
+                                        <label class="checkboxContainer">
+                                            Include Pseudo Code
+                                            <input id="chkPseudoBas" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <label class="checkboxContainer">
+                                            Include Source Code
+                                            <input id="chkSourceBas" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="wizard-card" data-cardname="Repost">
+                            <h3>Step 4 - Report</h3>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td colspan="3">
+                                        <b> Select the Report to include/remove using the Include >> or Remove << buttons</b>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                <tr>
+                                    <td rowspan="2">
+                                        <div id="listReportObjects"></div>
+                                    </td>
+                                    <td style="width: 19%;">
+                                        <table style="width: 100%">
+                                            <tr>
+                                                <td><button id="btnIncludeRpt" class="btn btn-success">Include >> </button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><button id="btnRemoveRpt" class="btn btn-info">Remove << </button></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td rowspan="2">
+                                        <div id="listSelectedReport"></div>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                <tr>
+                                    <td colspan="2" style="padding-top: 10px;">
+                                        <label class="checkboxContainer">
+                                            Include Database Activities
+                                            <input id="chkDBActRpt" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="padding-top: 10px;">
+                                        <label class="checkboxContainer">
+                                            Include Pseudo Code
+                                            <input id="chkPseudoRpt" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <label class="checkboxContainer">
+                                            Include Source Code
+                                            <input id="chkSourceRpt" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+
+                        <div class="wizard-card" data-cardname="Query">
+                            <h3>Step 5 - Query</h3>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td colspan="3">
+                                        <b> Select the Query to include/remove using the Include >> or Remove << buttons</b>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                <tr>
+                                    <td rowspan="2">
+                                        <div id="listQueryObjects"></div>
+                                    </td>
+                                    <td style="width: 19%;">
+                                        <table style="width: 100%">
+                                            <tr>
+                                                <td><button id="btnIncludeQuery" class="btn btn-success">Include >> </button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><button id="btnRemoveQuery" class="btn btn-info">Remove << </button></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td rowspan="2">
+                                        <div id="listSelectedQueryObject"></div>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                <tr>
+                                    <td colspan="2" style="padding-top: 10px;">
+                                        <label class="checkboxContainer">
+                                            Include Database Activities
+                                            <input id="chkDBActQry" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="padding-top: 10px;">
+                                        <label class="checkboxContainer">
+                                            Include Pseudo Code
+                                            <input id="chkPseudoQry" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <label class="checkboxContainer">
+                                            Include Source Code
+                                            <input id="chkSourceQry" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+
+                        <div class="wizard-card" data-cardname="Summary">
+                            <h3>Step 6 - Summary / Generate</h3>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        <b>Generating Custom Impacts for selected items</b>
+                                    </td>
+                                </tr>
+                                <tr><td style="height: 10px;"></td></tr>
+                                <tr>
+                                    <td>
+                                        <div id="tableXmlVBA" style="width: 100%; height: 300px; overflow: scroll;">
+                                            <table style="width: 100%;" class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="width: 20%;">Object</th>
+                                                        <th>Details</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="tblVBASummary"></tbody>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="wizard-card" data-cardname="Custom Impacts Generation">
+                            <h3>Step 7 - Download</h3>
+                            <table style="width:100%;">
+                                <tr>
+                                    <td>
+                                        <div id="tdError101"></div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="showCustom" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header label-success">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="text-thin">
+                                <font color="#ffffff">Create Custom Workflow</font>
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                        Select Class / Screen Object:
+                                    </div>
+                                    <div class="col-md-6">
+                                        <select class="selectpicker col-md-12" data-style="btn-mint">
+                                            <option>clsProcessPaychecks</option>
+                                            <option>clsProcessPayments</option>
+                                            <option>clsInquireEmployee</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">&nbsp;</div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Select Method / Action as Entry Point:</label>
+                                    <div class="col-md-4">
+                                        <select class="selectpicker col-md-12" data-style="btn-success">
+                                            <option>constructor~</option>
+                                            <option>makePayments()</option>
+                                            <option>getEmployeeDetails()</option>
+                                            <option>updateEmployee()</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <br>
+                                    <br>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Enter Description for the Custom Workflow:</label>
+                                    <div class="col-md-8">
+                                        <textarea rows="5" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <hr />
+                                </div>
+                                <div class="col-sm-12" align="center">
+                                    <div class="col-sm-6">
+                                        <button class="btn btn-mint btn-labeled fa fa-book">Register Custom Workflow</button>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <button class="btn btn-danger btn-labeled fa fa-ban">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <nav id="mainnav-container">
+                <div id="mainnav">
+                    <div class="nano">
+                        <div class="nano-content">
+                            <ul id="mainnav-menu" class="list-group"></ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <aside id="aside-container">
+                <div id="aside">
+                    <div class="nano">
+                        <div class="nano-content">
+                            <ul class="nav nav-tabs nav-justified">
+                                <li class="active">
+                                    <a href="#demo-asd-tab-1" data-toggle="tab">
+                                        <i class="fa fa-comments"></i>
+                                        <span class="badge badge-purple">7</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#demo-asd-tab-2" data-toggle="tab">
+                                        <i class="fa fa-info-circle"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#demo-asd-tab-3" data-toggle="tab">
+                                        <i class="fa fa-wrench"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="demo-asd-tab-1">
+                                    <h4 class="pad-hor text-thin">
+                                        <span class="pull-right badge badge-warning">3</span> Messages
+                                    </h4>
+                                    <div class="list-group bg-trans">
+                                        <a href="#" class="list-group-item">
+                                            <div class="media-left">
+                                                <img class="img-circle img-xs" src="img/av2.png" alt="Profile Picture">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="text-lg">Stephen Tran</div>
+                                                <span class="text-muted">Availabe</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                            <div class="media-left">
+                                                <img class="img-circle img-xs" src="img/av4.png" alt="Profile Picture">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="text-lg">Brittany Meyer</div>
+                                                <span class="text-muted">I think so</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                            <div class="media-left">
+                                                <img class="img-circle img-xs" src="img/av3.png" alt="Profile Picture">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="text-lg">Donald Brown</div>
+                                                <span class="text-muted">Lorem ipsum dolor sit amet.</span>
+                                            </div>
+                                        </a>
+                                    </div>
+
+
+                                    <hr>
+                                </div>
+                                <div class="tab-pane fade" id="demo-asd-tab-2">
+                                    <div class="list-group bg-trans">
+                                        <a href="#" class="list-group-item"><span class="label label-danger pull-right">Featured</span>Edit Password</a>
+                                        <a href="#" class="list-group-item">My Profile</a>
+                                        <a href="#" class="list-group-item">My Activity</a>
+                                        <hr>
+                                        <a href="#" class="list-group-item">License Details</a>
+                                    </div>
+                                    <hr />
+                                    <div class="text-center">
+                                        Questions?
+                                        <p class="text-lg text-semibold">(202) 674-3435 </p>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="demo-asd-tab-3">
+                                    <ul class="list-group bg-trans">
+                                        <li class="list-header">
+                                            <h4 class="text-thin">Account Settings</h4>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="pull-right">
+                                                <input class="demo-switch" type="checkbox" checked>
+                                            </div>
+                                            <p>Login to Search</p>
+                                            <small class="text-muted">Take me directly to Search as default when I login.</small>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="pull-right">
+                                                <input class="demo-switch" type="checkbox" checked>
+                                            </div>
+                                            <p>Alert License Periods</p>
+                                            <small class="text-muted">Warn me when my license is to expire in 15 days.</small>
+                                        </li>
+                                    </ul>
+                                    <hr>
+                                    <h4 class="pad-hor text-thin">Task Progress</h4>
+                                    <div class="pad-all">
+                                        <p>My Job Progress</p>
+                                        <div class="progress progress-sm">
+                                            <div class="progress-bar progress-bar-success" style="width: 15%;">
+                                                <span class="sr-only">15%</span>
+                                            </div>
+                                        </div>
+                                        <small class="text-muted">15% Completed</small>
+                                    </div>
+                                    <div class="pad-hor">
+                                        <p>Queue Size</p>
+                                        <div class="progress progress-sm">
+                                            <div class="progress-bar progress-bar-danger" style="width: 75%;">
+                                                <span class="sr-only">75%</span>
+                                            </div>
+                                        </div>
+                                        <small class="text-muted">#Jobs before me</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <footer id="footer">
+            <div class="show-fixed pull-right">
+                <ul class="footer-list list-inline">
+                    <li>
+                        <p class="text-sm">Approved Users</p>
+                        <div class="progress progress-sm progress-light-base">
+                            <div style="width: 80%" class="progress-bar progress-bar-danger"></div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <p class="text-sm">INTELLI Discovery Jobs Status</p>
+                        <div class="progress progress-sm progress-light-base">
+                            <div style="width: 80%" class="progress-bar progress-bar-primary"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <input type="text" id="txt" value="" class="form-control" placeholder="" />
+                        <button class="btn btn-sm btn-dark btn-active-success">View Task Queue</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="hide-fixed pull-right pad-rgt" id="divVersion"></div>
+            <p class="pad-lft">
+                &#0169; 2017 FloKapture Solutions. All Rights Reserved.
+            </p>
+        </footer>
+        <button id="scroll-top" class="btn">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+    </div>
+    <div>
+        <input type="hidden" id="hdnDownloadPath" />
+    </div>
+    <div class="modal" style="z-index: 1250;">
+        <img src="images/ajax-loader.gif" alt="" />
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="div-approve-freeze-project" role="dialog">
+            <div class="modal-dialog" style="width: 45%;">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Approve Project Freeze</h4>
+                    </div>
+                    <div class="modal-body" style="padding: 16px 35px; height: 250px;">
+                        <div class="col-md-12">
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        Are you sure you want to Approve this project to Freeze for Audit?
+                                    </td>
+                                </tr>
+                                <tr> <td style="height: 5px;">&nbsp;</td> </tr>
+                                <tr>
+                                    <td>
+                                        <table style="width: 100%;">
+                                            <tr>
+                                                <td style="width: 15%;"><a href="#" onclick="approveFreeze('Approved');"><button class="btn btn-mint">Approve</button></a></td>
+                                                <td><a href="#" onclick="approveFreeze('Declined');"><button class="btn btn-danger">Decline</button></a></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <input id="project-freeze-id" type="hidden" value="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="freeze-tags-dialog" role="dialog">
+            <div class="modal-dialog" style="width: 570px; margin-top: 10px; ">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: -1px 10px 30px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4>Freeze Associated Items (Tags)</h4>
+                    </div>
+                    <div class="col-md-12" style="padding-top: 10px; padding-bottom: 10px;">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="width: 20%;">
+                                    Project Selected:
+                                </td>
+                                <td id="td-selected-project"></td>
+                            </tr>
+                            <tr><td colspan="2" style="height: 2px;">&nbsp;</td></tr>
+                            <tr>
+                                <td>
+                                    Comments:
+                                </td>
+                                <td>
+                                    <textarea rows="5" style="margin: 0; width: 400px; height: 70px;" id="txtComments" placeholder="Freeze Comments(optional)"></textarea>
+                                </td>
+                            </tr>
+                            <tr><td colspan="2" style="height: 2px;">&nbsp;</td></tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <table style="width: 100%;">
+                                        <tr>
+                                            <td style="width: 15%;">
+                                                <button onclick="freezeSelectedProject();" id="btn-freeze-project" class="btn btn-primary">Freeze</button>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <link href="css/jquery-ui.css" rel="stylesheet" />
+    <script src="syncfusion/external/jquery-2.1.4.min.js"></script>
+    <!--<script src="scripts/left-side-menu-bar.js"></script>-->
+    <script src="app-settings/base-address.js"></script>
+    <script src="app-settings/version.js"></script>
+    <script src="common-scripts/validation.js"></script>
+    <script src="common-scripts/breadcrumbs.js"></script>
+    <script src="common-scripts/commonJs.js"></script>
+    <script src="common-scripts/leftSitePanel.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/nifty.min.js"></script>
+    <script src="plugins/pace/pace.min.js"></script>
+    <script src="js/bootstrap-wizard.js"></script>
+    <script src="plugins/bootbox/bootbox.min.js"></script>
+    <link rel="stylesheet" href="jqwidgets/styles/jqx.base.css" type="text/css" />
+    <script type="text/javascript" src="jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxbuttons.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxcheckbox.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxpanel.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxgrid.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxdatatable.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxdropdownlist.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxlistbox.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxwindow.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxmenu.js"></script>
+    <script src="scripts/demo-custom-requirements.js"></script>
+
+</body>
+</html>

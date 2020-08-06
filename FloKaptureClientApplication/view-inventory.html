@@ -1,0 +1,937 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>floKapture - Understand your CODE!</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/sitemain.css" rel="stylesheet" />
+    <link href="css/nifty.min.css" rel="stylesheet">
+    <link href="css/themes/type-c/theme-ocean.css" rel="stylesheet">
+    <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="plugins/switchery/switchery.min.css" rel="stylesheet">
+    <link href="plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+    <link href="plugins/morris-js/morris.min.css" rel="stylesheet">
+    <link href="css/demo/nifty-demo.min.css" rel="stylesheet">
+    <style type="text/css">
+        em {
+            background-color: yellow;
+        }
+
+        li {
+            margin-left: 1px;
+            line-height: 22px;
+            padding-bottom: 5px;
+        }
+
+        .jqx-grid-cell {
+            border-color: #aaa;
+            border-style: solid;
+        }
+
+        .jqx-widget .jqx-grid-cell {
+            border-color: #aaa;
+        }
+
+        .jqx-widget .jqx-grid-column-header {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: none;">
+        <nav id="mainnav-container">
+            <div id="mainnav">
+
+            </div>
+        </nav>
+    </div>
+    <div id="content-container" style="margin-top: -40px;">
+        <div id="page-content">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 style="float: left; margin-left: 1%;margin-top: 10px;" id="tabTitle">
+                        <button onclick="downloadInventory();" id="btnDownloadInventory" class="btn btn-primary">Export</button>
+                    </h3>
+                    <div class="panel-control">
+                        <ul class="nav nav-tabs" id="inventory">
+                            <li id="li_1" class="active">
+                                <a data-toggle="tab" href="#demo-tabs2-box-1" id="tab1">
+                                    <i class="fa fa-magic fa-lg"></i>
+                                </a>
+                            </li>
+                            <li id="li_2">
+                                <a data-toggle="tab" href="#demo-tabs2-box-2" id="tab2">
+                                    <i class="fa fa-folder fa-lg"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div id="demo-tabs2-box-1" class="tab-pane fade in active">
+                            <div class="col-md-12">
+                                <!--<hr />-->
+                                <div class="col-md-6" style="padding: 0; display: none;">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <div class="checkbox" style="padding-top: 4px;">
+                                                    <label class="form-checkbox form-icon form-text">
+                                                        <input type="checkbox" value="" id="chkSkipSameInventory" onclick="callSkipSame();"><strong>Hide Redundant Object (File) Names </strong>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                &nbsp;&nbsp;&nbsp;
+                                            </td>
+                                            <td>
+                                                <div class="checkbox" style="padding-top: 4px;">
+                                                    <label class="form-checkbox form-icon form-text">
+                                                        <input type="checkbox" value="" id="chkBusinessSameInventory" onclick="callSkipSame();"><strong>Show Business Names</strong>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="height: 10px;"><hr /></div>
+                            <div class="panel-body">
+                                <div class="col-md-12">
+                                    <table style="width: 100%;">
+                                        <tr>
+                                            <td colspan="14"> <h5 style="color: #346987;"> Please check / uncheck grid column to show / hide it.</h5></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="14" style="height: 8px;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="form-checkbox form-icon form-text">
+                                                    <input type="checkbox" checked="checked" value="SrNo" onchange="showHideColumn(this);" id="chkSrNo"><strong>Sr# </strong>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label class="form-checkbox form-icon form-text">
+                                                    <input type="checkbox" checked="checked" value="ObjectName" onchange="showHideColumn(this);" id="chkObjectName"><strong>Object Name </strong>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label class="form-checkbox form-icon form-text">
+                                                    <input type="checkbox" checked="checked" value="ExtenstionType" onchange="showHideColumn(this);" id="chkExtenstionType"><strong>Type </strong>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label class="form-checkbox form-icon form-text">
+                                                    <input type="checkbox" checked="checked" value="LoC" onchange="showHideColumn(this);" id="chkLoC"><strong>LoC </strong>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label class="form-checkbox form-icon form-text">
+                                                    <input type="checkbox" checked="checked" value="Complexity" onchange="showHideColumn(this);" id="chkComplexity"><strong>Complexity </strong>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label class="form-checkbox form-icon form-text">
+                                                    <input type="checkbox" checked="checked" value="ExternalCall" onchange="showHideColumn(this);" id="chkExternalCall"><strong>External Call </strong>
+                                                </label>
+                                            </td>
+                                            <td style="display: none;">
+                                                <label class="form-checkbox form-icon form-text">
+                                                    <input type="checkbox" checked="checked" value="InternalCall" onchange="showHideColumn(this);" id="chkInternalCall"><strong>Internal Call </strong>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label class="form-checkbox form-icon form-text">
+                                                    <input type="checkbox" checked="checked" value="CalledFrom" onchange="showHideColumn(this);" id="chkCalledFrom"><strong>Called From </strong>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label class="form-checkbox form-icon form-text">
+                                                    <input type="checkbox" checked="checked" value="UsesEntities" onchange="showHideColumn(this);" id="chkUsesEntities"><strong>Uses Entities </strong>
+                                                </label>
+                                            </td>
+                                            <td style="display: none;" id="tdUserQry">
+                                                <label class="form-checkbox form-icon form-text">
+                                                    <input type="checkbox" checked="checked" value="UsesQueries" onchange="showHideColumn(this);" id="chkUsesQueries"><strong>Uses Queries </strong>
+                                                </label>
+                                            </td>
+                                            <td style="display: none;" id="tdUsesRpt">
+                                                <label class="form-checkbox form-icon form-text">
+                                                    <input type="checkbox" checked="checked" value="UsesReports" onchange="showHideColumn(this);" id="chkUsesReports"><strong>Uses Reports </strong>
+                                                </label>
+                                            </td>
+                                            <td style="display: none;">
+                                                <label class="form-checkbox form-icon form-text">
+                                                    <input type="checkbox" checked="checked" value="UsesObjects" onchange="showHideColumn(this);" id="chkUsesObjects"><strong>Uses Objects </strong>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label class="form-checkbox form-icon form-text">
+                                                    <input type="checkbox" checked="checked" value="ParticipateInWorkflow" onchange="showHideColumn(this);" id="chkParticipateInWorkflow"><strong>Participate In Workflows </strong>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label class="form-checkbox form-icon form-text">
+                                                    <input type="checkbox" checked="checked" value="Description" onchange="showHideColumn(this);" id="chkDescription"><strong>Description </strong>
+                                                </label>
+                                            </td>
+                                            <td id="tdTags" style="display: none;">
+                                                <label class="form-checkbox form-icon form-text">
+                                                    <input type="checkbox" checked="checked" value="Tags" onchange="showHideColumn(this);" id="chkTags"><strong>Tags </strong>
+                                                </label>
+                                            </td>
+                                            <td id="tdUploadedDoc" style="display: none;">
+                                                <label class="form-checkbox form-icon form-text">
+                                                    <input type="checkbox" checked="checked" value="UploadedDocuments" onchange="showHideColumn(this);" id="chkUploadedDocs"><strong>Uploaded Documents </strong>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="col-md-12">
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td> <h5 style="color: #346987;"> Drag and drop any column over any other column to re-order them (Columns Reorder).</h5></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="panel-body">
+                                <div class="col-md-12">
+                                    <div id="tblViewInventory" style="padding-left: 4px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="demo-tabs2-box-2" class="tab-pane fade in">
+                            <div class="col-md-12">
+                            </div>
+                            <div class="col-md-12" style="height: 10px;"><hr /></div>
+                            <hr />
+                            <div class="panel-body">
+                                <div class="col-md-12">
+                                    <table style="width: 100%;">
+                                        <tr>
+                                            <td colspan="14"> <h5 style="color: #346987;"> Please check / uncheck grid column to show / hide it.</h5></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="14" style="height: 8px;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="form-checkbox form-icon form-text">
+                                                    <input type="checkbox" checked="checked" value="SrNo" onchange="showHideColumnDataInventory(this);" id="chkDataSrNo"><strong>SrNo </strong>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label class="form-checkbox form-icon form-text">
+                                                    <input type="checkbox" checked="checked" value="ObjectName" onchange="showHideColumnDataInventory(this);" id="chkDataObjectName"><strong>Object Name </strong>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label class="form-checkbox form-icon form-text">
+                                                    <input type="checkbox" checked="checked" value="ObjectType" onchange="showHideColumnDataInventory(this);"
+                                                           id="chkDataObjectType"><strong>Object Type </strong>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label class="form-checkbox form-icon form-text">
+                                                    <input type="checkbox" checked="checked" value="ExternalCall" onchange="showHideColumnDataInventory(this);" id="chkDataExternal Call"><strong>ExternalCall </strong>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label class="form-checkbox form-icon form-text">
+                                                    <input type="checkbox" checked="checked" value="CalledFrom" onchange="showHideColumnDataInventory(this);"
+                                                           id="chkDataCalledFrom"><strong>Called From </strong>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label class="form-checkbox form-icon form-text">
+                                                    <input type="checkbox" checked="checked" value="UsesEntities" onchange="showHideColumnDataInventory(this);" id="chkDataExternalCall"><strong>Uses Entities </strong>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label class="form-checkbox form-icon form-text">
+                                                    <input type="checkbox" checked="checked" value="Tags" onchange="showHideColumnDataInventory(this);" id="chkDataObjectTag"><strong>Tags</strong>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label class="form-checkbox form-icon form-text">
+                                                    <input type="checkbox" checked="checked" value="ObjectDescription" onchange="showHideColumnDataInventory(this);" id="chkDataObjectDesptInternalCall"><strong>Object Description / Long Description</strong>
+                                                </label>
+                                            </td>
+
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="col-md-12">
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td> <h5 style="color: #346987;"> Drag and drop any column over any other column to re-order them (Columns Reorder).</h5></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="panel-body">
+                                <div class="col-md-12">
+                                    <div id="tblDataInventory" style="padding-left: 4px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="a123456" style="display: none;"></a>
+    <div class="col-md-12">
+        <div id="userName" style="display: none;"></div>
+        <div>
+            <div class="hide-fixed pull-right pad-rgt" id="divVersion"></div>
+            <p class="pad-lft">
+                &#0169; 2017 FloKapture Solutions. All Rights Reserved.
+            </p>
+
+        </div>
+    </div>
+    <div id="dvRpt" style="visibility: hidden; height: 5px;">
+        <table id="tblData" style="width: 100%;">
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="container">
+        <div class="modal fade" id="div-approve-freeze-project" role="dialog">
+            <div class="modal-dialog" style="width: 45%;">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Approve Project Freeze</h4>
+                    </div>
+                    <div class="modal-body" style="padding: 16px 35px; height: 250px;">
+                        <div class="col-md-12">
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        Are you sure you want to Approve this project to Freeze for Audit?
+                                    </td>
+                                </tr>
+                                <tr> <td style="height: 5px;">&nbsp;</td> </tr>
+                                <tr>
+                                    <td>
+                                        <table style="width: 100%;">
+                                            <tr>
+                                                <td style="width: 15%;"><a href="#" onclick="approveFreeze('Approved');"><button class="btn btn-mint">Approve</button></a></td>
+                                                <td><a href="#" onclick="approveFreeze('Declined');"><button class="btn btn-danger">Decline</button></a></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <input id="project-freeze-id" type="hidden" value="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="freeze-tags-dialog" role="dialog">
+            <div class="modal-dialog" style="width: 570px; margin-top: 10px; ">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: -1px 10px 30px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4>Freeze Associated Items (Tags)</h4>
+                    </div>
+                    <div class="col-md-12" style="padding-top: 10px; padding-bottom: 10px;">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="width: 20%;">
+                                    Project Selected:
+                                </td>
+                                <td id="td-selected-project"></td>
+                            </tr>
+                            <tr><td colspan="2" style="height: 2px;">&nbsp;</td></tr>
+                            <tr>
+                                <td>
+                                    Comments:
+                                </td>
+                                <td>
+                                    <textarea rows="5" style="margin: 0; width: 400px; height: 70px;" id="txtComments" placeholder="Freeze Comments(optional)"></textarea>
+                                </td>
+                            </tr>
+                            <tr><td colspan="2" style="height: 2px;">&nbsp;</td></tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <table style="width: 100%;">
+                                        <tr>
+                                            <td style="width: 15%;">
+                                                <button onclick="freezeSelectedProject();" id="btn-freeze-project" class="btn btn-primary">Freeze</button>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="viewSourceDialog" role="dialog" style="z-index: 999999;">
+            <div class="modal-dialog" style="width: 802px; margin-top: 10px;">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: 15px 10px 30px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <div id="ViewSourceInputHeader" class="modal-title"></div>
+                    </div>
+                    <div>
+                        <div id="viewSource" style="clear: left;">
+                            <div class="panel panel-default">
+                                <div class="panel-body" id="div1">
+                                    <div class="tab-content">
+                                        <input type="hidden" id="subRoutineprogramId" />
+                                        <div id="tabSourceCodPopup">
+                                            <div id="ViewSourceInputBody" class="modal-body" style="padding-bottom: 0px;">
+                                                <div class="row">
+                                                    <div class="col-md-10" style="padding-right: 0px">
+                                                        <div class="input-group">
+                                                            <table style="width: 100%;">
+                                                                <tr>
+                                                                    <td style="width: 100%;">
+                                                                        <input id="ViewSourceInputModal_SearchBox" class="form-control" type="text" placeholder="Search Source">
+                                                                    </td>
+                                                                    <td style="padding-left: 5px;">
+                                                                        <span class="input-group-btn">
+                                                                            <button id="ViewSourceInputModal_SearchButton" class="btn btn-mint" type="button">
+                                                                                <i class="fa fa-search fa-fw"></i>
+                                                                            </button>
+                                                                        </span>
+                                                                    </td>
+                                                                    <td>&nbsp;&nbsp;</td>
+                                                                    <td>
+                                                                        <a id="ViewSourceInputModal_SearchPrev" class="btn btn-mint" style="vertical-align: middle;" data-toggle="tooltip" title="Previous Match">
+                                                                            <i class="fa fa-arrow-circle-o-left"></i>
+                                                                        </a>
+                                                                    </td>
+                                                                    <td>&nbsp;&nbsp;</td>
+                                                                    <td>
+                                                                        <a id="ViewSourceInputModal_SearchNext" class="btn btn-mint" style="vertical-align: middle" data-toggle="tooltip" title="Next Match">
+                                                                            <i class="fa fa-arrow-circle-o-right"></i>
+                                                                        </a>
+                                                                    </td>
+                                                                    <td>&nbsp;&nbsp;</td>
+                                                                    <td>
+                                                                        <div id="ViewSourceInputModal_SearchHitCount" style="width: 100px;"></div>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2" style="padding-left: 35px;">
+                                                        <button id="btnExportViewSource" class="btn btn-primary btn-labeled fa fa-download" type="button" onclick="exportViewSourceFile();">Export</button>
+                                                    </div>
+                                                    <div id="ViewSourceInputModal_SearchNav" class="col-md-1" style="margin-left: 0px; padding-left: 0px; padding-right: 0px; display: none">
+                                                        <table style="width: 100%;">
+                                                            <tr></tr>
+                                                        </table>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <table style="width: 100%;">
+                                                            <tr></tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <pre id="treeViewSource" style="height: 500px; overflow-y: scroll; margin-top: 10px;"></pre>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <table>
+                            <tr>
+                                <td style="padding-left: 700px;">
+                                    <input type="button" style="margin: 10px;" data-dismiss="modal" id="btnCancelViewSource" class="btn btn-mint" value="Close" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="modal fade" id="viewData" role="dialog" style="z-index: 9999;">
+            <div class="modal-dialog" style="width: 650px; margin-top: 10px; font-size: 14px;">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: 15px 10px 30px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <div id="ViewDataHeader" class="modal-title"></div>
+                    </div>
+                    <div class="col-md-12">
+                        <div id="dvData" style="padding-left: 3%; padding-top: 15px; overflow-x: scroll; height: 400px; max-height: 450px;"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <table>
+                            <tr>
+                                <td>
+                                    <input type="button" style="margin: 10px;" data-dismiss="modal" class="btn btn-mint" value="Close" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="viewIDescriptorData" role="dialog" style="z-index: 9999;">
+            <div class="modal-dialog" style="width: 650px; margin-top: 10px; font-size: 14px;">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: 15px 10px 30px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <div id="ViewIDescriptorDataHeader" class="modal-title"><h4> Statements in List</h4></div>
+                    </div>
+                    <div class="col-md-12">
+                        <div id="dvIDescriptorData" style="padding-left: 3%; padding-top: 15px; overflow-x: scroll; height: 300px; max-height: 350px;"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <table>
+                            <tr>
+                                <td>
+                                    <input type="button" style="margin: 10px;" data-dismiss="modal" class="btn btn-mint" value="Close" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="viewEntitySchema" role="dialog" style="z-index: 9999;">
+            <div class="modal-dialog" style="width: 750px; margin-top: 10px; font-size: 14px;">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: 15px 10px 30px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="col-md-12">
+                        <div id="divDatabaseSchema"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <table>
+                            <tr>
+                                <td>
+                                    <input type="button" style="margin: 10px;" data-dismiss="modal" class="btn btn-mint" value="Close" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Left Panel-->
+    <div class="container">
+        <div class="modal fade" id="dvDownloadInventory" role="dialog">
+            <div class="modal-dialog" style="width: 570px; margin-top: 10px; ">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: -1px 10px 30px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4>Inventory</h4>
+                    </div>
+                    <div class="col-md-12" style="padding-top: 10px; padding-bottom: 10px;">
+                        <table>
+                            <tr>
+                                <td>
+                                    <button onclick="downloadInventory();" id="btnDownInventoryPopup" class="btn btn-primary">Download</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-12" style="padding-top: 10px; padding-bottom: 10px; display: none;">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="checkbox" style="padding-top: 4px;">
+                                        <label class="form-checkbox form-icon form-text">
+                                            <input type="checkbox" value="" id="chkSkipSame"><strong>Hide Redundant Object (File) Names </strong>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    &nbsp;&nbsp;&nbsp;
+                                </td>
+                                <td>
+                                    <div class="checkbox" style="padding-top: 4px;">
+                                        <label class="form-checkbox form-icon form-text">
+                                            <input type="checkbox" value="" id="chkBusinessSame"><strong>Show Business Names</strong>
+                                        </label>
+                                    </div>
+                                </td>
+
+                                <td>&nbsp;&nbsp;&nbsp; &nbsp;</td>
+                                <td>
+                                    <!--<button onclick="downloadInventory();" id="btnDownInventoryPopup" class="btn btn-primary">Download</button>-->
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="divCustomWorkflow" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 670px;">
+                    <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Custom workflow</h4>
+                    </div>
+                    <div class="modal-body" style="padding: 5px 20px;" id="Div3">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td colspan="2">
+                                    <table style="width: 100%;">
+                                        <tr>
+                                            <td style="width: 25%;">Search Object:</td>
+                                            <td>
+                                                <input type="text" id="txtSearch" placeholder="Search" class="form-control" />
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>
+                                                <button type="button" class="btn btn-mint" id="btnSearchObjects">Search </button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="height: 4px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">
+                                    Select:
+                                </td>
+                                <td>
+                                    <select name="selectIndexWorkFlow" id="ddlJclName" style="width: 100%;" class="form-control"></select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="height: 4px;"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Workflow Name:
+                                </td>
+                                <td>
+                                    <input type="text" id="txtWorkFlowName" class="form-control" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="height: 4px;"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Workflow Description:
+                                </td>
+                                <td>
+                                    <input type="text" id="txtWorkFlowDesc" class="form-control" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="height: 4px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%"></td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-labeled fa fa-arrow-up" id="btnSaveWorkflowName">Save </button>
+                                            </td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>
+                                                <button type="submit" style="height: 30px;" class="btn btn-danger btn-default pull-right" data-dismiss="modal"><span class="fa fa-remove" style="margin-right: 10px;"></span>Close</button>
+                                            </td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td id="dvError101"></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="height: 15px;"></td>
+                            </tr>
+                        </table>
+                        <table class="table table-striped table-bordered" style="display: none;">
+                            <tr>
+                                <td>
+                                    <textarea id="treeViewSource1" style="width: 614px; height: 500px; overflow-y: scroll; overflow-x: scroll;" class="form-control"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="button" style="margin: 10px;" data-dismiss="modal" id="btnSaveViewSource" class="btn btn-mint" value="Save" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="tdError101"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="modal fade" id="dvSystemDescription" role="dialog">
+            <div class="modal-dialog" style="width: 550px;">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 id="H1"><span class="fa fa-briefcase" style="margin-right: 10px;"></span>System Description </h4>
+                    </div>
+                    <div class="modal-body" style="padding: 40px 50px;">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;&nbsp;</td>
+                                <td colspan="3" style="padding-left: 2px;">
+                                    Enter Description:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>&nbsp;&nbsp;</td>
+                                <td>
+                                    <textarea rows="6" class="form-control" id="txtSystemDescription" placeholder="Enter Description"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <div>
+                                        <button type="button" style="margin: 9px; margin-left: 24px;" class="btn btn-primary btn-labeled fa fa-arrow-down" id="btnSaveSystemDescription">Save </button>
+                                        &nbsp; &nbsp;
+                                        <button type="button" class="btn btn-danger btn-default" data-dismiss="modal"><span class="fa fa-remove" style="margin-right: 10px;"></span>Close</button>
+                                        <!--<button style="margin-top: 10px; height: 29px;" data-dismiss="modal" id="Button2" class="btn btn-mint  fa fa-close">Cancel</button>-->
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <div id="tdError102"></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="showDictionaryDialog" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 820px;">
+                    <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Business Details (Classes, Methods/Functions)</h4>
+                    </div>
+                    <div class="modal-body" style="padding: 5px 20px;" id="modalBody">
+                        <div style="overflow: scroll; height: 500px;">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <td>Object Name</td>
+                                        <td>Type</td>
+                                        <td>Business Name</td>
+                                        <td>Business Description</td>
+                                    </tr>
+                                </thead>
+                                <tbody id="objectDictionaryData">
+                                    <tr>
+                                        <td colspan="2">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <button type="button" onclick="updateBusinessDetails();" id="btnUpdateBusinessDetails" class="btn btn-primary btn-labeled fa fa-arrow-down">Submit</button>
+                                                    </td>
+                                                    <td>&nbsp;</td>
+                                                    <td>
+                                                        <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal"><span class="fa fa-remove" style="margin-right: 10px;"></span>Close</button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td colspan="2" id="tdMessage"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="dvAddTags" role="dialog">
+            <div class="modal-dialog" style="width: 520px;">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Add Tag(s) </h4>
+                    </div>
+                    <div class="modal-body" style="padding: 30px 20px;">
+                        <table style="width: 100%">
+                            <tr>
+                                <td style="width: 30%;">
+                                    Tags:
+                                </td>
+                                <td>
+                                    <div id="ddlTags"></div>
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Tag Category:
+                                </td>
+                                <td>
+                                    <div id="ddlTagCategories"></div>
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Tag Category Values:
+                                </td>
+                                <td>
+                                    <div id="ddlTagCategoryValues"></div>
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Name: </td>
+                                <td style="padding-top: 3%;">
+                                    <input type="text" id="txtTag" disabled="disabled" placeholder="(OPTIONAL) Name" class="form-control" />
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr style="height: 10px;"></tr>
+                            <tr>
+                                <td>
+                                    <button class="btn btn-mint" id="btnAddTag">Add Tag</button>
+                                </td>
+                                <td>
+                                    <div id="tdEmpError12"></div>
+                                </td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<div id="loading-modal">
+        <img src="images/ajax-loader.gif" alt="Loading..." />
+    </div>-->
+    <div class="modal">
+        <img src="images/ajax-loader.gif" alt="Loading..." />
+    </div>
+    <div>
+        <input type="hidden" id="hdnStatementIdDicision" />
+        <input type="hidden" id="hdnProgramId" />
+        <input type="hidden" id="hdnType" />
+    </div>
+    <link href="css/jquery-ui.css" rel="stylesheet" />
+    <script src="syncfusion/external/jquery-2.1.4.min.js"></script>
+    <script src="app-settings/base-address.js"></script>
+    <script src="common-scripts/validation.js"></script>
+    <script src="common-scripts/commonJs.js"></script>
+    <script src="common-scripts/left-side-menu-bar.js"></script>
+    <script src="scripts/viewInventory.js"></script>
+    <script src="app-settings/version.js"></script>
+    <script src="common-scripts/search.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="plugins/fast-click/fastclick.min.js"></script>
+    <script src="js/nifty.min.js"></script>
+    <script src="plugins/switchery/switchery.min.js"></script>
+    <link href="css/tagit/tagit.ui-zendesk.css" rel="stylesheet" />
+    <script src="js/demotag/jquery-ui.js"></script>
+    <script src="js/demotag/js/tag-it.js"></script>
+    <script src="plugins/bootbox/bootbox.min.js"></script>
+    <link rel="stylesheet" href="jqwidgets/styles/jqx.base.css" type="text/css" />
+    <link href="jqwidgets/styles/jqx.bootstrap.css" rel="stylesheet" />
+    <script type="text/javascript" src="jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxbuttons.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxpanel.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxtree.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxexpander.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxgrid.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxgrid.sort.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxgrid.selection.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxgrid.columnsresize.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxgrid.columnsreorder.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxdatatable.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxgrid.pager.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxdropdownlist.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxtreegrid.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxlistbox.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxcheckbox.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxwindow.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxmenu.js"></script>
+    <script src="jqwidgets/jqxgrid.filter.js"></script>
+    <script src="jqwidgets/jqxgrid.edit.js"></script>
+    <script src="common-scripts/excelExport.js"></script>
+    <script src="js/jquery.base64.js"></script>
+</body>
+</html>

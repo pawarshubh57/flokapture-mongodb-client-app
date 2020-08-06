@@ -43,770 +43,774 @@
 <!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
 
 <body>
-<div id="container" class="effect mainnav-lg">
+    <div id="container" class="effect mainnav-lg">
 
-<!--NAVBAR-->
-<!--===================================================-->
-<header id="navbar">
-    <div id="navbar-container" class="boxed">
+        <!--NAVBAR-->
+        <!--===================================================-->
+        <header id="navbar">
+            <div id="navbar-container" class="boxed">
 
-        <!--Brand logo & name-->
-        <!--================================-->
-        <div class="navbar-header">
-            <a href="landing.html" class="navbar-brand">
-                <img src="img/logo.png" alt="Logo" class="brand-icon">
-                <div class="brand-title">
-                    <span class="brand-text"><font color="#ababab" style="font-style: italic;">flo</font><font color="#ffc000">Kapture</font></span>
-                </div>
-            </a>
-        </div>
-        <!--================================-->
-        <!--End brand logo & name-->
-        <!--Navbar Dropdown-->
-        <!--================================-->
-        <div class="navbar-content clearfix">
-            <ul class="nav navbar-top-links pull-left">
-
-                <!--Navigation toogle button-->
-                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                <li class="tgl-menu-btn">
-                    <a class="mainnav-toggle" href="#">
-                        <i class="fa fa-navicon fa-lg"></i>
-                    </a>
-                </li>
-                <li class="dropdown" style="margin-top: 6px;">
-                    <div class="col-md-12">
-                        <div class="col-md-3" style="margin-top: -7px; padding: 0px;">
-                            <h3 class="panel-title">I want to...</h3>
-                        </div>
-                        <div class="col-md-7">
-                            <select class="form-control" data-placeholder="choose Customer" id="ddlSelectOption" tabindex="-1" style="width: 300px;">
-                             
-                            </select>
-
-                        </div>
-                        <div class="col-md-2">
-                            <button class="btn btn-danger btn-labeled fa  fa-external-link-square" id="btnGuideGo">Go</button>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <ul class="nav navbar-top-links pull-right">
-                <li id="dropdown-user" class="dropdown">
-                    <a href="#" data-toggle="dropdown" class="dropdown-toggle text-right">
-                        <span class="pull-right">
-                            <img class="img-circle img-user media-object" src="img/av1.png" alt="Profile Picture">
-                        </span>
-                        <div class="username hidden-xs" id="userName"></div>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-right with-arrow panel-default">
-                        <div class="pad-all bord-btm">
-                            <span class="menu-title">
-                                <strong><b>Total Projects:</b></strong>
-                                <span class="pull-right badge badge-warning" id="cntProject"></span>
-                            </span>
-                        </div>
-                        <ul class="head-list">
-                            <li>
-                                <a href="my_profile.html">
-                                    <i class="fa fa-user fa-fw fa-lg"></i>Profile
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="pad-all text-right">
-                            <a href="#" class="btn btn-primary" id="aLogout">
-                                <i class="fa fa-sign-out fa-fw"></i>Logout
-                            </a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-</header>
-
-<div class="boxed">
-<div id="content-container">
-<ol class="breadcrumb">
-   
-</ol>
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<!--End breadcrumb-->
-<!--Page content-->
-<!--===================================================-->
-<div id="page-content">
-
-<div class="row">
-<div class="col-lg-12">
-<div class="panel">
-<div class="panel-heading">
-    <h3 class="panel-title" style="background-color: #e0e5ec; height: 50px;">
-
-        <div class="panel-control">
-            <ul class="nav nav-tabs" id="projectWorkspaceDataTabs">
-                <li id="li_1">
-                    <a data-toggle="tab" href="#demo-tabs2-box-1">
-                        <i class="fa fa-magic fa-lg"></i>
-                    </a>
-                </li>
-                <li id="li_2" class="active">
-                    <a data-toggle="tab" href="#demo-tabs2-box-2">
-                        <i class="fa fa-table fa-lg"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </h3>
-</div>
-<div class="panel-body">
-<div class="tab-content">
-<div id="demo-tabs2-box-1" class="tab-pane fade in">
-<div class="row" style="margin-top: 10px;">
-    <div class="col-lg-12">
-        <div class="panel">
-            <div class="panel-heading" style="background-color: #e0e5ec;">
-                <h3 class="panel-title">Inventory</h3>
-            </div>
-            <div class="panel-body">
-
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-sm-12" style="margin-top: 6px; padding: 0px;">
-    <div class="row">
-        <div class="col-sm-6 col-lg-3">
-            <div class="panel media pad-all">
-                <div class="media-left">
-                    <span class="icon-wrap icon-wrap-sm icon-circle bg-ticker">
-                        <i class="fa fa-folder-open fa-2x"></i>
-                    </span>
-                </div>
-                <div class="media-body" style="vertical-align: bottom;">
-                    <p class="text-2x mar-no text-thin" id="pClassesScreens"></p>
-                    <p class="text-muted mar-no">No. of Files (Classes)</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-lg-3">
-            <div class="panel media pad-all">
-                <div class="media-left">
-                    <span class="icon-wrap icon-wrap-sm icon-circle bg-ticker">
-                        <i class="fa fa-gear fa-2x"></i>
-                    </span>
-                </div>
-
-                <div class="media-body" style="vertical-align: bottom;">
-                    <p class="text-2x mar-no text-thin" id="pNoOfActionWorkflows"></p>
-                    <p class="text-muted mar-no">No. of Action Workflows Discovered</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-lg-3">
-            <div class="panel media pad-all">
-                <div class="media-left">
-                    <span class="icon-wrap icon-wrap-sm icon-circle bg-ticker">
-                        <i class="fa fa-folder fa-2x"></i>
-                    </span>
-                </div>
-                <div class="media-body" style="vertical-align: bottom;">
-                    <p class="text-2x mar-no text-thin" id="pNoOfPackgesLines"></p>
-                    <p class="text-muted mar-no">Physical LoC</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-lg-3">
-            <div class="panel media pad-all">
-                <div class="media-left">
-                    <span class="icon-wrap icon-wrap-sm icon-circle bg-ticker">
-                        <i class="fa fa-flash fa-2x"></i>
-                    </span>
-                </div>
-                <div class="media-body" style="vertical-align: bottom;">
-                    <p class="text-2x mar-no text-thin">
-                        <!--<span id="pNoOfActionWorkflows"></span>-->
-                        <span id="pNoOfEntities"></span>
-                    </p>
-                    <p class="text-muted mar-no">No. of Entities / Attributes</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-
-    <div class="col-lg-6">
-        <div class="panel">
-            <div class="panel-heading" style="background-color: #e0e5ec; height: 35px;">
-                <div class="col-sm-5">
-                    <h3 class="panel-title">File Counts by Package</h3>
-                </div>
-                <div class="col-sm-7" style="margin-top: 10px;">
-
-                </div>
-            </div>
-            <div class="panel-body">
-                <div id="demo-morris-barApp123" style="height: 212px"></div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-6">
-        <div class="panel">
-            <div class="panel-heading" style="background-color: #e0e5ec; height: 35px;">
-                <div class="col-sm-6">
-                    <h3 class="panel-title">File Percentages by Package</h3>
-                </div>
-                <div class="col-sm-6" style="text-align: right; margin-top: 8px;">
-                </div>
-            </div>
-            <div class="panel-body">
-                <div id="demo-flot-donutApp" style="height: 212px; width: 100%;"></div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-6">
-        <div class="panel" style="height: 310px">
-            <div class="panel-heading" style="background-color: #e0e5ec; height: 35px;">
-
-                <div class="col-sm-6">
-                    <h3 class="panel-title">LoC Distribution by Package</h3>
-                </div>
-                <div class="col-sm-6" style="margin-top: 10px;">
-                    <h3 class="panel-title"></h3>
-                </div>
-            </div>
-            <div class="panel-body">
-                <div id="demo-morris-barAppLOC" style="height: 212px"></div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-6" style="padding-left: 0px;">
-        <div class="panel">
-            <div class="panel-heading" style="background-color: #e0e5ec; height: 35px;">
-                <div class="col-sm-6">
-                    <h3 class="panel-title">LoC Percentages by Package</h3>
-                </div>
-                <div class="col-sm-6" style="text-align: right; margin-top: 8px;">
-                </div>
-            </div>
-            <div class="panel-body">
-                <div id="demo-morris-barAppActionWorkFlow" style="height: 212px; width: 100%;"></div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-12">
-        <div class="panel" style="height: 400px">
-            <div class="panel-heading">
-                <h3 class="panel-title" style="background-color: #e0e5ec; height: 40px;">Work Product</h3>
-            </div>
-            <div class="row">
-                <div class="col-sm-6 col-lg-6">
-                    <div class="panel media pad-all">
-                        <div class="media-left">
-                            <span class="icon-wrap icon-wrap-sm icon-circle bg-ticker">
-                                <i class="fa fa-folder-open fa-2x"></i>
-                            </span>
-                        </div>
-
-                        <div class="media-body" style="vertical-align: bottom;">
-                            <p class="text-2x mar-no text-thin" id="pNoOfTags"></p>
-                            <p class="text-muted mar-no">No of Objects w/Tags</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-6">
-                    <div class="panel media pad-all">
-                        <div class="media-left">
-                            <span class="icon-wrap icon-wrap-sm icon-circle bg-ticker">
-                                <i class="fa fa-gear fa-2x"></i>
-
-                            </span>
-                        </div>
-                        <div class="media-body" style="vertical-align: bottom;">
-                            <p class="text-2x mar-no text-thin" id="pNoOfAnnotation"></p>
-                            <p class="text-muted mar-no">No of Objects w/Annotations</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3" style="display: none;">
-                    <div class="panel media pad-all">
-                        <div class="media-left">
-                            <span class="icon-wrap icon-wrap-sm icon-circle bg-ticker">
-                                <i class="fa fa-folder fa-2x"></i>
-                            </span>
-                        </div>
-                        <div class="media-body" style="vertical-align: bottom;">
-                            <p class="text-2x mar-no text-thin" id="pNoOfDeactivated"></p>
-                            <p class="text-muted mar-no">No.of Workflows w/Deactivated Statements</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3" style="display: none;">
-                    <div class="panel media pad-all">
-                        <div class="media-left">
-                            <span class="icon-wrap icon-wrap-sm icon-circle bg-ticker">
-                                <i class="fa fa-flash fa-2x"></i>
-                            </span>
-                        </div>
-                        <div class="media-body" style="vertical-align: bottom;">
-                            <p class="text-2x mar-no text-thin" id="cntBusinessFunctions">
-                            </p>
-                            <p class="text-muted mar-no">No.of Business Functions Defined</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12" style="margin-top: 10px;">
-                <div class="col-sm-4">
-                </div>
-                <div class="col-sm-4"></div>
-                <div class="col-sm-4">
-                    <select class="form-control" id="ddlProjectType"></select>
-                </div>
-                <div class="col-sm-2" style="display: none;">
-                    <button id="btnCoverageDashboard" class="btn btn-primary">Go</button>
-                </div>
-            </div>
-            <div class="panel-body">
-                <div id="barAppCoverageDashboard" style="width: 100%; height: 430px;"></div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-<div id="demo-tabs2-box-2" class="tab-pane fade in active">
-    <div class="col-lg-12">
-        <div class="panel" style="height: 370px; padding-top: 5px;">
-            <h3 class="panel-title" style="background-color: #e0e5ec; height: 40px;">Projects Processed</h3>
-            <div>
-                <table id="demo-foo-col-exp" class="table toggle-circle">
-                    <tr>
-                        <td>
-                            <!--<div id="tblAllProjects"></div>-->
-                            <table style="width: 100%;" class="table table-bordered">
-                                <thead>
-                                <tr>
-                                    <th> SR#</th>
-                                    <th>Project Name</th>
-                                    <th>Language</th>
-                                    <th>No. Of Objects</th>
-                                    <th>Project Size</th>
-                                    <th>Uploaded On</th>
-                                    <th>Processed On</th>
-                                    <th>Action</th>
-                                </tr>
-                                </thead>
-                                <tbody id="tblAllProjects"></tbody>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<nav id="mainnav-container">
-    <div id="mainnav">
-        <div class="nano">
-            <div class="nano-content">
-                <ul id="mainnav-menu" class="list-group"></ul>
-            </div>
-        </div>
-    </div>
-</nav>
-<!--===================================================-->
-<!--END MAIN NAVIGATION-->
-<!--ASIDE-->
-<!--===================================================-->
-<aside id="aside-container">
-    <div id="aside">
-        <div class="nano">
-            <div class="nano-content">
-
-                <!--Nav tabs-->
+                <!--Brand logo & name-->
                 <!--================================-->
-                <ul class="nav nav-tabs nav-justified">
-                    <li class="active">
-                        <a href="#demo-asd-tab-1" data-toggle="tab">
-                            <i class="fa fa-comments"></i>
-                            <span class="badge badge-purple">7</span>
-                        </a>
+                <div class="navbar-header">
+                    <a href="landing.html" class="navbar-brand">
+                        <img src="img/logo.png" alt="Logo" class="brand-icon">
+                        <div class="brand-title">
+                            <span class="brand-text"><font color="#ababab" style="font-style: italic;">flo</font><font color="#ffc000">Kapture</font></span>
+                        </div>
+                    </a>
+                </div>
+                <!--================================-->
+                <!--End brand logo & name-->
+                <!--Navbar Dropdown-->
+                <!--================================-->
+                <div class="navbar-content clearfix">
+                    <ul class="nav navbar-top-links pull-left">
+
+                        <!--Navigation toogle button-->
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <li class="tgl-menu-btn">
+                            <a class="mainnav-toggle" href="#">
+                                <i class="fa fa-navicon fa-lg"></i>
+                            </a>
+                        </li>
+                        <li class="dropdown" style="margin-top: 6px;">
+                            <div class="col-md-12">
+                                <div class="col-md-3" style="margin-top: -7px; padding: 0px;">
+                                    <h3 class="panel-title">I want to...</h3>
+                                </div>
+                                <div class="col-md-7">
+                                    <select class="form-control" data-placeholder="choose Customer" id="ddlSelectOption" tabindex="-1" style="width: 300px;"></select>
+
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-danger btn-labeled fa  fa-external-link-square" id="btnGuideGo">Go</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-top-links pull-right">
+                        <li id="dropdown-user" class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle text-right">
+                                <span class="pull-right">
+                                    <img class="img-circle img-user media-object" src="img/av1.png" alt="Profile Picture">
+                                </span>
+                                <div class="username hidden-xs" id="userName"></div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-md dropdown-menu-right with-arrow panel-default">
+                                <div class="pad-all bord-btm">
+                                    <span class="menu-title">
+                                        <strong><b>Total Projects:</b></strong>
+                                        <span class="pull-right badge badge-warning" id="cntProject"></span>
+                                    </span>
+                                </div>
+                                <ul class="head-list">
+                                    <li>
+                                        <a href="my_profile.html">
+                                            <i class="fa fa-user fa-fw fa-lg"></i>Profile
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="pad-all text-right">
+                                    <a href="#" class="btn btn-primary" id="aLogout">
+                                        <i class="fa fa-sign-out fa-fw"></i>Logout
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <div class="boxed">
+            <div id="content-container">
+                <ol class="breadcrumb"></ol>
+                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                <!--End breadcrumb-->
+                <!--Page content-->
+                <!--===================================================-->
+                <div id="page-content">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title" style="background-color: #e0e5ec; height: 50px;">
+
+                                        <div class="panel-control">
+                                            <ul class="nav nav-tabs" id="projectWorkspaceDataTabs">
+                                                <li id="li_1">
+                                                    <a data-toggle="tab" href="#demo-tabs2-box-1">
+                                                        <i class="fa fa-magic fa-lg"></i>
+                                                    </a>
+                                                </li>
+                                                <li id="li_2" class="active">
+                                                    <a data-toggle="tab" href="#demo-tabs2-box-2">
+                                                        <i class="fa fa-table fa-lg"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="tab-content">
+                                        <div id="demo-tabs2-box-1" class="tab-pane fade in">
+                                            <div class="row" style="margin-top: 10px;">
+                                                <div class="col-lg-12">
+                                                    <div class="panel">
+                                                        <div class="panel-heading" style="background-color: #e0e5ec;">
+                                                            <h3 class="panel-title">Inventory</h3>
+                                                        </div>
+                                                        <div class="panel-body">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12" style="margin-top: 6px; padding: 0px;">
+                                                <div class="row">
+                                                    <div class="col-sm-6 col-lg-3">
+                                                        <div class="panel media pad-all">
+                                                            <div class="media-left">
+                                                                <span class="icon-wrap icon-wrap-sm icon-circle bg-ticker">
+                                                                    <i class="fa fa-folder-open fa-2x"></i>
+                                                                </span>
+                                                            </div>
+                                                            <div class="media-body" style="vertical-align: bottom;">
+                                                                <p class="text-2x mar-no text-thin" id="pClassesScreens"></p>
+                                                                <p class="text-muted mar-no">No. of Files (Classes)</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-lg-3">
+                                                        <div class="panel media pad-all">
+                                                            <div class="media-left">
+                                                                <span class="icon-wrap icon-wrap-sm icon-circle bg-ticker">
+                                                                    <i class="fa fa-gear fa-2x"></i>
+                                                                </span>
+                                                            </div>
+
+                                                            <div class="media-body" style="vertical-align: bottom;">
+                                                                <p class="text-2x mar-no text-thin" id="pNoOfActionWorkflows"></p>
+                                                                <p class="text-muted mar-no">No. of Action Workflows Discovered</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-lg-3">
+                                                        <div class="panel media pad-all">
+                                                            <div class="media-left">
+                                                                <span class="icon-wrap icon-wrap-sm icon-circle bg-ticker">
+                                                                    <i class="fa fa-folder fa-2x"></i>
+                                                                </span>
+                                                            </div>
+                                                            <div class="media-body" style="vertical-align: bottom;">
+                                                                <p class="text-2x mar-no text-thin" id="pNoOfPackgesLines"></p>
+                                                                <p class="text-muted mar-no">Physical LoC</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 col-lg-3">
+                                                        <div class="panel media pad-all">
+                                                            <div class="media-left">
+                                                                <span class="icon-wrap icon-wrap-sm icon-circle bg-ticker">
+                                                                    <i class="fa fa-flash fa-2x"></i>
+                                                                </span>
+                                                            </div>
+                                                            <div class="media-body" style="vertical-align: bottom;">
+                                                                <p class="text-2x mar-no text-thin">
+                                                                    <!--<span id="pNoOfActionWorkflows"></span>-->
+                                                                    <span id="pNoOfEntities"></span>
+                                                                </p>
+                                                                <p class="text-muted mar-no">No. of Entities / Attributes</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+
+                                                <div class="col-lg-6">
+                                                    <div class="panel">
+                                                        <div class="panel-heading" style="background-color: #e0e5ec; height: 35px;">
+                                                            <div class="col-sm-5">
+                                                                <h3 class="panel-title">File Counts by Package</h3>
+                                                            </div>
+                                                            <div class="col-sm-7" style="margin-top: 10px;">
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            <div id="demo-morris-barApp123" style="height: 212px"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="panel">
+                                                        <div class="panel-heading" style="background-color: #e0e5ec; height: 35px;">
+                                                            <div class="col-sm-6">
+                                                                <h3 class="panel-title">File Percentages by Package</h3>
+                                                            </div>
+                                                            <div class="col-sm-6" style="text-align: right; margin-top: 8px;">
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            <div id="demo-flot-donutApp" style="height: 212px; width: 100%;"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="panel" style="height: 310px">
+                                                        <div class="panel-heading" style="background-color: #e0e5ec; height: 35px;">
+
+                                                            <div class="col-sm-6">
+                                                                <h3 class="panel-title">LoC Distribution by Package</h3>
+                                                            </div>
+                                                            <div class="col-sm-6" style="margin-top: 10px;">
+                                                                <h3 class="panel-title"></h3>
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            <div id="demo-morris-barAppLOC" style="height: 212px"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6" style="padding-left: 0px;">
+                                                    <div class="panel">
+                                                        <div class="panel-heading" style="background-color: #e0e5ec; height: 35px;">
+                                                            <div class="col-sm-6">
+                                                                <h3 class="panel-title">LoC Percentages by Package</h3>
+                                                            </div>
+                                                            <div class="col-sm-6" style="text-align: right; margin-top: 8px;">
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            <div id="demo-morris-barAppActionWorkFlow" style="height: 212px; width: 100%;"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="panel" style="height: 400px">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title" style="background-color: #e0e5ec; height: 40px;">Work Product</h3>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-6 col-lg-6">
+                                                                <div class="panel media pad-all">
+                                                                    <div class="media-left">
+                                                                        <span class="icon-wrap icon-wrap-sm icon-circle bg-ticker">
+                                                                            <i class="fa fa-folder-open fa-2x"></i>
+                                                                        </span>
+                                                                    </div>
+
+                                                                    <div class="media-body" style="vertical-align: bottom;">
+                                                                        <p class="text-2x mar-no text-thin" id="pNoOfTags"></p>
+                                                                        <p class="text-muted mar-no">No of Objects w/Tags</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6 col-lg-6">
+                                                                <div class="panel media pad-all">
+                                                                    <div class="media-left">
+                                                                        <span class="icon-wrap icon-wrap-sm icon-circle bg-ticker">
+                                                                            <i class="fa fa-gear fa-2x"></i>
+
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="media-body" style="vertical-align: bottom;">
+                                                                        <p class="text-2x mar-no text-thin" id="pNoOfAnnotation"></p>
+                                                                        <p class="text-muted mar-no">No of Objects w/Annotations</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6 col-lg-3" style="display: none;">
+                                                                <div class="panel media pad-all">
+                                                                    <div class="media-left">
+                                                                        <span class="icon-wrap icon-wrap-sm icon-circle bg-ticker">
+                                                                            <i class="fa fa-folder fa-2x"></i>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="media-body" style="vertical-align: bottom;">
+                                                                        <p class="text-2x mar-no text-thin" id="pNoOfDeactivated"></p>
+                                                                        <p class="text-muted mar-no">No.of Workflows w/Deactivated Statements</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6 col-lg-3" style="display: none;">
+                                                                <div class="panel media pad-all">
+                                                                    <div class="media-left">
+                                                                        <span class="icon-wrap icon-wrap-sm icon-circle bg-ticker">
+                                                                            <i class="fa fa-flash fa-2x"></i>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="media-body" style="vertical-align: bottom;">
+                                                                        <p class="text-2x mar-no text-thin" id="cntBusinessFunctions">
+                                                                        </p>
+                                                                        <p class="text-muted mar-no">No.of Business Functions Defined</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12" style="margin-top: 10px;">
+                                                            <div class="col-sm-4">
+                                                            </div>
+                                                            <div class="col-sm-4"></div>
+                                                            <div class="col-sm-4">
+                                                                <select class="form-control" id="ddlProjectType"></select>
+                                                            </div>
+                                                            <div class="col-sm-2" style="display: none;">
+                                                                <button id="btnCoverageDashboard" class="btn btn-primary">Go</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            <div id="barAppCoverageDashboard" style="width: 100%; height: 430px;"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="demo-tabs2-box-2" class="tab-pane fade in active">
+                                            <div class="col-lg-12">
+                                                <div class="panel" style="height: 370px; padding-top: 5px;">
+                                                    <h3 class="panel-title" style="background-color: #e0e5ec; height: 40px;">Projects Processed</h3>
+                                                    <div>
+                                                        <table id="demo-foo-col-exp" class="table toggle-circle">
+                                                            <tr>
+                                                                <td>
+                                                                    <!--<div id="tblAllProjects"></div>-->
+                                                                    <table style="width: 100%;" class="table table-bordered">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th> SR#</th>
+                                                                                <th>Project Name</th>
+                                                                                <th>Language</th>
+                                                                                <th>No. Of Objects</th>
+                                                                                <th>Project Size</th>
+                                                                                <th>Uploaded On</th>
+                                                                                <th>Processed On</th>
+                                                                                <th>Action</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody id="tblAllProjects"></tbody>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <nav id="mainnav-container">
+                <div id="mainnav">
+                    <div class="nano">
+                        <div class="nano-content">
+                            <ul id="mainnav-menu" class="list-group"></ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!--===================================================-->
+            <!--END MAIN NAVIGATION-->
+            <!--ASIDE-->
+            <!--===================================================-->
+            <aside id="aside-container">
+                <div id="aside">
+                    <div class="nano">
+                        <div class="nano-content">
+
+                            <!--Nav tabs-->
+                            <!--================================-->
+                            <ul class="nav nav-tabs nav-justified">
+                                <li class="active">
+                                    <a href="#demo-asd-tab-1" data-toggle="tab">
+                                        <i class="fa fa-comments"></i>
+                                        <span class="badge badge-purple">7</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#demo-asd-tab-2" data-toggle="tab">
+                                        <i class="fa fa-info-circle"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#demo-asd-tab-3" data-toggle="tab">
+                                        <i class="fa fa-wrench"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!--==============================Projects Processed==-->
+                            <!--End nav tabs-->
+                            <!-- Tabs Content -->
+                            <!--================================-->
+                            <div class="tab-content">
+
+                                <!--First tab (Contact list)-->
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <div class="tab-pane fade in active" id="demo-asd-tab-1">
+                                    <h4 class="pad-hor text-thin">
+                                        <span class="pull-right badge badge-warning">3</span> Messages
+                                    </h4>
+
+                                    <!--Family-->
+                                    <div class="list-group bg-trans">
+                                        <a href="#" class="list-group-item">
+                                            <div class="media-left">
+                                                <img class="img-circle img-xs" src="img/av2.png" alt="Profile Picture">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="text-lg">Stephen Tran</div>
+                                                <span class="text-muted">Availabe</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                            <div class="media-left">
+                                                <img class="img-circle img-xs" src="img/av4.png" alt="Profile Picture">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="text-lg">Brittany Meyer</div>
+                                                <span class="text-muted">I think so</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                            <div class="media-left">
+                                                <img class="img-circle img-xs" src="img/av3.png" alt="Profile Picture">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="text-lg">Donald Brown</div>
+                                                <span class="text-muted">Lorem ipsum dolor sit amet.</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <hr>
+                                </div>
+
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <!--End first tab (Contact list)-->
+                                <!--Second tab (Custom layout)-->
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <div class="tab-pane fade" id="demo-asd-tab-2">
+
+                                    <!--Simple Menu-->
+                                    <div class="list-group bg-trans">
+                                        <a href="#" class="list-group-item"><span class="label label-danger pull-right">Featured</span>Edit Password</a>
+                                        <a href="#" class="list-group-item">My Profile</a>
+                                        <a href="#" class="list-group-item">My Activity</a>
+                                        <hr>
+                                        <a href="#" class="list-group-item">License Details</a>
+                                    </div>
+
+
+                                    <hr>
+
+                                    <div class="text-center">
+                                        Questions?
+                                        <p class="text-lg text-semibold">(202) 674-3435 </p>
+                                    </div>
+                                </div>
+                                <!--End second tab (Custom layout)-->
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <!--Third tab (Settings)-->
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <div class="tab-pane fade" id="demo-asd-tab-3">
+                                    <ul class="list-group bg-trans">
+                                        <li class="list-header">
+                                            <h4 class="text-thin">Account Settings</h4>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="pull-right">
+                                                <input class="demo-switch" type="checkbox" checked>
+                                            </div>
+                                            <p>Login to Search</p>
+                                            <small class="text-muted">Take me directly to Search as default when I login.</small>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="pull-right">
+                                                <input class="demo-switch" type="checkbox" checked>
+                                            </div>
+                                            <p>Alert License Periods</p>
+                                            <small class="text-muted">Warn me when my license is to expire in 15 days.</small>
+                                        </li>
+                                    </ul>
+
+
+                                    <hr>
+
+                                    <h4 class="pad-hor text-thin">Task Progress</h4>
+                                    <div class="pad-all">
+                                        <p>My Job Progress</p>
+                                        <div class="progress progress-sm">
+                                            <div class="progress-bar progress-bar-success" style="width: 15%;">
+                                                <span class="sr-only">15%</span>
+                                            </div>
+                                        </div>
+                                        <small class="text-muted">15% Completed</small>
+                                    </div>
+                                    <div class="pad-hor">
+                                        <p>Queue Size</p>
+                                        <div class="progress progress-sm">
+                                            <div class="progress-bar progress-bar-danger" style="width: 75%;">
+                                                <span class="sr-only">75%</span>
+                                            </div>
+                                        </div>
+                                        <small class="text-muted">#Jobs before me</small>
+                                    </div>
+
+                                </div>
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <!--Third tab (Settings)-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <!--===================================================-->
+            <!--END ASIDE-->
+
+        </div>
+
+
+        <!-- FOOTER -->
+        <!--===================================================-->
+        <footer id="footer">
+
+            <!-- Visible when footer positions are fixed -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <div class="show-fixed pull-right">
+                <ul class="footer-list list-inline">
+                    <li>
+                        <p class="text-sm">Approved Users</p>
+                        <div class="progress progress-sm progress-light-base">
+                            <div style="width: 80%" class="progress-bar progress-bar-danger"></div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <p class="text-sm">INTELLI Discovery Jobs Status</p>
+                        <div class="progress progress-sm progress-light-base">
+                            <div style="width: 80%" class="progress-bar progress-bar-primary"></div>
+                        </div>
                     </li>
                     <li>
-                        <a href="#demo-asd-tab-2" data-toggle="tab">
-                            <i class="fa fa-info-circle"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#demo-asd-tab-3" data-toggle="tab">
-                            <i class="fa fa-wrench"></i>
-                        </a>
+                        <button class="btn btn-sm btn-dark btn-active-success">View Task Queue</button>
                     </li>
                 </ul>
-                <!--==============================Projects Processed==-->
-                <!--End nav tabs-->
-                <!-- Tabs Content -->
-                <!--================================-->
-                <div class="tab-content">
+            </div>
 
-                    <!--First tab (Contact list)-->
-                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                    <div class="tab-pane fade in active" id="demo-asd-tab-1">
-                        <h4 class="pad-hor text-thin">
-                            <span class="pull-right badge badge-warning">3</span> Messages
-                        </h4>
 
-                        <!--Family-->
-                        <div class="list-group bg-trans">
-                            <a href="#" class="list-group-item">
-                                <div class="media-left">
-                                    <img class="img-circle img-xs" src="img/av2.png" alt="Profile Picture">
-                                </div>
-                                <div class="media-body">
-                                    <div class="text-lg">Stephen Tran</div>
-                                    <span class="text-muted">Availabe</span>
-                                </div>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <div class="media-left">
-                                    <img class="img-circle img-xs" src="img/av4.png" alt="Profile Picture">
-                                </div>
-                                <div class="media-body">
-                                    <div class="text-lg">Brittany Meyer</div>
-                                    <span class="text-muted">I think so</span>
-                                </div>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <div class="media-left">
-                                    <img class="img-circle img-xs" src="img/av3.png" alt="Profile Picture">
-                                </div>
-                                <div class="media-body">
-                                    <div class="text-lg">Donald Brown</div>
-                                    <span class="text-muted">Lorem ipsum dolor sit amet.</span>
-                                </div>
-                            </a>
-                        </div>
-                        <hr>
+            <!-- Visible when footer positions are static -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <div class="hide-fixed pull-right pad-rgt" id="divVersion"></div>
+            <p class="pad-lft">
+                &#0169; 2017 FloKapture Solutions. All Rights Reserved.
+            </p>
+
+
+        </footer>
+        <!--===================================================-->
+        <!-- END FOOTER -->
+        <!-- SCROLL TOP BUTTON -->
+        <!--===================================================-->
+        <button id="scroll-top" class="btn">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+        <!--===================================================-->
+
+    </div>
+    <div class="container">
+        <div class="modal fade" id="div-approve-freeze-project" role="dialog">
+            <div class="modal-dialog" style="width: 45%;">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Approve Project Freeze</h4>
                     </div>
-
-                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                    <!--End first tab (Contact list)-->
-                    <!--Second tab (Custom layout)-->
-                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                    <div class="tab-pane fade" id="demo-asd-tab-2">
-
-                        <!--Simple Menu-->
-                        <div class="list-group bg-trans">
-                            <a href="#" class="list-group-item"><span class="label label-danger pull-right">Featured</span>Edit Password</a>
-                            <a href="#" class="list-group-item">My Profile</a>
-                            <a href="#" class="list-group-item">My Activity</a>
-                            <hr>
-                            <a href="#" class="list-group-item">License Details</a>
+                    <div class="modal-body" style="padding: 16px 35px; height: 250px;">
+                        <div class="col-md-12">
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        Are you sure you want to Approve this project to Freeze for Audit?
+                                    </td>
+                                </tr>
+                                <tr> <td style="height: 5px;">&nbsp;</td> </tr>
+                                <tr>
+                                    <td>
+                                        <table style="width: 100%;">
+                                            <tr>
+                                                <td style="width: 15%;"><a href="#" onclick="approveFreeze('Approved');"><button class="btn btn-mint">Approve</button></a></td>
+                                                <td><a href="#" onclick="approveFreeze('Declined');"><button class="btn btn-danger">Decline</button></a></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
-
-
-                        <hr>
-
-                        <div class="text-center">
-                            Questions?
-                            <p class="text-lg text-semibold">(202) 674-3435 </p>
-                        </div>
+                        <input id="project-freeze-id" type="hidden" value="" />
                     </div>
-                    <!--End second tab (Custom layout)-->
-                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                    <!--Third tab (Settings)-->
-                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                    <div class="tab-pane fade" id="demo-asd-tab-3">
-                        <ul class="list-group bg-trans">
-                            <li class="list-header">
-                                <h4 class="text-thin">Account Settings</h4>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="pull-right">
-                                    <input class="demo-switch" type="checkbox" checked>
-                                </div>
-                                <p>Login to Search</p>
-                                <small class="text-muted">Take me directly to Search as default when I login.</small>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="pull-right">
-                                    <input class="demo-switch" type="checkbox" checked>
-                                </div>
-                                <p>Alert License Periods</p>
-                                <small class="text-muted">Warn me when my license is to expire in 15 days.</small>
-                            </li>
-                        </ul>
-
-
-                        <hr>
-
-                        <h4 class="pad-hor text-thin">Task Progress</h4>
-                        <div class="pad-all">
-                            <p>My Job Progress</p>
-                            <div class="progress progress-sm">
-                                <div class="progress-bar progress-bar-success" style="width: 15%;">
-                                    <span class="sr-only">15%</span>
-                                </div>
-                            </div>
-                            <small class="text-muted">15% Completed</small>
-                        </div>
-                        <div class="pad-hor">
-                            <p>Queue Size</p>
-                            <div class="progress progress-sm">
-                                <div class="progress-bar progress-bar-danger" style="width: 75%;">
-                                    <span class="sr-only">75%</span>
-                                </div>
-                            </div>
-                            <small class="text-muted">#Jobs before me</small>
-                        </div>
-
-                    </div>
-                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                    <!--Third tab (Settings)-->
-
                 </div>
             </div>
         </div>
     </div>
-</aside>
-<!--===================================================-->
-<!--END ASIDE-->
 
-</div>
-
-
-<!-- FOOTER -->
-<!--===================================================-->
-<footer id="footer">
-
-    <!-- Visible when footer positions are fixed -->
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <div class="show-fixed pull-right">
-        <ul class="footer-list list-inline">
-            <li>
-                <p class="text-sm">Approved Users</p>
-                <div class="progress progress-sm progress-light-base">
-                    <div style="width: 80%" class="progress-bar progress-bar-danger"></div>
-                </div>
-            </li>
-
-            <li>
-                <p class="text-sm">INTELLI Discovery Jobs Status</p>
-                <div class="progress progress-sm progress-light-base">
-                    <div style="width: 80%" class="progress-bar progress-bar-primary"></div>
-                </div>
-            </li>
-            <li>
-                <button class="btn btn-sm btn-dark btn-active-success">View Task Queue</button>
-            </li>
-        </ul>
-    </div>
-
-
-    <!-- Visible when footer positions are static -->
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <div class="hide-fixed pull-right pad-rgt" id="divVersion"></div>
-    <p class="pad-lft">
-        &#0169; 2017 FloKapture Solutions. All Rights Reserved.
-    </p>
-
-
-</footer>
-<!--===================================================-->
-<!-- END FOOTER -->
-<!-- SCROLL TOP BUTTON -->
-<!--===================================================-->
-<button id="scroll-top" class="btn">
-    <i class="fa fa-chevron-up"></i>
-</button>
-<!--===================================================-->
-
-</div>
-<div class="container">
-    <div class="modal fade" id="div-approve-freeze-project" role="dialog">
-        <div class="modal-dialog" style="width: 45%;">
-            <div class="modal-content">
-                <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Approve Project Freeze</h4>
-                </div>
-                <div class="modal-body" style="padding: 16px 35px; height: 250px;">
-                    <div class="col-md-12">
+    <div class="container">
+        <div class="modal fade" id="freeze-tags-dialog" role="dialog">
+            <div class="modal-dialog" style="width: 570px; margin-top: 10px; ">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: -1px 10px 30px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4>Freeze Associated Items (Tags)</h4>
+                    </div>
+                    <div class="col-md-12" style="padding-top: 10px; padding-bottom: 10px;">
                         <table style="width: 100%;">
                             <tr>
-                                <td>
-                                    Are you sure you want to Approve this project to Freeze for Audit?
+                                <td style="width: 20%;">
+                                    Project Selected:
                                 </td>
+                                <td id="td-selected-project"></td>
                             </tr>
-                            <tr> <td style="height: 5px;">&nbsp;</td> </tr>
+                            <tr><td colspan="2" style="height: 2px;">&nbsp;</td></tr>
                             <tr>
-                                <td>
+                                <td></td>
+                            </tr>
+                            <tr><td colspan="2" style="height: 2px;">&nbsp;</td></tr>
+                            <tr>
+                                <td colspan="2">
                                     <table style="width: 100%;">
                                         <tr>
-                                            <td style="width: 15%;"><a href="#" onclick="approveFreeze('Approved');"><button class="btn btn-mint">Approve</button></a></td>
-                                            <td><a href="#" onclick="approveFreeze('Declined');"><button class="btn btn-danger">Decline</button></a></td>
+                                            <td style="width: 12%;">
+                                                <button onclick="freezeSelectedProject();" id="btn-freeze-project" class="btn btn-primary">Freeze</button>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                            </td>
                                         </tr>
                                     </table>
                                 </td>
                             </tr>
                         </table>
                     </div>
-                    <input id="project-freeze-id" type="hidden" value="" />
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="modal fade" id="freeze-tags-dialog" role="dialog">
-        <div class="modal-dialog" style="width: 570px; margin-top: 10px; ">
-            <div class="modal-content">
-                <div class="modal-header" style="padding: -1px 10px 30px 10px; text-align: center;">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4>Freeze Associated Items (Tags)</h4>
-                </div>
-                <div class="col-md-12" style="padding-top: 10px; padding-bottom: 10px;">
-                    <table style="width: 100%;">
-                        <tr>
-                            <td style="width: 20%;">
-                                Project Selected:
-                            </td>
-                            <td id="td-selected-project"></td>
-                        </tr>
-                        <tr><td colspan="2" style="height: 2px;">&nbsp;</td></tr>
-                        <tr>
-                            <td></td>
-                        </tr>
-                        <tr><td colspan="2" style="height: 2px;">&nbsp;</td></tr>
-                        <tr>
-                            <td colspan="2">
-                                <table style="width: 100%;">
-                                    <tr>
-                                        <td style="width: 12%;">
-                                            <button onclick="freezeSelectedProject();" id="btn-freeze-project" class="btn btn-primary">Freeze</button>
-                                        </td>
-                                        <td>
-                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="modal fade" id="divEntities" role="dialog">
-        <div class="modal-dialog" style="width: 950px;">
-            <div class="modal-content">
-                <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 id="H10"><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Associated Workflows</h4>
-                </div>
-                <div class="modal-body" style="padding: 16px 35px; height: 550px;  overflow: scroll;">
-
-                    <div id="divEntitiesList">
+                    <div class="modal-footer">
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div>
-    <a class="fileDownloadPromise" id="a123456" href="#" style="display: none;"></a>
-</div>
-<div class="modal">
-    <img src="images/ajax-loader.gif" alt="" />
-</div>
+    <div class="container">
+        <div class="modal fade" id="divEntities" role="dialog">
+            <div class="modal-dialog" style="width: 950px;">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 id="H10"><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Associated Workflows</h4>
+                    </div>
+                    <div class="modal-body" style="padding: 16px 35px; height: 550px;  overflow: scroll;">
 
-<div id="flotTip" style="display: none; position: absolute; background: rgb(255, 255, 255); z-index: 100; padding: 0.4em 2.6em; border-radius: 0.5em; font-size: 0.9em; border: 1px solid rgb(17, 17, 17); white-space: nowrap; left: 556px; top: 839px;"></div>
-<script src="syncfusion/external/jquery-2.1.4.min.js"></script>
-<link href="syncfusion/css/web/bootstrap-theme/ej.theme.min.css" rel="stylesheet" />
-<link href="syncfusion/css/web/bootstrap-theme/ej.web.all.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="jqwidgets/styles/jqx.base.css" type="text/css" />
-<link href="syncfusion/css/web/ej.widgets.core.min.css" rel="stylesheet" />
-<script src="syncfusion/scripts/common/ej.core.min.js"></script>
-<script src="syncfusion/external/jquery.easing.1.3.min.js"></script>
-<script src="syncfusion/external/jsrender.min.js"></script>
-<script src="syncfusion/scripts/web/ej.web.all.min.js"></script>
-<!--<script src="scripts/flowchart/MicrosoftAjax.js"></script>-->
-<script src="plugins/bootbox/bootbox.min.js"></script>
-<script src="app-settings/base-address.js"></script>
-<script type="text/javascript" src="scripts/index.js"></script>
-<script type="text/javascript" src="app-settings/version.js"></script>
-<!--<script src="scripts/breadcrumbs.js"></script>
-<script src="scripts/validation.js"></script>
+                        <div id="divEntitiesList">
+                        </div>
 
-<script src="scripts/leftSitePanel.js"></script>-->
-<script type="text/javascript" src="jqwidgets/jqxcore.js"></script>
-<script type="text/javascript" src="jqwidgets/jqxdata.js"></script>
-<script type="text/javascript" src="jqwidgets/jqxdraw.js"></script>
-<script type="text/javascript" src="jqwidgets/jqxchart.core.js"></script>
-<!--BootstrapJS [ RECOMMENDED ]-->
-<script src="js/bootstrap.min.js"></script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a class="fileDownloadPromise" id="a123456" href="#" style="display: none;"></a>
+    </div>
+    <div class="modal">
+        <img src="images/ajax-loader.gif" alt="" />
+    </div>
 
+    <div id="flotTip" style="display: none; position: absolute; background: rgb(255, 255, 255); z-index: 100; padding: 0.4em 2.6em; border-radius: 0.5em; font-size: 0.9em; border: 1px solid rgb(17, 17, 17); white-space: nowrap; left: 556px; top: 839px;"></div>
+    <script src="syncfusion/external/jquery-2.1.4.min.js"></script>
+    <link href="syncfusion/css/web/bootstrap-theme/ej.theme.min.css" rel="stylesheet" />
+    <link href="syncfusion/css/web/bootstrap-theme/ej.web.all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="jqwidgets/styles/jqx.base.css" type="text/css" />
+    <link href="syncfusion/css/web/ej.widgets.core.min.css" rel="stylesheet" />
+    <script src="syncfusion/scripts/common/ej.core.min.js"></script>
+    <script src="syncfusion/external/jquery.easing.1.3.min.js"></script>
+    <script src="syncfusion/external/jsrender.min.js"></script>
+    <script src="syncfusion/scripts/web/ej.web.all.min.js"></script>
+    <script src="scripts/flowchart/MicrosoftAjax.js"></script>
+    <script src="plugins/bootbox/bootbox.min.js"></script>
+    <!--<script src="scripts/checklicense.js"></script>-->
+    <!--<script src="external/webcomponents-lite.js"></script>-->
 
-<!--Fast Click [ OPTIONAL ]-->
-<script src="plugins/fast-click/fastclick.min.js"></script>
+    <script src="app-settings/base-address.js"></script>
+    <!--<script src="scripts/left-side-import.js"></script>-->
+    <!--<script src="scripts/left-side-menu-bar.js"></script>-->
+    <script src="common-scripts/breadcrumbs.js"></script>
 
+    <script src="common-scripts/validation.js"></script>
 
-<!--Nifty Admin [ RECOMMENDED ]-->
-<script src="js/nifty.min.js"></script>
+    <!--<script src="scripts/commonJs.js"></script>-->
 
-<script src="plugins/morris-js/morris.min.js"></script>
-<!--Morris.js [ OPTIONAL ]-->
-<script src="plugins/morris-js/raphael-js/raphael.min.js"></script>
-
-
-<!--Sparkline [ OPTIONAL ]-->
-<script src="plugins/sparkline/jquery.sparkline.min.js"></script>
-
-
-<!--Skycons [ OPTIONAL ]-->
-<script src="plugins/skycons/skycons.min.js"></script>
-
-
-<!--Switchery [ OPTIONAL ]-->
-<script src="plugins/switchery/switchery.min.js"></script>
-
-
-<!--Bootstrap Select [ OPTIONAL ]-->
-<script src="plugins/bootstrap-select/bootstrap-select.min.js"></script>
-
-
-<!--Flot Chart [ OPTIONAL ]-->
-<script src="plugins/flot-charts/jquery.flot.min.js"></script>
-<script src="plugins/flot-charts/jquery.flot.resize.min.js"></script>
+    <script src="app-settings/version.js"></script>
+    <!--<script src="scripts/actions-log.js"></script>
+    <script src="scripts/leftmenu.js"></script>-->
+    <script src="scripts/index.js"></script>
+    <script src="common-scripts/leftSitePanel.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxdraw.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxchart.core.js"></script>
+    <!--BootstrapJS [ RECOMMENDED ]-->
+    <script src="js/bootstrap.min.js"></script>
 
 
-<!--Flot Pie Chart [ OPTIONAL ]-->
-<script src="plugins/flot-charts/jquery.flot.pie.min.js"></script>
-<script src="plugins/flot-charts/jquery.flot.tooltip.min.js"></script>
-<!--Easy Pie Chart [ OPTIONAL ]-->
-<script src="plugins/easy-pie-chart/jquery.easypiechart.min.js"></script>
-
-<!--Demo script [ DEMONSTRATION ]-->
-<script src="js/demo/nifty-demo.min.js"></script>
+    <!--Fast Click [ OPTIONAL ]-->
+    <script src="plugins/fast-click/fastclick.min.js"></script>
 
 
+    <!--Nifty Admin [ RECOMMENDED ]-->
+    <script src="js/nifty.min.js"></script>
+
+    <script src="plugins/morris-js/morris.min.js"></script>
+    <!--Morris.js [ OPTIONAL ]-->
+    <script src="plugins/morris-js/raphael-js/raphael.min.js"></script>
+
+
+    <!--Sparkline [ OPTIONAL ]-->
+    <script src="plugins/sparkline/jquery.sparkline.min.js"></script>
+
+
+    <!--Skycons [ OPTIONAL ]-->
+    <script src="plugins/skycons/skycons.min.js"></script>
+
+
+    <!--Switchery [ OPTIONAL ]-->
+    <script src="plugins/switchery/switchery.min.js"></script>
+
+
+    <!--Bootstrap Select [ OPTIONAL ]-->
+    <script src="plugins/bootstrap-select/bootstrap-select.min.js"></script>
+
+
+    <!--Flot Chart [ OPTIONAL ]-->
+    <script src="plugins/flot-charts/jquery.flot.min.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.resize.min.js"></script>
+
+
+    <!--Flot Pie Chart [ OPTIONAL ]-->
+    <script src="plugins/flot-charts/jquery.flot.pie.min.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.tooltip.min.js"></script>
+    <!--Easy Pie Chart [ OPTIONAL ]-->
+    <script src="plugins/easy-pie-chart/jquery.easypiechart.min.js"></script>
+
+    <!--Demo script [ DEMONSTRATION ]-->
+    <script src="js/demo/nifty-demo.min.js"></script>
 </body>
 </html>

@@ -19,7 +19,7 @@ var diagram = null; // $.fn.floKaptureDiagram("diagram-workflow", false, "#FFFFF
 
 (function ($) {
 
-    $.fn.floKaptureDiagram = function (id, gridLines, backBrush) {
+    $.fn.floKaptureDiagram = function(id, gridLines, backBrush) {
         var diagramCustom = $create(Diagram, null, null, null, $get(id)); // Diagram.find("diagram");
         diagramCustom.setShowGrid(gridLines);
         diagramCustom.setLinkHeadShapeSize(2);
@@ -125,12 +125,12 @@ var diagram = null; // $.fn.floKaptureDiagram("diagram-workflow", false, "#FFFFF
         this.topToBottom();
     };
 
-    this.buildDiagram = function (lstNodes, lstLinks) {
+    this.buildDiagram = function(lstNodes, lstLinks) {
         diagram.clearAll();
         var nodeMap = [];
         var nodes = lstNodes;
         Array.forEach(nodes,
-            function (node) {
+            function(node) {
                 var nodewidth = node.Width === null ? 55 : parseInt(node.Width / 2.2);
                 var diagramNode = diagram.getFactory().createShapeNode(new Rect(10, 15, parseInt(nodewidth), 15));
                 diagramNode.shadowOffsetX = 0;
@@ -162,98 +162,98 @@ var diagram = null; // $.fn.floKaptureDiagram("diagram-workflow", false, "#FFFFF
             });
 
         var links = lstLinks;
-        Array.forEach(links, function (link) {
-            var link1 = diagram.getFactory().createDiagramLink(nodeMap[link.Origin], nodeMap[link.Target]);
-            if (typeof link.Origin !== 'undefined' && link.Origin !== null)
-                link1.originId = link.Origin;
-            if (typeof link.Target !== 'undefined' && link.Target !== null)
-                link1.targetId = link.Target;
-            if (typeof link.LinkText !== 'undefined' && link.LinkText !== null)
-                link1.linkText = link.LinkText;
-            if (typeof link.ProgramId !== 'undefined' && link.ProgramId !== null)
-                link1.programId = link.ProgramId;
-            if (typeof link.StatementId !== 'undefined' && link.StatementId !== null)
-                link1.statementId = link.StatementId;
-            if (typeof link.ActionWorkflowId !== 'undefined' && link.ActionWorkflowId !== null)
-                link1.actionWorkflowId = link.ActionWorkflowId;
-            if (typeof link.LineType !== 'undefined' && link.LineType !== null) {
-                link1.setHeadBrush(link.LineColor);
-                link1.setHeadShape('Triangle');
-                link1.lineColor = link.LineColor;
-                link1.lineType = link.LineType;
-            } else {
-                link1.lineColor = "";
-                link1.lineType = "";
-            }
-            link1.text = link.LinkText;
-            link1.route();
-        });
+        Array.forEach(links, function(link) {
+                var link1 = diagram.getFactory().createDiagramLink(nodeMap[link.Origin], nodeMap[link.Target]);
+                if (typeof link.Origin !== 'undefined' && link.Origin !== null)
+                    link1.originId = link.Origin;
+                if (typeof link.Target !== 'undefined' && link.Target !== null)
+                    link1.targetId = link.Target;
+                if (typeof link.LinkText !== 'undefined' && link.LinkText !== null)
+                    link1.linkText = link.LinkText;
+                if (typeof link.ProgramId !== 'undefined' && link.ProgramId !== null)
+                    link1.programId = link.ProgramId;
+                if (typeof link.StatementId !== 'undefined' && link.StatementId !== null)
+                    link1.statementId = link.StatementId;
+                if (typeof link.ActionWorkflowId !== 'undefined' && link.ActionWorkflowId !== null)
+                    link1.actionWorkflowId = link.ActionWorkflowId;
+                if (typeof link.LineType !== 'undefined' && link.LineType !== null) {
+                    link1.setHeadBrush(link.LineColor);
+                    link1.setHeadShape('Triangle');
+                    link1.lineColor = link.LineColor;
+                    link1.lineType = link.LineType;
+                } else {
+                    link1.lineColor = "";
+                    link1.lineType = "";
+                }
+                link1.text = link.LinkText;
+                link1.route();
+            });
 
         this.topToBottom();
     };
 
-    this.buildDiagramCustom = function (lstNodes, lstLinks) {
+    this.buildDiagramCustom = function(lstNodes, lstLinks) {
         diagram.clearAll();
         var nodeMap = [];
         var nodes = lstNodes;
-        Array.forEach(nodes, function (node) {
-            var nodewidth = node.Width === null ? 55 : parseInt(node.Width / 2.2);
-            var diagramNode = diagram.getFactory().createShapeNode(new Rect(10, 15, parseInt(nodewidth), 15));
-            diagramNode.shadowOffsetX = 0;
-            diagramNode.shadowOffsetY = 0;
-            diagramNode.setStroke("Transparent");
-            nodeMap[node.Id] = diagramNode;
-            diagramNode.id = node.Id;
-            diagramNode.width = node.Width;
-            diagramNode.jsonId = node.Id;
-            diagramNode.setText(node.Name);
-            diagramNode.setShape(node.ShapeId);
-            diagramNode.setBrush(node.Color);
-            if (typeof node.ActionWorkflowId !== 'undefined' && node.ActionWorkflowId !== null)
-                diagramNode.actionWorkflowId = node.ActionWorkflowId;
-            if (typeof node.ProgramId !== 'undefined' && node.ProgramId !== null)
-                diagramNode.programId = node.ProgramId;
-            if (typeof node.GroupId !== 'undefined' && node.GroupId !== null)
-                diagramNode.groupId = node.GroupId;
-            if (typeof node.GroupName !== 'undefined' && node.GroupName !== null)
-                diagramNode.groupName = node.GroupName;
-            if (typeof node.StatementId !== 'undefined' && node.StatementId !== null)
-                diagramNode.statementId = node.StatementId;
-            if (typeof node.ShapeId !== 'undefined' && node.ShapeId !== null)
-                diagramNode.shapeId = node.ShapeId;
-            if (typeof node.Name !== 'undefined' && node.Name !== null)
-                diagramNode.nodeName = node.Name;
-            if (typeof node.Color !== 'undefined' && node.Color !== null)
-                diagramNode.nodeColor = node.Color;
-        });
+        Array.forEach(nodes, function(node) {
+                var nodewidth = node.Width === null ? 55 : parseInt(node.Width / 2.2);
+                var diagramNode = diagram.getFactory().createShapeNode(new Rect(10, 15, parseInt(nodewidth), 15));
+                diagramNode.shadowOffsetX = 0;
+                diagramNode.shadowOffsetY = 0;
+                diagramNode.setStroke("Transparent");
+                nodeMap[node.Id] = diagramNode;
+                diagramNode.id = node.Id;
+                diagramNode.width = node.Width;
+                diagramNode.jsonId = node.Id;
+                diagramNode.setText(node.Name);
+                diagramNode.setShape(node.ShapeId);
+                diagramNode.setBrush(node.Color);
+                if (typeof node.ActionWorkflowId !== 'undefined' && node.ActionWorkflowId !== null)
+                    diagramNode.actionWorkflowId = node.ActionWorkflowId;
+                if (typeof node.ProgramId !== 'undefined' && node.ProgramId !== null)
+                    diagramNode.programId = node.ProgramId;
+                if (typeof node.GroupId !== 'undefined' && node.GroupId !== null)
+                    diagramNode.groupId = node.GroupId;
+                if (typeof node.GroupName !== 'undefined' && node.GroupName !== null)
+                    diagramNode.groupName = node.GroupName;
+                if (typeof node.StatementId !== 'undefined' && node.StatementId !== null)
+                    diagramNode.statementId = node.StatementId;
+                if (typeof node.ShapeId !== 'undefined' && node.ShapeId !== null)
+                    diagramNode.shapeId = node.ShapeId;
+                if (typeof node.Name !== 'undefined' && node.Name !== null)
+                    diagramNode.nodeName = node.Name;
+                if (typeof node.Color !== 'undefined' && node.Color !== null)
+                    diagramNode.nodeColor = node.Color;
+            });
 
         var links = lstLinks;
-        Array.forEach(links, function (link) {
-            var link1 = diagram.getFactory().createDiagramLink(nodeMap[link.Origin], nodeMap[link.Target]);
-            if (typeof link.Origin !== 'undefined' && link.Origin !== null)
-                link1.originId = link.Origin;
-            if (typeof link.Target !== 'undefined' && link.Target !== null)
-                link1.targetId = link.Target;
-            if (typeof link.LinkText !== 'undefined' && link.LinkText !== null)
-                link1.linkText = link.LinkText;
-            if (typeof link.ProgramId !== 'undefined' && link.ProgramId !== null)
-                link1.programId = link.ProgramId;
-            if (typeof link.StatementId !== 'undefined' && link.StatementId !== null)
-                link1.statementId = link.StatementId;
-            if (typeof link.ActionWorkflowId !== 'undefined' && link.ActionWorkflowId !== null)
-                link1.actionWorkflowId = link.ActionWorkflowId;
-            if (typeof link.LineType !== 'undefined' && link.LineType !== null) {
-                link1.setHeadBrush(link.LineColor);
-                link1.setHeadShape('Triangle');
-                link1.lineColor = link.LineColor;
-                link1.lineType = link.LineType;
-            } else {
-                link1.lineColor = "";
-                link1.lineType = "";
-            }
-            link1.text = link.LinkText;
-            link1.route();
-        });
+        Array.forEach(links, function(link) {
+                var link1 = diagram.getFactory().createDiagramLink(nodeMap[link.Origin], nodeMap[link.Target]);
+                if (typeof link.Origin !== 'undefined' && link.Origin !== null)
+                    link1.originId = link.Origin;
+                if (typeof link.Target !== 'undefined' && link.Target !== null)
+                    link1.targetId = link.Target;
+                if (typeof link.LinkText !== 'undefined' && link.LinkText !== null)
+                    link1.linkText = link.LinkText;
+                if (typeof link.ProgramId !== 'undefined' && link.ProgramId !== null)
+                    link1.programId = link.ProgramId;
+                if (typeof link.StatementId !== 'undefined' && link.StatementId !== null)
+                    link1.statementId = link.StatementId;
+                if (typeof link.ActionWorkflowId !== 'undefined' && link.ActionWorkflowId !== null)
+                    link1.actionWorkflowId = link.ActionWorkflowId;
+                if (typeof link.LineType !== 'undefined' && link.LineType !== null) {
+                    link1.setHeadBrush(link.LineColor);
+                    link1.setHeadShape('Triangle');
+                    link1.lineColor = link.LineColor;
+                    link1.lineType = link.LineType;
+                } else {
+                    link1.lineColor = "";
+                    link1.lineType = "";
+                }
+                link1.text = link.LinkText;
+                link1.route();
+            });
 
         this.topToBottom();
     };

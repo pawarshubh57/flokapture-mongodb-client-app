@@ -6,7 +6,7 @@ var projectIdList = window.localStorage.getItem("projectIds");
 var mainDataForVba = window.localStorage.getItem("mainDataForVba");
 var childDataForVba = window.localStorage.getItem("childDataForVba");
 var searchKeyWord = window.localStorage.getItem("searchKeyWord");
-var mainData = null; // window.localStorage.getItem("mainData");
+var mainData = window.localStorage.getItem("mainData");
 var projectName = window.localStorage.getItem("projectName");
 var prajId = window.localStorage.getItem("projectId");
 var languageId = window.localStorage.getItem("languageId");
@@ -21,11 +21,10 @@ $(document).on({
 });
 
 $(document).ready(function () {
-    /*
     const finalMeunBar = window.localStorage.getItem("userRoleMenu");
     $("#mainnav-menu").html(finalMeunBar);
     const uName = window.localStorage.getItem("uName");
-    document.getElementById("userName").innerHTML = uName;*/
+    document.getElementById("userName").innerHTML = uName;
 });
 
 $(document).ready(function() {

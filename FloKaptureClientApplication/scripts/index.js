@@ -127,7 +127,7 @@ function loadDataForGraph() {
         }
     });
 
-    $.get(baseAddress + "ProjectMaster/GetApplicationLOCChart?projectId=" + projectId + "&opt=opt", function (data2) {
+    $.get(baseAddress + "ProjectMaster/GetApplicationLOCChart?projectId=" + projectIdList + "&opt=opt", function (data2) {
         if (data2 !== null) {
             var dataSet2 = data2;
             // ReSharper disable once QualifiedExpressionMaybeNull
@@ -262,12 +262,13 @@ function drawRow(rowData, tableName, srNo) {
 }
 
 var setLocalStorage = function (prjId, languageId, projectName) {
+    /*
     window.localStorage.setItem("prjctId", prjId);
     window.localStorage.setItem("gridPageNumber", 1);
     window.localStorage.setItem("languageId", languageId);
     window.localStorage.setItem("projectName", projectName);
     window.location = "projects_workspace.html?pid=" + prjId;
-    /*
+    */
     $.fn.actionAuditLog(userId, 'Project Load', prjId).then(function () {
         window.localStorage.setItem("prjctId", prjId);
         window.localStorage.setItem("gridPageNumber", 1);
@@ -277,5 +278,4 @@ var setLocalStorage = function (prjId, languageId, projectName) {
     }).catch(function (e) {
         console.log(e);
     });
-    */
 };
