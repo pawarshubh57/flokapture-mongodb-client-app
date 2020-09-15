@@ -267,7 +267,7 @@ var uploadeDocsData = function (result) {
         $("#cntDocs").html(" - (Total Count: " + result.length + ")");
         for (var k = 0; k < result.length; k++) {
             result[k].RowId = l;
-            result[k].View = "<button class='btn btn-mint' onclick='includeStateDialog(" + result[k].ProgramId + ");'>View</button>";
+            result[k].View = "<button class='btn btn-mint' onclick='includeStateDialog(" + result[k].FileId + ");'>View</button>";
             var downloadLink = result[k].FilePath.replace("C:\\inetpub\\wwwroot\\flokapture\\", "");
             var imgLink = downloadLink.replace(/\\/g, "\\\\").replace(/ /g, '%20');
             var popUp = `onclick=javascript:window.open('${imgLink}','_blank','toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=100,width=1200,height=600')`;
@@ -359,7 +359,7 @@ var tagSearchData = function (result) {
         $("#CntTags")[0].innerHTML = " - (Total Count: " + result.length + ")";
         for (var k = 0; k < result.length; k++) {
             result[k].RowId = l;
-            result[k].View = "<button class='btn btn-mint' onclick='includeStateDialog(" + result[k].ProgramId + ");'>View</button>";
+            result[k].View = "<button class='btn btn-mint' onclick='includeStateDialog(" + result[k].FileId + ");'>View</button>";
             result[k].FileName = result[k].FileName.replace(/(.pgm|.jcl|.sbr|.csv|.icd|.idesc|.txt)/, "");
             l++;
         }

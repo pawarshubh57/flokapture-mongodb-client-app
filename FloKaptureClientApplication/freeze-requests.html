@@ -1,0 +1,414 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Dashboard | floKapture - Project Freeze Requests</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/sitemain.css" rel="stylesheet" />
+    <link href="css/nifty.min.css" rel="stylesheet">
+    <link href="css/themes/type-c/theme-ocean.css" rel="stylesheet">
+    <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="plugins/animate-css/animate.min.css" rel="stylesheet">
+    <link href="plugins/morris-js/morris.min.css" rel="stylesheet">
+    <link href="plugins/switchery/switchery.min.css" rel="stylesheet">
+    <link href="plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+    <link href="css/demo/nifty-demo.min.css" rel="stylesheet">
+    <link href="plugins/pace/pace.min.css" rel="stylesheet">
+    <script src="plugins/pace/pace.min.js"></script>
+    <script type="text/template" id="colTip">
+        {{:value }}
+    </script>
+    <style type="text/css">
+        #project-freeze-requests > tr > td {
+            padding: 4px;
+            line-height: 1.42857143;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div id="container" class="effect mainnav-lg">
+        <header id="navbar">
+            <div id="navbar-container" class="boxed">
+                <div class="navbar-header">
+                    <a href="landing.html" class="navbar-brand">
+                        <img src="img/logo.png" alt="Logo" class="brand-icon">
+                        <div class="brand-title">
+                            <span class="brand-text"><font color="#ababab" style="font-style: italic;">flo</font><font color="#ffc000">Kapture</font></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="navbar-content clearfix">
+                    <ul class="nav navbar-top-links pull-left">
+                        <li class="tgl-menu-btn">
+                            <a href="#">
+                                <i class="fa fa-navicon fa-lg"></i>
+                            </a>
+                        </li>
+                        <li class="dropdown" style="margin-top: 6px;">
+                            <div class="col-md-12">
+                                <div class="col-md-3" style="margin-top: -7px; padding: 0px;">
+                                    <h3 class="panel-title">I want to...</h3>
+                                </div>
+                                <div class="col-md-7">
+                                    <select class="form-control" data-placeholder="choose Customer" id="ddlSelectOption" tabindex="-1" style="width: 300px;">
+                                        <!--<option value="0"> Select </option>
+                                        <option value="guide1.html">View high level statistics for a project</option>
+                                        <option value="guide2.html">View detailed statistics and dependencies for a project</option>
+                                        <option value="guide3.html">View workflows/processes for a project</option>
+                                        <option value="guide4.html">View details for a specific object</option>
+                                        <option value="guide5.html">View the database structure for a project </option>
+                                        <option value="guide6.html">Search for a keyword/term/string within a project</option>
+                                        <option value="guide7.html">Generate a word document that shows impact and/or supports code deployment and test  </option>
+                                        <option value="guide8.html">Learn how entities are being used </option>
+                                        <option value="guide9.html">Learn where entity attributes are being used </option>
+                                        <option value="guide10.html">Learn which entity attributes are not used</option>-->
+                                    </select>
+
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-danger btn-labeled fa  fa-external-link-square" id="btnGuideGo">Go</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-top-links pull-right">
+                        <li id="dropdown-user" class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle text-right">
+                                <span class="pull-right">
+                                    <img class="img-circle img-user media-object" src="img/av1.png" alt="Profile Picture">
+                                </span>
+                                <div class="username hidden-xs" id="userName"></div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-md dropdown-menu-right with-arrow panel-default">
+                                <ul class="head-list">
+                                    <li>
+                                        <a href="my_profile.html">
+                                            <i class="fa fa-user fa-fw fa-lg"></i>Profile
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="pad-all text-right">
+                                    <a href="#" class="btn btn-primary" id="aLogout">
+                                        <i class="fa fa-sign-out fa-fw"></i>Logout
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div class="boxed">
+            <div id="content-container">
+                <ol class="breadcrumb"></ol>
+                <div id="page-content">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Freeze Requests</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div style="width: 90%;" class="col-lg-12">
+                                        <table style="width: 100%;" class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Sr#</th>
+                                                    <th>Request From</th>
+                                                    <th>Initiated On</th>
+                                                    <th>Approved?</th>
+                                                    <th>Approved By</th>
+                                                    <th>Approved On</th>
+                                                    <th>Comments</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="project-freeze-requests"></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav id="mainnav-container">
+                <div id="mainnav">
+                    <div class="nano">
+                        <div class="nano-content">
+                            <ul id="mainnav-menu" class="list-group"></ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <aside id="aside-container">
+                <div id="aside">
+                    <div class="nano">
+                        <div class="nano-content">
+                            <ul class="nav nav-tabs nav-justified">
+                                <li class="active">
+                                    <a href="#demo-asd-tab-1" data-toggle="tab">
+                                        <i class="fa fa-comments"></i>
+                                        <span class="badge badge-purple">7</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#demo-asd-tab-2" data-toggle="tab">
+                                        <i class="fa fa-info-circle"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#demo-asd-tab-3" data-toggle="tab">
+                                        <i class="fa fa-wrench"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="demo-asd-tab-1">
+                                    <h4 class="pad-hor text-thin">
+                                        <span class="pull-right badge badge-warning">3</span> Messages
+                                    </h4>
+                                    <div class="list-group bg-trans">
+                                        <a href="#" class="list-group-item">
+                                            <div class="media-left">
+                                                <img class="img-circle img-xs" src="img/av2.png" alt="Profile Picture">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="text-lg">Stephen Tran</div>
+                                                <span class="text-muted">Availabe</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                            <div class="media-left">
+                                                <img class="img-circle img-xs" src="img/av4.png" alt="Profile Picture">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="text-lg">Brittany Meyer</div>
+                                                <span class="text-muted">I think so</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                            <div class="media-left">
+                                                <img class="img-circle img-xs" src="img/av3.png" alt="Profile Picture">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="text-lg">Donald Brown</div>
+                                                <span class="text-muted">Lorem ipsum dolor sit amet.</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div class="tab-pane fade" id="demo-asd-tab-2">
+                                    <div class="list-group bg-trans">
+                                        <a href="#" class="list-group-item"><span class="label label-danger pull-right">Featured</span>Edit Password</a>
+                                        <a href="#" class="list-group-item">My Profile</a>
+                                        <a href="#" class="list-group-item">My Activity</a>
+                                        <hr>
+                                        <a href="#" class="list-group-item">License Details</a>
+                                    </div>
+                                    <hr>
+                                    <div class="text-center">
+                                        Questions?
+                                        <p class="text-lg text-semibold">(202) 674-3435 </p>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="demo-asd-tab-3">
+                                    <ul class="list-group bg-trans">
+                                        <li class="list-header">
+                                            <h4 class="text-thin">Account Settings</h4>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="pull-right">
+                                                <input class="demo-switch" type="checkbox" checked>
+                                            </div>
+                                            <p>Login to Search</p>
+                                            <small class="text-muted">Take me directly to Search as default when I login.</small>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="pull-right">
+                                                <input class="demo-switch" type="checkbox" checked>
+                                            </div>
+                                            <p>Alert License Periods</p>
+                                            <small class="text-muted">Warn me when my license is to expire in 15 days.</small>
+                                        </li>
+                                    </ul>
+                                    <hr>
+                                    <h4 class="pad-hor text-thin">Task Progress</h4>
+                                    <div class="pad-all">
+                                        <p>My Job Progress</p>
+                                        <div class="progress progress-sm">
+                                            <div class="progress-bar progress-bar-success" style="width: 15%;">
+                                                <span class="sr-only">15%</span>
+                                            </div>
+                                        </div>
+                                        <small class="text-muted">15% Completed</small>
+                                    </div>
+                                    <div class="pad-hor">
+                                        <p>Queue Size</p>
+                                        <div class="progress progress-sm">
+                                            <div class="progress-bar progress-bar-danger" style="width: 75%;">
+                                                <span class="sr-only">75%</span>
+                                            </div>
+                                        </div>
+                                        <small class="text-muted">#Jobs before me</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+        <footer id="footer">
+            <div class="show-fixed pull-right">
+                <ul class="footer-list list-inline">
+                    <li>
+                        <p class="text-sm">Approved Users</p>
+                        <div class="progress progress-sm progress-light-base">
+                            <div style="width: 80%" class="progress-bar progress-bar-danger"></div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <p class="text-sm">INTELLI Discovery Jobs Status</p>
+                        <div class="progress progress-sm progress-light-base">
+                            <div style="width: 80%" class="progress-bar progress-bar-primary"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="btn btn-sm btn-dark btn-active-success">View Task Queue</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="hide-fixed pull-right pad-rgt" id="divVersion"></div>
+            <p class="pad-lft">
+                &#0169; 2017 FloKapture Solutions. All Rights Reserved.
+            </p>
+        </footer>
+        <button id="scroll-top" class="btn">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+    </div>
+    <div class="container">
+        <div class="modal fade" id="div-approve-freeze-project" role="dialog">
+            <div class="modal-dialog" style="width: 45%;">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Approve Project Freeze</h4>
+                    </div>
+                    <div class="modal-body" style="padding: 16px 35px; height: 250px;">
+                        <div class="col-md-12">
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        Are you sure you want to Approve this project to Freeze for Audit?
+                                    </td>
+                                </tr>
+                                <tr> <td style="height: 5px;">&nbsp;</td> </tr>
+                                <tr>
+                                    <td>
+                                        <table style="width: 100%;">
+                                            <tr>
+                                                <td style="width: 15%;"><a href="#" onclick="approveFreeze('Approved');"><button class="btn btn-mint">Approve</button></a></td>
+                                                <td><a href="#" onclick="approveFreeze('Declined');"><button class="btn btn-danger">Decline</button></a></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <input id="project-freeze-id" type="hidden" value="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="freeze-tags-dialog" role="dialog">
+            <div class="modal-dialog" style="width: 570px; margin-top: 10px; ">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: -1px 10px 30px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4>Freeze Associated Items (Tags)</h4>
+                    </div>
+                    <div class="col-md-12" style="padding-top: 10px; padding-bottom: 10px;">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="width: 20%;">
+                                    Project Selected:
+                                </td>
+                                <td id="td-selected-project"></td>
+                            </tr>
+                            <tr><td colspan="2" style="height: 2px;">&nbsp;</td></tr>
+                            <tr>
+                                <td></td>
+                            </tr>
+                            <tr><td colspan="2" style="height: 2px;">&nbsp;</td></tr>
+                            <tr>
+                                <td colspan="2">
+                                    <table style="width: 100%;">
+                                        <tr>
+                                            <td style="width: 12%;">
+                                                <button onclick="freezeSelectedProject();" id="btn-freeze-project" class="btn btn-primary">Freeze</button>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="divEntities" role="dialog">
+            <div class="modal-dialog" style="width: 950px;">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 id="H10"><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Associated Workflows</h4>
+                    </div>
+                    <div class="modal-body" style="padding: 16px 35px; height: 550px;  overflow: scroll;">
+
+                        <div id="divEntitiesList">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal">
+        <img src="images/ajax-loader.gif" alt="" />
+    </div>
+    <div id="flotTip" style="display: none; position: absolute; background: rgb(255, 255, 255); z-index: 100; padding: 0.4em 2.6em; border-radius: 0.5em; font-size: 0.9em; border: 1px solid rgb(17, 17, 17); white-space: nowrap; left: 556px; top: 839px;"></div>
+    <script src="syncfusion/external/jquery-2.1.4.min.js"></script>
+    <link href="syncfusion/css/web/bootstrap-theme/ej.theme.min.css" rel="stylesheet" />
+    <script src="plugins/bootbox/bootbox.min.js"></script>
+    <script src="app-settings/base-address.js"></script>
+    <script src="common-scripts/breadcrumbs.js"></script>
+    <script src="common-scripts/validation.js"></script>
+    <script src="app-settings/version.js"></script>
+    <script src="common-scripts/leftSitePanel.js"></script>
+    <script src="scripts/freeze-requests.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/nifty.min.js"></script>
+    <script src="plugins/skycons/skycons.min.js"></script>
+    <script src="plugins/switchery/switchery.min.js"></script>
+    <script src="plugins/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="js/demo/nifty-demo.min.js"></script>
+
+</body>
+</html>

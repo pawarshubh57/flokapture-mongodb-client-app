@@ -4,6 +4,7 @@ var userId = window.localStorage.getItem("userId");
 var option = getParameterByName("opt");
 var prjctId = window.localStorage.getItem("prjctId");
 var projectIdList = window.localStorage.getItem("projectIds");
+// var projectId = prjctId; // $("#ddlProjectType").val(); todo
 var objName = "";
 var $body = $("body");
 $(document).on({
@@ -261,7 +262,7 @@ function coverageReport() {
 }
 
 function inventoryForAccess(languageId, data) {
-    var projectId = $("#ddlProjectType").val();
+    var projectId = prjctId; // $("#ddlProjectType").val(); todo
     var skipSame = document.getElementById("chkSkipSame").checked;
     var businessName = document.getElementById("chkBusinessSame").checked;
     if (languageId === 6) {
@@ -384,7 +385,7 @@ function showData(dvCtrl) {
             OptionUsed: "Inventory Details",
             PrimaryScreen: "Inventory Details",
             UserId: userId,
-            ProjectId: $("#ddlProjectType").val(),
+            ProjectId: prjctId, //  $("#ddlProjectType").val(),todo
             BriefDescription: "Viewed: <b>" + desc + "</b>"
         }
     };

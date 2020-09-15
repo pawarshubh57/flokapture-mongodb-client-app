@@ -156,6 +156,7 @@ function callSkipSame() {
         url: baseAddress + "WorkspaceWorkflow/GetLaunguageId?projectId=" + projectId,
         success: function (projectDetails) {
             if (projectDetails !== null) {
+                $body.addClass("loading");
                // ReSharper disable once QualifiedExpressionMaybeNull
                 langauageId = projectDetails.LanguageId;
                 jQuery.ajax({
@@ -349,10 +350,12 @@ function callSkipSame() {
                                     });
                                 $('#tblViewInventory').jqxGrid('refresh');
                             }
+                            $body.removeClass("loading");
                         }
                     }
                 });
             }
+
         }
     });
 }
@@ -435,6 +438,7 @@ function bindViewInventory(data, languageId) {
 }
 
 function bindDataInventory() {
+    $body.addClass("loading");
     // var url = (window.location !== window.parent.location) ? document.referrer : document.location.href;
     // var fileName = url.substring(url.lastIndexOf('/') + 1).split("?")[0];
     jQuery.ajax({
@@ -538,6 +542,7 @@ function bindDataInventory() {
                     });
                 // $body.removeClass("loading");
                 $('#tblDataInventory').jqxGrid('refresh');
+                $body.removeClass("loading");
             }
         }
     });

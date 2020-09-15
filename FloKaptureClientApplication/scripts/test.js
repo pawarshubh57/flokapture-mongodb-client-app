@@ -15,11 +15,11 @@ $(document).on({
     ajaxStop: function () { $body.removeClass("loading"); },
     ajaxError: function () { $body.removeClass("loading"); },
     ajaxComplete: function () { $body.removeClass("loading"); }
-}); 
+});
 
 $(document).ready(function () {
     document.getElementById("tabCustomView").style.visibility = "initial";
-   
+
     /*
     const tabMaster = JSON.parse(window.localStorage.getItem("tabs"));
     $("#li_1").hide();
@@ -78,7 +78,7 @@ $(document).ready(function () {
     }, function () {
         $(this).css("cursor", "auto");
     });
-    
+
     $(".collapse").on("shown.bs.collapse", function () {
         var parent = $(this).parent().parent();
         parent.find(".fa-angle-right").removeClass("fa-angle-right").addClass("fa-angle-down");
@@ -98,7 +98,7 @@ $(document).ready(function () {
     var elem = document.querySelector(".js-switch");
     document.getElementById("dvWorkflowList").style.display = "none";
     document.getElementById("dvSearch").style.display = "none";
-   //  $("#tabCustomView").hide();
+    //  $("#tabCustomView").hide();
     $('#tabCustomView a[href="#demo-tabs3-box-3"]').click(function () {
         $("#diagram").empty();
         $("#divDecisionChartHtmlTable").html("");
@@ -214,7 +214,7 @@ $(document).ready(function () {
             }
         }
     });
- 
+
     $("#btnSearchPrev").click(function () {
         hitHighlighter.prevHit();
     });
@@ -545,7 +545,7 @@ function saveObjectDocuments(path, fileName) {
     jQuery.ajax({
         type: "POST",
         url: baseAddress + "CustomView/SaveObjectDocumentFile",
-        data: objectDoc, 
+        data: objectDoc,
         success: function (result) {
             if (result !== null) {
                 getCurrentAttachement(programId);
@@ -787,7 +787,7 @@ function funSearchFiles(from) {
         valueMember: "FileId",
         autoComplete: true
     });
-    clearGidForObjectType(); 
+    clearGidForObjectType();
     var extensionType = $("#ddlObjectTypes").jqxComboBox("val");
     if (typeof extensionType === "undefined") {
         extensionType = 0;
@@ -1124,7 +1124,7 @@ function showData(dvCtrl) {
     $("#dvData")[0].innerHTML = element.innerHTML;
     var oName = "<span style='color:#555ed3'>" + divHeader + "</span>";
     $("#ViewDataHeader")[0].innerHTML = "Statements in List for " + oName;
-    $("#dvData").find("a").each(function() {
+    $("#dvData").find("a").each(function () {
         $(this).css("color", "black");
     });
     $("#viewData").modal("show");
@@ -1214,7 +1214,7 @@ function funBtnSubmit() {
     getObjectAnnotations();
     $body.removeClass("loading");
     return true;
-  }
+}
 
 var fillFileWorkflows = function (fileId, prjId) {
     $body.addClass("loading");
@@ -1242,7 +1242,7 @@ var fillFileWorkflows = function (fileId, prjId) {
                 $("#treeDataDependency").jqxTreeGrid("clear");
                 loadProjectAssociationData(projectId, fileId);
                 loadProjectDataDependency(projectId, fileId);
-                
+
             }
             $body.removeClass("loading");
         }
@@ -1483,7 +1483,7 @@ function callPseudoView() {
     $(parentExpand).prop("className", "form-checkbox form-icon form-text");
     document.getElementById("divExpand").style.display = "none";
     var chkPseudo = true; // document.getElementById("chkPseudoCode").checked;
-  
+
     jQuery.ajax({
         type: "GET",
         url: baseAddress + "CustomView/GetPseudoCodeCustomTreeView?projectId=" + projectId + "&fileId=" + fId + "&pseudoCode=" + chkPseudo,
@@ -1530,9 +1530,9 @@ function callTreeView() {
     var item = $("#ddlSelectFiles").jqxComboBox("getSelectedItem");
     var fileId = item.value;
     if (fileId === 0) return false;
-   document.getElementById("divExpand").style.display = "inline";
+    document.getElementById("divExpand").style.display = "inline";
     var chkTree = document.getElementById("chkTreeView").checked;
-    var chkPseudo = true; 
+    var chkPseudo = true;
     if (chkTree) {
         document.getElementById("chkTreeView").checked = true;
         var treeFun = document.getElementById("chkTreeView");
@@ -1942,7 +1942,7 @@ function getAllDeactivateStatement(projectId) {
                     id: "DeactivateStatementId",
                     localdata: result
                 };
-               // ReSharper disable once InconsistentNaming
+                // ReSharper disable once InconsistentNaming
                 var dataAdapter = new $.jqx.dataAdapter(source);
                 $("#jqxDeactivate").jqxGrid(
                     {

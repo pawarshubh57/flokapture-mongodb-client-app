@@ -1,0 +1,1070 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>floKapture - Understand your CODE!</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" />-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-multiselect.css" rel="stylesheet" />
+    <link href="css/sitemain.css" rel="stylesheet" />
+    <link href="css/nifty.min.css" rel="stylesheet">
+    <link href="css/themes/type-c/theme-ocean.css" rel="stylesheet">
+    <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="plugins/animate-css/animate.min.css" rel="stylesheet">
+    <link href="plugins/morris-js/morris.min.css" rel="stylesheet">
+    <link href="plugins/switchery/switchery.min.css" rel="stylesheet">
+    <link href="plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+    <link href="plugins/chosen/chosen.min.css" rel="stylesheet">
+    <link href="css/demo/nifty-demo.min.css" rel="stylesheet">
+    <link href="plugins/fooTable/css/footable.core.css" rel="stylesheet">
+    <link href="plugins/pace/pace.min.css" rel="stylesheet">
+    <script src="plugins/pace/pace.min.js"></script>
+    <style type="text/css">
+        #ddlSelectProject_popup, #ddlSelectProject_input {
+            font-family: sans-serif, "Roboto", Arial !important;
+        }
+
+        .js-switch {
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="margin-top: 10px; width: 99%;">
+        <div id="page-content">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 style="float: left; margin-left: 1%; font-size: 16px; font-weight: 100;">
+                        <i style="font-style: normal;">Search Keywords</i>
+                    </h3>
+                    <div class="panel-control">
+                        <ul class="nav nav-tabs" id="fourDataTabs">
+                            <li id="li_1" class="active">
+                                <a data-toggle="tab" href="#demo-tabs2-box-1">
+                                    <i class="fa fa-magic fa-lg"></i>
+                                </a>
+                            </li>
+                            <li id="li_2" style="display: none;">
+                                <a data-toggle="tab" href="#demo-tabs2-box-2">
+                                    <i class="fa fa-folder fa-lg"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <input type="hidden" id="hdnObjectId" />
+                        <input type="hidden" id="hdnProjectId12" />
+                        <input type="hidden" id="hdnObjectId12" />
+                        <div id="demo-tabs2-box-1" class="tab-pane fade in active">
+                            <h3 class="panel-title" style="display: none;">
+                                <b>Description: &nbsp;</b><i id="tfirstHeading"></i>
+                                <img src="images/edit-notes.png" alt="" id="imgBusinessDescription" style="width: 20px; cursor: pointer;" />
+                            </h3>
+                            <div class="col-lg-12" style="margin-top: 10px;">
+                                <div class="panel">
+                                    <div class="panel-body">
+                                        <div class="col-sm-12">
+                                            <div class="col-sm-2">
+                                                Search Keywords:
+                                            </div>
+                                            <div class="col-md-8">
+                                                <table style="width: 100%">
+                                                    <tr>
+                                                        <td style="width: 44%;">
+                                                            <input type="text" id="txtSearchKeywords" style="font-size: 14px; width: 91%;" placeholder="Search Keywords" class="form-control" />
+                                                        </td>
+                                                        <td>
+                                                            AND  &nbsp; <input type="checkbox" class="js-switch" id="chkOrAnd" checked /> &nbsp; OR
+                                                        </td>
+                                                        <td style="display: none;">
+                                                            Regex  &nbsp; <input type="checkbox" id="chkRegexOrNormal" checked /> &nbsp;   Normal
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="col-sm-2"></div>
+                                            <div class="col-sm-4">
+                                                (*comma separated keywords)
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12" style="margin-top: 8px; display: none;">
+                                            <div class="col-sm-2">
+                                                Select Projects:
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div style="float: left;" id="ddlSelectProject"></div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <button class="btn btn-mint" id="btnGo" style="margin-left: 10%;">Go</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12" style="margin-top: 7px;">
+                                            <div class="col-sm-2">
+                                                Select Object Type:
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div style="float: left;" id="ddlObjectType"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12" style="padding-top: 7px;">
+                                            <div class="col-sm-2">
+                                                Search Scope:
+                                            </div>
+                                            <div class="col-sm-10">
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="checkbox">
+                                                                <label class="form-checkbox form-icon form-text">
+                                                                    <input type="checkbox" value="" id="chkObjectFiles" checked="checked">Object Name
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                        <td> &nbsp;&nbsp;&nbsp;</td>
+                                                        <td>
+                                                            <div class="checkbox">
+                                                                <label class="form-checkbox form-icon form-text">
+                                                                    <input type="checkbox" value="" id="chkObjectFilesStatements" checked="checked">Object Statements
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                        <td> &nbsp;&nbsp;&nbsp;</td>
+                                                        <td>
+                                                            <div class="checkbox">
+                                                                <label class="form-checkbox form-icon form-text">
+                                                                    <input type="checkbox" value="" id="chkWorkflowNames" checked="checked">Workflow Names
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                        <td> &nbsp;&nbsp;&nbsp;</td>
+                                                        <td>
+                                                            <div class="checkbox">
+                                                                <label class="form-checkbox form-icon form-text">
+                                                                    <input type="checkbox" value="" id="chkWorkflowStatements" checked="checked">Workflow Statements
+                                                                </label>
+                                                            </div>
+                                                        </td>
+
+                                                        <td> &nbsp;&nbsp;&nbsp;</td>
+
+                                                        <td>
+                                                            <div class="checkbox">
+                                                                <label class="form-checkbox form-icon form-text">
+                                                                    <input type="checkbox" value="" id="chkTags" checked="checked">Tags
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                        <td> &nbsp;&nbsp;&nbsp;</td>
+
+                                                        <td>
+                                                            <div class="checkbox">
+                                                                <label class="form-checkbox form-icon form-text">
+                                                                    <input type="checkbox" value="" id="chkObjWithDocuments" checked="checked">Uploaded Documents
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                        <td> &nbsp;&nbsp;&nbsp;</td>
+
+                                                        <td style="display: none;">
+                                                            <div class="checkbox">
+                                                                <label class="form-checkbox form-icon form-text">
+                                                                    <input type="checkbox" value="" id="chkStmtComment" checked="checked">Statement Comments
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                        <td> &nbsp;&nbsp;&nbsp;</td>
+                                                        <td style="display: none;">
+                                                            <div class="checkbox">
+                                                                <label class="form-checkbox form-icon form-text">
+                                                                    <input type="checkbox" value="" id="chkEntity" checked="checked">Entities / Attributes
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="height: 10px;"></tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="radio" style="padding-top: 6px;">
+                                                                <label><input type="radio" name="rdOption" value="rdPreText" id="rdPreText" checked="checked">Include Comments</label>
+                                                            </div>
+
+                                                        </td>
+                                                        <td> &nbsp;&nbsp;&nbsp;</td>
+                                                        <td>
+                                                            <div class="radio" style="padding-top: 6px;">
+                                                                <label><input type="radio" name="rdOption" value="rdExcludeComt" id="rdExcludeComt">Exclude Comments</label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12" style="margin-top: 5px;">
+                                            <div class="col-sm-2">
+                                            </div>
+                                            <div class="col-sm-10">
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <button class="btn btn-primary btn-labeled fa  fa-external-link-square" id="btnSearch">Search</button>
+                                                        </td>
+                                                        <td>&nbsp;&nbsp;</td>
+                                                        <td>
+                                                            <div id="dvError"></div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12" id="dvResultKeyWord" style="visibility: hidden; margin-top: 10px;">
+                                            <div class="panel">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title">Results</h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="col-md-12" id="dvObjectFile" style="visibility: hidden;">
+                                                        <div class="col-sm-12" style="padding: 0px;">
+                                                            <div class="col-sm-10">
+                                                                <h4>
+                                                                    <a class="accordion-toggle" data-toggle="collapse" style="color: #2a7faf;" data-parent="#accordion" href="#tblSearchFiles">
+                                                                        <i class="fa fa-angle-right" style="font-size: larger;" aria-hidden="true"></i>
+                                                                        Object Name
+                                                                    </a>
+                                                                    <span id="CntObject" style="color: #2a7faf;"> </span>
+                                                                </h4>
+                                                            </div>
+                                                            <div class="col-sm-2" style="padding: 10px 0px 0px 0px; text-align: right;">
+                                                                <button class="btn btn-primary btn-labeled fa fa-arrow-up" id="btnForFiles" style="margin-left: 46px; margin-bottom: 2px; display: none;">Export</button>
+                                                            </div>
+                                                        </div>
+                                                        <table style="width: 100%;">
+                                                            <tr>
+                                                                <td></td>
+                                                            </tr>
+                                                        </table>
+                                                        <div id="tblSearchFiles" class="collapse"></div>
+                                                        <hr />
+                                                    </div>
+
+                                                    <div class="col-md-12" id="dvObjectStatement" style="visibility: hidden;">
+                                                        <div class="col-sm-12" style="padding: 0px;">
+                                                            <div class="col-sm-10">
+                                                                <h4>
+                                                                    <a class="accordion-toggle" data-toggle="collapse" style="color: #2a7faf;" data-parent="#accordion" href="#tblSearchFileContent">
+                                                                        <i class="fa fa-angle-right" style="font-size: larger;" aria-hidden="true"></i>
+                                                                        Object Statements
+                                                                    </a>
+                                                                    <span id="CntObjectStmts" style="color: #2a7faf;"> </span>
+                                                                </h4>
+                                                            </div>
+                                                            <div class="col-sm-2" style="padding: 10px 0px 0px 0px; text-align: right;">
+                                                                <button class="btn btn-primary btn-labeled fa fa-arrow-up" id="btnForFileContent" style="margin-left: 46px; margin-bottom: 2px; display: none;">Export</button>
+                                                            </div>
+                                                        </div>
+                                                        <table style="width: 100%;">
+                                                            <tr>
+                                                                <td></td>
+                                                            </tr>
+                                                        </table>
+                                                        <div id="tblSearchFileContent" class="collapse"></div>
+                                                        <hr />
+                                                    </div>
+
+                                                    <div class="col-md-12" id="dvWokflowName" style="visibility: hidden;">
+                                                        <div class="col-sm-12" style="padding: 0px;">
+                                                            <div class="col-sm-10">
+                                                                <h4>
+                                                                    <a class="accordion-toggle" data-toggle="collapse" style="color: #2a7faf;" data-parent="#accordion" href="#tblSearchKeyWords">
+                                                                        <i class="fa fa-angle-right" style="font-size: larger;" aria-hidden="true"></i>
+                                                                        Workflow Names
+                                                                    </a>
+                                                                    <span id="CntWorkflowNames" style="color: #2a7faf;"> </span>
+                                                                </h4>
+                                                            </div>
+                                                            <div class="col-sm-2" style="padding: 10px 0px 0px 0px; text-align: right;">
+                                                                <button class="btn btn-primary btn-labeled fa fa-arrow-up" id="btnExportKeywords" style="margin-left: 46px; margin-bottom: 2px; display: none;">Export</button>
+                                                            </div>
+                                                        </div>
+
+                                                        <table style="width: 100%;">
+                                                            <tr>
+                                                                <td></td>
+                                                            </tr>
+                                                        </table>
+                                                        <div id="tblSearchKeyWords" class="collapse"></div>
+                                                        <hr />
+                                                    </div>
+
+                                                    <div class="col-md-12" id="dvWorkflowStatement" style="visibility: hidden;">
+                                                        <div class="col-sm-12" style="padding: 0px;">
+                                                            <div class="col-sm-10">
+                                                                <h4>
+                                                                    <a class="accordion-toggle" data-toggle="collapse" style="color: #2a7faf;" data-parent="#accordion" href="#tblSearchJclPrograms">
+                                                                        <i class="fa fa-angle-right" style="font-size: larger;" aria-hidden="true"></i>
+                                                                        Workflow Statements
+                                                                    </a>
+                                                                    <span id="CntWorkflowStatements" style="color: #2a7faf;"> </span>
+                                                                </h4>
+                                                            </div>
+                                                            <div class="col-sm-2" style="padding: 10px 0px 0px 0px; text-align: right;">
+                                                                <button class="btn btn-primary btn-labeled fa fa-arrow-up" id="btnJclProgramSrc" style="margin-left: 46px; margin-bottom: 2px; display: none;">Export</button>
+                                                            </div>
+                                                        </div>
+                                                        <table style="width: 100%;">
+                                                            <tr>
+                                                                <td></td>
+                                                            </tr>
+                                                        </table>
+                                                        <div id="tblSearchJclPrograms" class="collapse"></div>
+                                                        <hr />
+                                                    </div>
+
+                                                    <div class="col-md-12" id="dvTag" style="visibility: hidden;">
+                                                        <div class="col-sm-12" style="padding: 0px;">
+                                                            <div class="col-sm-10">
+                                                                <h4>
+                                                                    <a class="accordion-toggle" data-toggle="collapse" style="color: #2a7faf;" data-parent="#accordion" href="#tblSearchTags">
+                                                                        <i class="fa fa-angle-right" style="font-size: larger;" aria-hidden="true"></i>
+                                                                        Tags
+                                                                    </a>
+                                                                    <span id="CntTags" style="color: #2a7faf;"></span>
+                                                                </h4>
+                                                            </div>
+                                                            <div class="col-sm-2" style="padding: 10px 0px 0px 0px; text-align: right;">
+                                                                <button class="btn btn-primary btn-labeled fa fa-arrow-up" id="btnSearchTags" style="margin-left: 46px; margin-bottom: 2px; display: none;">Export</button>
+                                                            </div>
+                                                        </div>
+                                                        <table style="width: 100%;">
+                                                            <tr>
+                                                                <td></td>
+                                                            </tr>
+                                                        </table>
+                                                        <div id="tblSearchTags" class="collapse"></div>
+                                                        <hr />
+                                                    </div>
+
+                                                    <div class="col-md-12" id="dvUploadDoc" style="visibility: hidden;">
+                                                        <div class="col-sm-12" style="padding: 0px;">
+                                                            <div class="col-sm-10">
+                                                                <h4>
+                                                                    <a class="accordion-toggle" data-toggle="collapse" style="color: #2a7faf;" data-parent="#accordion" href="#tblUploadDocs">
+                                                                        <i class="fa fa-angle-right" style="font-size: larger;" aria-hidden="true"></i>
+                                                                        Uploaded Documents
+                                                                    </a>
+                                                                    <span id="cnt-upload-doc" style="color: #2a7faf;"></span>
+                                                                </h4>
+                                                            </div>
+                                                            <div class="col-sm-2" style="padding: 10px 0px 0px 0px; text-align: right;">
+                                                                <button class="btn btn-primary btn-labeled fa fa-arrow-up" id="btnUploadDocs" style="margin-left: 46px; margin-bottom: 2px; display: none;">Export</button>
+                                                            </div>
+                                                        </div>
+                                                        <table style="width: 100%;">
+                                                            <tr>
+                                                                <td></td>
+                                                            </tr>
+                                                        </table>
+                                                        <div id="tblUploadDocs" class="collapse"></div>
+                                                        <hr />
+                                                    </div>
+
+                                                    <div class="col-md-12" id="dvStatementComments" style="visibility: hidden;">
+                                                        <div class="col-sm-12" style="padding: 0px;">
+                                                            <div class="col-sm-10">
+                                                                <h4>
+                                                                    <a class="accordion-toggle" data-toggle="collapse" style="color: #2a7faf;" data-parent="#accordion" href="#tblStmtComments">
+                                                                        <i class="fa fa-angle-right" style="font-size: larger;" aria-hidden="true"></i>
+                                                                        Statement Comments
+                                                                    </a>
+                                                                    <span id="CntStmtComment" style="color: #2a7faf;"> </span>
+                                                                </h4>
+                                                            </div>
+                                                            <div class="col-sm-2" style="padding: 10px 0px 0px 0px; text-align: right;">
+                                                                <button class="btn btn-primary btn-labeled fa fa-arrow-up" id="btnForStmtComments" style="margin-left: 46px; margin-bottom: 2px; display: none;">Export</button>
+                                                            </div>
+                                                        </div>
+                                                        <table style="width: 100%;">
+                                                            <tr>
+                                                                <td></td>
+                                                            </tr>
+                                                        </table>
+                                                        <div id="tblStmtComments" class="collapse"></div>
+                                                        <hr />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="dvRpt" style="visibility: hidden; height: 5px;">
+                                    <table id="tblData" style="width: 100%;">
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="demo-tabs2-box-2" class="tab-pane fade in" style="display: none;">
+                            <div class="col-md-12" style="padding-top: 5px;">
+                                <div class="panel">
+                                    <div class="panel-body" style="margin: 2%;">
+                                        <textarea id="txtUserQuestion" placeholder="Sample question: What workflow deals with nightly processing of checks?" rows="2" style="width: 95%;" class="form-control"></textarea>
+                                        <br />
+                                        <button id="btnProcessUserQuestion" class="btn btn-mint btn-labeled fa fa-magic">Submit Question</button>
+                                        <br />
+                                    </div>
+                                    <div class="col-md-12" id="tdError"></div>
+                                </div>
+                                <div class="col-lg-12" id="dvResultPanal" style="visibility: hidden;">
+                                    <div class="panel">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Results</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <iframe id="txtArea1" style="display: none"></iframe>
+                                            <div class="col-md-12">
+                                                <div class="col-sm-12">
+                                                    <div class="col-sm-10">
+                                                        <h4>Workflow(s): </h4>
+                                                    </div>
+                                                    <div class="col-sm-2" style="padding-top: 10px;">
+                                                        <button class="btn btn-primary btn-labeled fa fa-arrow-up" id="btnExportDemo" style="margin-left: 46px; margin-bottom: 2px;">Export</button>
+                                                    </div>
+                                                </div>
+                                                <table style="width: 100%;">
+                                                    <tr>
+                                                        <td></td>
+                                                    </tr>
+                                                </table>
+                                                <div id="tblSearchResult"></div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="col-sm-12">
+                                                    <div class="col-sm-10">
+                                                        <h4>Business Function(s): </h4>
+                                                    </div>
+                                                    <div class="col-sm-2" style="padding-top: 10px;">
+                                                        <button class="btn btn-primary btn-labeled fa fa-arrow-up" id="btnBusinessFun" style="margin-left: 46px; margin-bottom: 2px;">Export</button>
+                                                        <!--<input type="button" class="btn btn-success btn-labeled fa fa-arrow-up" id="Button3" onclick="$('#tblQuestionResults').tableExport({ type: 'excel', escape: 'false' });" value="Export" style="width: 91px; height: 25px;"/>-->
+                                                    </div>
+                                                </div>
+                                                <table class="table table-striped table-bordered">
+                                                    <tbody id="tblQuestionResults"></tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="col-sm-12">
+                                                    <div class="col-sm-10">
+                                                        <h4>Statements Business Function(s): </h4>
+                                                    </div>
+                                                    <div class="col-sm-2" style="padding-top: 10px;">
+                                                        <button class="btn btn-primary btn-labeled fa fa-arrow-up" id="btnStatementBusinessFun" style="margin-left: 46px; margin-bottom: 2px;">Export</button>
+                                                        <!--<input type="button" class="btn btn-success btn-labeled" id="Button4" onclick="$('#tblQuestionResults').tableExport({ type: 'excel', escape: 'false' });" value="Export" style="width: 91px; height: 25px;"/>-->
+                                                    </div>
+                                                </div>
+                                                <table class="table table-striped table-bordered">
+                                                    <tbody id="tblBnResults"></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a id="a123456" style="display: none;"></a>
+    <div class="col-md-12">
+        <div id="userName" style="display: none;"></div>
+        <div>
+            <div class="hide-fixed pull-right pad-rgt" id="divVersion"></div>
+            <p class="pad-lft">
+                &#0169; 2017 FloKapture Solutions. All Rights Reserved.
+            </p>
+        </div>
+    </div>
+
+    <nav id="mainnav-container" style="display: none;">
+        <div id="mainnav"></div>
+    </nav>
+
+    <div class="container">
+        <div class="modal fade" id="dvStatementBlock" role="dialog">
+            <div class="modal-dialog" style="width: 1000px; margin-top: 10px;">
+                <div class="modal-content">
+                    <div class="modal-header" style="text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 id="H6"><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Workflow</h4>
+                        <div id="Div1" class="modal-title"></div>
+                    </div>
+                    <div>
+                        <div id="Div2" style="clear: left;">
+                            <div class="panel panel-default">
+                                <div class="panel-body" id="div3">
+                                    <div id="treeExpandedSecondTab">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <table>
+                            <tr>
+                                <td>
+                                    <input type="button" style="margin: 10px;" data-dismiss="modal" id="Button1" class="btn btn-mint" value="Close" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="dvActionWorkflows" role="dialog">
+            <div class="modal-dialog" style="width: 650px;">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 id="H10"><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Associated Workflows</h4>
+                    </div>
+                    <div class="modal-body" style="padding: 16px 35px;">
+                        <table style="width: 100%;" id="tblActionWorkflows">
+                            <tbody id="tblWorkflows"></tbody>
+                        </table>
+                        <table style="width: 100%;" id="Table1">
+                            <tr>
+                                <td style="height: 50px; text-align: right;">
+                                    <button class="btn btn-primary btn-labeled fa fa-close" data-dismiss="modal">Close</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="viewSourceDialog" role="dialog">
+            <div class="modal-dialog" style="width: 800px; margin-top: 10px;">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <div id="ViewSourceInputHeader" class="modal-title"></div>
+
+                    </div>
+                    <div>
+                        <div id="viewSource" style="clear: left;">
+                            <div class="panel panel-default">
+                                <div class="panel-body" id="divbody">
+                                    <div class="tab-content">
+                                        <input type="hidden" id="subRoutineprogramId" />
+                                        <div id="tabSourceCodPopup">
+                                            <div id="ViewSourceInputBody" class="modal-body" style="padding-bottom: 0px;">
+                                                <div class="row">
+                                                    <div class="col-md-10" style="padding-right: 0px">
+                                                        <div class="input-group margin-bottom-sm">
+                                                            <table style="width: 100%;">
+                                                                <tr>
+                                                                    <td style="width: 100%;">
+                                                                        <input id="ViewSourceInputModal_SearchBox" class="form-control" type="text" placeholder="Search Source">
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class="input-group-btn">
+                                                                            <button id="ViewSourceInputModal_SearchButton" class="btn btn-mint" type="button">
+                                                                                <i class="fa fa-search fa-fw"></i>
+                                                                            </button>
+                                                                        </span>
+                                                                    </td>
+                                                                    <td>&nbsp;&nbsp;</td>
+                                                                    <td>
+                                                                        <a id="ViewSourceInputModal_SearchPrev" class="btn btn-mint" style="margin-left: 0px; vertical-align: middle;" data-toggle="tooltip" title="Previous Match">
+                                                                            <i class="fa fa-arrow-circle-o-left"></i>
+                                                                        </a>
+                                                                    </td>
+                                                                    <td>&nbsp;&nbsp;</td>
+                                                                    <td>
+                                                                        <a id="ViewSourceInputModal_SearchNext" class="btn btn-mint" style="vertical-align: middle" data-toggle="tooltip" title="Next Match">
+                                                                            <i class="fa fa-arrow-circle-o-right"></i>
+                                                                        </a>
+                                                                    </td>
+                                                                    <td>&nbsp;&nbsp;</td>
+                                                                    <td>
+                                                                        <div id="ViewSourceInputModal_SearchHitCount" style="width: 75px;"></div>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                        <div id="ViewSourceInputModal_SearchNav" class="col-md-1" style="margin-left: 32px; padding-left: 0px; padding-right: 0px; display: none">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2" style="padding-left: 65px;">
+                                                        <button id="btnExportViewSource" class="btn btn-primary fa-fa-download" type="button" onclick="exportViewSourceFile();">Export</button>
+                                                    </div>
+                                                </div>
+                                                <pre id="treeViewSource" style="height: 500px; overflow-y: scroll; margin-top: 10px;"></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <table>
+                            <tr>
+                                <td style="padding-left: 700px;">
+                                    <input type="button" style="margin: 10px;" data-dismiss="modal" id="btnCancelViewSource" class="btn btn-mint" value="Close" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="dvMethodBlock" role="dialog">
+            <div class="modal-dialog" style="width: 75%;">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h5 id="H7"><span></span></h5>
+                    </div>
+                    <div id="divSecTreeFormatMethodBlock" style="overflow-y: scroll;">
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="viewEntitySchema" role="dialog" style="z-index: 9999;">
+            <div class="modal-dialog" style="width: 1150px; margin-top: 10px; font-size: 14px;">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: 15px 10px 30px 10px; text-align: center;">
+                        <h4 id="divEntityHeader"></h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="col-md-12">
+                        <div id="divDatabaseSchema"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <table>
+                            <tr>
+                                <td>
+                                    <input type="button" style="margin: 10px;" data-dismiss="modal" class="btn btn-mint" value="Close" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="viewIDescriptorData" role="dialog" style="z-index: 9999;">
+            <div class="modal-dialog" style="width: 650px; margin-top: 10px; font-size: 14px;">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: 15px 10px 30px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <div id="ViewIDescriptorDataHeader" class="modal-title"><h4> Statements in List</h4></div>
+                    </div>
+                    <div class="col-md-12">
+                        <div id="dvIDescriptorData" style="padding-left: 3%; padding-top: 15px; overflow-x: scroll; height: 300px; max-height: 350px;"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <table>
+                            <tr>
+                                <td>
+                                    <input type="button" style="margin: 10px;" data-dismiss="modal" class="btn btn-mint" value="Close" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal">
+        <img src="images/ajax-loader.gif" alt="" />
+    </div>
+
+    <!--Left Panel-->
+    <div class="container">
+        <div class="modal fade" id="dvDownloadInventory" role="dialog">
+            <div class="modal-dialog" style="width: 570px; margin-top: 10px; ">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: -1px 10px 30px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4>Inventory</h4>
+                    </div>
+                    <div class="col-md-12" style="padding-top: 10px; padding-bottom: 10px;">
+                        <table>
+                            <tr>
+                                <td>
+                                    <button onclick="downloadInventory();" id="btnDownInventoryPopup" class="btn btn-primary">Download</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-12" style="padding-top: 10px; padding-bottom: 10px; display: none;">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="checkbox" style="padding-top: 4px;">
+                                        <label class="form-checkbox form-icon form-text">
+                                            <input type="checkbox" value="" id="chkSkipSame"><strong>Hide Redundant Object (File) Names </strong>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    &nbsp;&nbsp;&nbsp;
+                                </td>
+                                <td>
+                                    <div class="checkbox" style="padding-top: 4px;">
+                                        <label class="form-checkbox form-icon form-text">
+                                            <input type="checkbox" value="" id="chkBusinessSame"><strong>Show Business Names</strong>
+                                        </label>
+                                    </div>
+                                </td>
+
+                                <td>&nbsp;&nbsp;&nbsp; &nbsp;</td>
+                                <td>
+                                    <!--<button onclick="downloadInventory();" id="btnDownInventoryPopup" class="btn btn-primary">Download</button>-->
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="divCustomWorkflow" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 670px;">
+                    <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Custom workflow</h4>
+                    </div>
+                    <div class="modal-body" style="padding: 5px 20px;" id="Div3">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td colspan="2">
+                                    <table style="width: 100%;">
+                                        <tr>
+                                            <td style="width: 25%;">Search Object:</td>
+                                            <td>
+                                                <input type="text" id="txtSearch" placeholder="Search" class="form-control" />
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>
+                                                <button type="button" class="btn btn-mint" id="btnSearchObjects">Search </button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="height: 4px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">
+                                    Select:
+                                </td>
+                                <td>
+                                    <select name="selectIndexWorkFlow" id="ddlJclName" style="width: 100%;" class="form-control"></select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="height: 4px;"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Workflow Name:
+                                </td>
+                                <td>
+                                    <input type="text" id="txtWorkFlowName" class="form-control" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="height: 4px;"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Workflow Description:
+                                </td>
+                                <td>
+                                    <input type="text" id="txtWorkFlowDesc" class="form-control" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="height: 4px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%"></td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-labeled fa fa-arrow-up" id="btnSaveWorkflowName">Save </button>
+                                            </td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>
+                                                <button type="submit" style="height: 30px;" class="btn btn-danger btn-default pull-right" data-dismiss="modal"><span class="fa fa-remove" style="margin-right: 10px;"></span>Close</button>
+                                            </td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td id="dvError101"></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="height: 15px;"></td>
+                            </tr>
+                        </table>
+                        <table class="table table-striped table-bordered" style="display: none;">
+                            <tr>
+                                <td>
+                                    <textarea id="treeViewSource1" style="width: 614px; height: 500px; overflow-y: scroll; overflow-x: scroll;" class="form-control"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="button" style="margin: 10px;" data-dismiss="modal" id="btnSaveViewSource" class="btn btn-mint" value="Save" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="tdError101"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="dvSystemDescription" role="dialog">
+            <div class="modal-dialog" style="width: 550px;">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 id="H1"><span class="fa fa-briefcase" style="margin-right: 10px;"></span>System Description </h4>
+                    </div>
+                    <div class="modal-body" style="padding: 40px 50px;">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;&nbsp;</td>
+                                <td colspan="3" style="padding-left: 2px;">
+                                    Enter Description:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>&nbsp;&nbsp;</td>
+                                <td>
+                                    <textarea rows="6" class="form-control" id="txtSystemDescription" placeholder="Enter Description"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <div>
+                                        <button type="button" style="margin: 9px; margin-left: 24px;" class="btn btn-primary btn-labeled fa fa-arrow-down" id="btnSaveSystemDescription">Save </button>
+                                        &nbsp; &nbsp;
+                                        <button type="button" class="btn btn-danger btn-default" data-dismiss="modal"><span class="fa fa-remove" style="margin-right: 10px;"></span>Close</button>
+                                        <!--<button style="margin-top: 10px; height: 29px;" data-dismiss="modal" id="Button2" class="btn btn-mint  fa fa-close">Cancel</button>-->
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <div id="tdError102"></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="showDictionaryDialog" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 820px;">
+                    <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Business Details (Classes, Methods/Functions)</h4>
+                    </div>
+                    <div class="modal-body" style="padding: 5px 20px;" id="modalBody">
+                        <div style="overflow: scroll; height: 500px;">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <td>Object Name</td>
+                                        <td>Type</td>
+                                        <td>Business Name</td>
+                                        <td>Business Description</td>
+                                    </tr>
+                                </thead>
+                                <tbody id="objectDictionaryData">
+                                    <tr>
+                                        <td colspan="2">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <button type="button" onclick="updateBusinessDetails();" id="btnUpdateBusinessDetails" class="btn btn-primary btn-labeled fa fa-arrow-down">Submit</button>
+                                                    </td>
+                                                    <td>&nbsp;</td>
+                                                    <td>
+                                                        <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal"><span class="fa fa-remove" style="margin-right: 10px;"></span>Close</button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td colspan="2" id="tdMessage"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="viewData" role="dialog" style="z-index: 9999;">
+            <div class="modal-dialog" style="width: 650px; margin-top: 10px; font-size: 14px;">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: 15px 10px 30px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <div id="ViewDataHeader" class="modal-title"></div>
+                    </div>
+                    <div class="col-md-12">
+                        <div id="dvData" style="padding-left: 3%; padding-top: 15px; overflow-x: scroll; height: 400px; max-height: 450px;"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <table>
+                            <tr>
+                                <td>
+                                    <input type="button" style="margin: 10px;" data-dismiss="modal" class="btn btn-mint" value="Close" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <input type="hidden" id="hdnFileId" />
+        <input type="hidden" id="hdnSeletedProjects" />
+        <input type="hidden" id="hdnProjectId" value="" />
+    </div>
+    <link href="css/jquery-ui.css" rel="stylesheet" />
+    <script src="syncfusion/external/jquery-2.1.4.min.js"></script>
+    <script src="common-scripts/left-side-menu-bar.js"></script>
+    <script src="app-settings/base-address.js"></script>
+    <script src="scripts/questionconsole.js"></script>
+    <script src="scripts/showactionworkflow.js"></script>
+    <script src="app-settings/version.js"></script>
+    <script src="common-scripts/search.js"></script>
+    <link href="syncfusion/css/web/bootstrap-theme/ej.theme.min.css" rel="stylesheet" />
+    <link href="syncfusion/css/web/default-theme/ej.widgets.all.min.css" rel="stylesheet" />
+    <link href="syncfusion/css/web/ej.widgets.core.min.css" rel="stylesheet" />
+    <script src="syncfusion/scripts/common/ej.core.min.js"></script>
+    <script src="syncfusion/external/jquery.easing.1.3.min.js"></script>
+    <script src="syncfusion/external/jsrender.min.js"></script>
+    <script src="syncfusion/scripts/web/ej.web.all.min.js"></script>
+    <link href="css/tagit/jquery.tagit.css" rel="stylesheet" />
+    <link href="css/tagit/tagit.ui-zendesk.css" rel="stylesheet" />
+    <script src="plugins/switchery/switchery.js"></script>
+    <link rel="stylesheet" href="jqwidgets/styles/jqx.base.css" type="text/css" />
+    <script type="text/javascript" src="jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxbuttons.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxpanel.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxtree.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxexpander.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxgrid.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxgrid.sort.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxgrid.selection.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxgrid.columnsresize.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxdatatable.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxgrid.pager.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxdropdownlist.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxtreegrid.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxlistbox.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxcheckbox.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxwindow.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxmenu.js"></script>
+    <script src="js/demotag/jquery-ui.js"></script>
+    <script src="js/demotag/js/tag-it.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-multiselect.js"></script>
+    <script src="js/jquery.base64.js"></script>
+    <!--Fast Click [ OPTIONAL ]-->
+    <script src="plugins/fast-click/fastclick.min.js"></script>
+    <script src="common-scripts/excelExport.js"></script>
+    <!--Nifty Admin [ RECOMMENDED ]-->
+    <script src="js/nifty.min.js"></script>
+    <!--Switchery [ OPTIONAL ]-->
+    <script src="plugins/switchery/switchery.min.js"></script>
+    <!--Bootstrap Select [ OPTIONAL ]-->
+    <script src="plugins/bootstrap-select/bootstrap-select.min.js"></script>
+    <!--Bootstrap Tags Input [ OPTIONAL ]-->
+    <script src="plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+    <!--Chosen [ OPTIONAL ]-->
+    <script src="plugins/chosen/chosen.jquery.min.js"></script>
+    <!--Bootstrap Timepicker [ OPTIONAL ]-->
+    <script src="plugins/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+    <!--Bootstrap Datepicker [ OPTIONAL ]-->
+    <script src="plugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+    <!--Dropzone [ OPTIONAL ]-->
+    <script src="plugins/dropzone/dropzone.min.js"></script>
+    <!--Summernote [ OPTIONAL ]-->
+    <script src="plugins/summernote/summernote.min.js"></script>
+    <!--Demo script [ DEMONSTRATION ]-->
+    <script src="js/demo/nifty-demo.min.js"></script>
+    <!--FooTable [ OPTIONAL ]-->
+    <script src="plugins/fooTable/dist/footable.all.min.js"></script>
+</body>
+</html>

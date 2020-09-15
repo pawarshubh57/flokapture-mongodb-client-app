@@ -148,6 +148,7 @@
     <Content Include="common-scripts\flo-diagram.js" />
     <Content Include="common-scripts\graphml.js" />
     <Content Include="common-scripts\highlight-search.js" />
+    <Content Include="common-scripts\jquery.formatter.min.js" />
     <Content Include="common-scripts\jsPdf.js" />
     <Content Include="common-scripts\left-side-menu-bar.js" />
     <Content Include="common-scripts\leftSitePanel.js" />
@@ -259,6 +260,7 @@
     <Content Include="custom_diagram.html" />
     <Content Include="db_config.html" />
     <Content Include="external\webcomponents-lite.js" />
+    <Content Include="freeze-requests.html" />
     <Content Include="Guide\images\CRUDActivity.PNG" />
     <Content Include="Guide\images\CRUDActivity1.PNG" />
     <Content Include="Guide\images\CustomImpact1.PNG" />
@@ -345,6 +347,7 @@
     <Content Include="img\thumbs\img2.jpg" />
     <Content Include="img\thumbs\img3.jpg" />
     <Content Include="img\workflow_fig.png" />
+    <Content Include="import-export-tags.html" />
     <Content Include="index.html" />
     <Content Include="jqwidgets\globalization\globalize.culture.cs-CZ.js" />
     <Content Include="jqwidgets\globalization\globalize.culture.de-DE.js" />
@@ -829,6 +832,7 @@
     <Content Include="js\tableExport.js" />
     <Content Include="landing.html" />
     <Content Include="lic_details.html" />
+    <Content Include="load_projects.html" />
     <Content Include="login.html" />
     <Content Include="missing_objects.html" />
     <Content Include="modal-popups.html" />
@@ -1712,8 +1716,11 @@
     <Content Include="product_config.html" />
     <Content Include="projects_workspace.html" />
     <Content Include="pseudocode.html" />
+    <Content Include="query_console.html" />
     <Content Include="report.html" />
     <Content Include="review_logs.html" />
+    <Content Include="roles_admin.html" />
+    <Content Include="scripts\adduser.js" />
     <Content Include="scripts\code-table-report.js" />
     <Content Include="scripts\control-record-report.js" />
     <Content Include="scripts\crud-activity-report.js" />
@@ -1730,19 +1737,31 @@
     <Content Include="scripts\flowchart\jquery.mousewheel.min.js" />
     <Content Include="scripts\flowchart\MicrosoftAjax.js" />
     <Content Include="scripts\flowchart\MindFusion.Diagramming.js" />
+    <Content Include="scripts\freeze-requests.js" />
     <Content Include="scripts\help.js" />
+    <Content Include="scripts\import-export-tags.js" />
     <Content Include="scripts\index.js" />
     <Content Include="scripts\licence-details.js" />
     <Content Include="scripts\missing-objects.js" />
     <Content Include="scripts\paragraph-details-report.js" />
     <Content Include="scripts\productconfiguration.js" />
+    <Content Include="scripts\projectmaster.js" />
     <Content Include="scripts\projectsworkspace.js" />
     <Content Include="scripts\pseudocode.js" />
+    <Content Include="scripts\questionconsole.js" />
     <Content Include="scripts\report.js" />
+    <Content Include="scripts\role-management.js" />
+    <Content Include="scripts\rulecatalog.js" />
     <Content Include="scripts\search-tags.js" />
     <Content Include="scripts\showactionworkflow.js" />
     <Content Include="scripts\tag-activities-report.js" />
+    <Content Include="scripts\tag-category-master.js" />
+    <Content Include="scripts\tag-category-values.js" />
+    <Content Include="scripts\tag-master.js" />
+    <Content Include="scripts\taskqueue.js" />
+    <Content Include="scripts\test.js" />
     <Content Include="scripts\user-activity-report.js" />
+    <Content Include="scripts\user-role.js" />
     <Content Include="scripts\userlogin.js" />
     <Content Include="scripts\view-database-schema.js" />
     <Content Include="scripts\viewInventory.js" />
@@ -2085,6 +2104,7 @@
     <Content Include="src-noconflict\worker-php.js" />
     <Content Include="src-noconflict\worker-xml.js" />
     <Content Include="src-noconflict\worker-xquery.js" />
+    <Content Include="submit_new_projects.html" />
     <Content Include="syncfusion\css\web\bootstrap-theme\ej.theme.min.css" />
     <Content Include="syncfusion\css\web\bootstrap-theme\ej.web.all.css" />
     <Content Include="syncfusion\css\web\bootstrap-theme\ej.web.all.min.css" />
@@ -2932,9 +2952,15 @@
     <None Include="syncfusion\scripts\web\ej.web.all.intellisense.js" />
     <Content Include="syncfusion\scripts\web\ej.web.all.min.js" />
     <Content Include="tag-activities-report.html" />
+    <Content Include="tag-category-master.html" />
+    <Content Include="tag-category-values.html" />
+    <Content Include="tag-master.html" />
+    <Content Include="task_queue.html" />
     <Content Include="user_activity_report.html" />
+    <Content Include="user_management.html" />
     <Content Include="view-database-schema.html" />
     <Content Include="view-inventory.html" />
+    <Content Include="view_rules.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

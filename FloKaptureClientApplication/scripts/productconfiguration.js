@@ -27,6 +27,7 @@ function drawRow(rowData, tableName, css,i) {
     var row = $("<tr title='record_" + rowData.ProductConfigurationId + "' id='productTr_" + rowData.ProductConfigurationId + "' />");
     var newTr = '<td><input type="text" id="txt_' + i + '" value=' + rowData.PropertyValue + ' style="width:100%"/></td>';
     $("#" + tableName).append(row);
+    row.append($("<td style='display:none'>" + rowData._id + "</td>"));
     row.append($("<td style='display:none'>" + rowData.ProductConfigurationId + "</td>"));
     row.append($("<td >" + rowData.PropertyName + "</td>"));
     row.append($("<td style='display:none'>" + rowData.CreatedDate + "</td>"));
@@ -42,13 +43,14 @@ function updateProduct() {
         var $td = $('td', this);
         var txt = "txt_" + i;
         return {
-            ProductConfigurationId: $td.eq(0).text(),
-            PropertyName: $td.eq(1).text(),
+            _id: $td.eq(0).text(),
+            ProductConfigurationId: $td.eq(1).text(),
+            PropertyName: $td.eq(2).text(),
             PropertyValue: $("#" + txt + "").val(),
             UserId:userId,
             UpdatedDate: getTodaysDate(),
-            CreatedDate: $td.eq(2).text(),
-            IsDeleted: $td.eq(3).text()
+            CreatedDate: $td.eq(3).text(),
+            IsDeleted: $td.eq(4).text()
     }
     }).get();
     for (var i = 0; i < tbl.length; i++) {
